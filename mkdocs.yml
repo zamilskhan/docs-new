@@ -2,127 +2,30 @@ site_name: Gluu Docs
 site_description: Documenation for the Gluu Server
 #site_favicon: '/img/gluu_favicon.ico'
 copyright: Copyright &copy; 2014, Gluu, Inc.
-docs_dir: sources
+docs_dir: source
 repo_url: https://github.com/GluuFederation/docs
 theme: readthedocs
 theme_dir: ./theme/mkdocs/
 pages:
 
 - Home: 'index.md'
-- Introduction: 
+
+- Introduction:
     - 'Summary': 'introduction/index.md'
     - 'History': 'introduction/history.md'
     - 'Design Goals': 'introduction/design.md'
     - 'Gluu Server Architecture': 'introduction/architecture.md'
 
-- Install Gluu CE:
-    - 'Preparing VM': 'deployment/index.md'
-    - 'Ubuntu 14.04': 'deployment/ubuntu.md'
-    - 'CentOS 6.x': 'deployment/centos.md'
-    - 'CentOS 7.2': 'deployment/centos7.md'
-    - 'RHEL 6.x': 'deployment/rhel.md'
-    - 'RHEL 7': 'deployment/rhel7.md'
-    - 'Debian': 'deployment/debian.md'
-    - 'Setup Script Options': 'deployment/setup_py.md'
-    - 'Microsoft Azure Guide': 'deployment/azure.md'
-    - 'Linode VM Guide': 'deployment/linode.md'
-- Upgrade Gluu CE:
-    - 'Upgrade from 2.4.x': 'deployment/upgrading.md'
+- Installation Guide:
+    - Single Setup:
+        - 'Preparing VM': 'installation-guide/index.md'
+        - 'Ubuntu 14.04 (Trusty)': 'installation-guide/ubuntu14.md'
+        - 'Ubuntu 16.04 (Xenial)': 'installation-guide/ubuntu16.md'
+        - 'CentOS 6.x': 'installation-guide/centos6.md'
+        - 'CentOS 7.2': 'installation-guide/centos7.md'
+        - 'RHEL 6.x': 'installation-guide/rhel6.md'
+        - 'RHEL 7': 'installation-guide/rhel7.md'
+        - 'Debian': 'installation-guide/debian.md'
 
-- Cluster Configuration:
-    - 'Requirements: csync2 Installation': 'cluster/csync-installation.md'
-    - 'Clustering with CE': 'cluster/index.md'
-- Gluu Server GUI:
-    - 'Configuration': 'oxtrust/configuration.md'
-    - 'OxTrust JSON Configuration': 'gluu-defaults/oxtrust-properties.md'
-    - 'OxAuth JSON Configuration': 'gluu-defaults/oxauth-properties.md'
-    - 'SAML': 'integrate/outbound-saml.md'
-    - 'OpenID Connect': 'integrate/openid-connect.md'
-    - 'UMA': 'integrate/uma.md'
-    - 'Users': 'oxtrust/users.md'
-    - 'Personal': 'oxtrust/personal.md'
-- User Managment: 
-    - 'Sync LDAP/AD': 'cache-refresh/index.md'
-    - 'Import XLS File': 'user-management/xlsfile.md'
-    - 'Register Users': 'cache-refresh/register.md'
-    - 'Reset User Password': 'cache-refresh/reset-password.md'
-    - 'SCIM 2.0 Add/Delete User': 'user-management/scim.md'
-- Authentication: 
-    - 'Intro': 'multi-factor/intro.md' 
-    - 'DUO': 'multi-factor/duo.md'
-    - 'U2F': 'multi-factor/u2f.md'
-    - 'oxPush2': 'multi-factor/oxpush2.md'
-    - 'Wikid': 'multi-factor/wikid.md'
-    - 'Certificate': 'multi-factor/cert.md'
-    - 'Google Authentication': 'customize/social-login-google.md'
-
-- FAQ:
-    - 'General': 'faq/general.md'
-    - 'Troubleshooting': 'faq/troubleshooting.md'
-- How To:
-    - 'Automate Custom Schema': 'how-to/automate-schema.md'
-    - 'Protect SCIM endpoints with UMA': 'integrate/scimuma-howto.md'
-    - 'Lock User on Failed Attempt': 'user-management/lock-user.md'
-    - 'Configure UMA': 'how-to/uma-demo.md'
-
-- Customize Gluu Server: 
-    - 'Design Customization': 'customize/design.md'
-    - 'Behaviour Customization': 'customize/script.md'
-    - 'Custom Script How-To': 'customize/auth-script.md'
-    - 'Custom Attributes': 'customize/attributes.md'
-- Supported Protocols: 
-    - 'Outbound SAML': 'integrate/outbound-saml.md'
-    - 'Inbound SAML': 'integrate/inbound-saml.md'
-    - 'OpenID Connect': 'integrate/openid-connect.md'
-    - 'UMA': 'integrate/uma.md'
-    - 'OAuth2': 'integrate/oauth2grants.md'
-    - 'SCIM 1.1': 'api/scim-1.1.md'
-    - 'SCIM 2.0': 'api/scim-2.0.md'
- 
-- SP / RP Integration Modules:
-    - 'SAML SP in CentOS': 'integrate/apache-saml.md'
-    - 'SAML SP in Ubuntu': 'integrate/ubuntu-shib-apache.md'
-    - 'SAML SP in IIS7': 'integrate/iis-saml.md'
-    - 'SAML SP in Windows': 'integrate/saml-windows.md'
-    - 'OpenID Connect RP in Ubuntu': 'integrate/ubuntu-installation.md'
-    - 'OpenID Connect RP in CentOS': 'integrate/centos-installation.md'
-    - 'OpenID Connect Liferay Plugin': 'integrate/oxray.md'
-    - 'OXD Server': 'integrate/oxd.md'
-- Integration Guides:
-    - 'Google SSO': 'integrate/google-saml.md'
-    - 'Office 365 SSO': 'integrate/office365.md'
-    - 'Hobsons Education Solution SSO': 'integrate/hobsons-saml.md'
-    - 'Salesforce SSO': 'integrate/salesforce-sso.md'
-    - 'Dropbox SSO': 'integrate/dropbox.md'
-    - 'TestShib2 SSO': 'integrate/test-shib2.md'
-    - 'Asimba & Gluu CE': 'integrate/asimba.md'
-- Fine Tuning and Benchmarking:
-    - 'Tuning LDAP, Tomcat': 'fine-tuning/index.md'
-- Gluu Defaults:
-    - 'Gluu Policy': 'gluu-defaults/policy.md'
-    - 'Configurations': 'gluu-defaults/config.md'
-    - 'Certificates': 'gluu-defaults/certificates.md'
-    - 'Certificates: Further Reading': 'further-reading/cert-full-update-procedures.md'
-    - 'LDAP': 'gluu-defaults/ldap.md'
-    - 'Logout': 'gluu-defaults/logout.md'
-    - 'Schema': 'gluu-defaults/schema.md'
-    - 'oxTrust Properties File': 'gluu-defaults/oxtrust-properties.md'
-    - 'oxAuth Properties File': 'gluu-defaults/oxauth-properties.md'
-    - 'Logs': 'gluu-defaults/logs.md'
-- Gluu Server API:
-    - 'OpenID Connect Authorization Endpoint': 'api/oic-authorization.md'
-    - 'OpenID Connect Token Endpoint': 'api/oic-token.md'
-    - 'OpenID Connect UserInfo Endpoint': 'api/oic-userinfo.md'
-    - 'OpenID Connect Client Registration Endpoint': 'api/oic-register-client.md'
-    - 'OpenID Connect End Session Endpoint': 'api/oic-end-session.md'
-    - 'OpenID Connect Client Info Endpoint': 'api/oic-clientinfo.md'
-    - 'UMA Discovery Endpoint': 'api/uma-discovery.md'
-    - 'UMA Authorization Endpoint': 'api/uma-authorization-endpoint.md'
-    - 'UMA Resource Registration Endpoint': 'api/uma-resource-registration.md'
-    - 'UMA Permission Registration Endpoint': 'api/uma-permission-registration.md'
-    - 'UMA CreateRPT Endpoint': 'api/uma-create-rpt.md'
-    - 'UMA RPT Introspection Endpoint': 'api/uma-rpt-status.md'
-    - 'Custom ID Generation API': 'api/id-generation.md'
-    - 'SCIM 1.1': 'api/scim-1.1.md'
-    - 'SCIM 2.0': 'api/scim-2.0.md'
-
+- Upgrade Guide:
+    - 'Upgrate Gluu Server': 'upgrade/index.md'
