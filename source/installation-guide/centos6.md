@@ -1,13 +1,10 @@
 [TOC]
 
-# CentOS 6.5 Installation Guide
-## Installing Gluu Server 
-Download and install Gluu Server by the following commands. Use the
-`.rpm` installation to perform a base chroot installation with the
-following Gluu Server Base CentOS requirements.
+# Gluu Server CE on CentOS
+Gluu Server provides its own repository that is used to download and install Gluu Server CE.
+The following commands will install Gluu Server 2.4.4 chroot enviroment.
 
-As an alternative, use our Gluu repository for CentOS 6.5:
-
+## CentOS 6.5 and above
 ```
 # wget https://repo.gluu.org/centos/Gluu-centos6.repo -O /etc/yum.repos.d/Gluu.repo
 # wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU
@@ -15,12 +12,20 @@ As an alternative, use our Gluu repository for CentOS 6.5:
 # yum clean all
 # yum install gluu-server-2.4.4
 ```
+## CentOS 7.2
 
-## Configuring Gluu Server
+```
+# wget https://repo.gluu.org/centos/Gluu-centos7.repo -O /etc/yum.repos.d/Gluu.repo
+# wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU
+# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU
+# yum clean all
+# yum install gluu-server-2.4.4
+```
+
+## Start/Stop Gluu Server
 After both the retrieval, and the installation of the Gluu Server
 software package start the Gluu Server, and login into the local chroot
-environment to configure the Gluu Server. These are the single steps:
-
+environment to configure the Gluu Server. These are the single steps.
 ```
 # service gluu-server-2.4.4 start
 

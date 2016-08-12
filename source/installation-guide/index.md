@@ -1,7 +1,5 @@
-[TOC]
-
-# Hardware Requirements
-The Gluu Server is very flexible, and can be used for a wide array of
+# Hardware 
+Gluu Server is very flexible, and can be used for a wide array of
 access management requirements. Depending on the size of your data, and
 the number of concurrent transactions you want to support, you may need
 more or less memory or CPU capacity.
@@ -13,29 +11,29 @@ SAML, OAuth2, LDAP), you will need at least:
 |---------------|---------------|-----------------------|
 |	2	| 	4GB 	| 	40GB		|
 
-**Note:** *Not enough memory may produce some really weird bugs. From there, you
-may need to adjust the resources based on your specific requirements.*
+**Note:** *Insufficient memory may case unexpected bugs and errors; on such situation it is recommended to adjust the resources based on your specific requirements.*
 
-# Operating System Requirement
+# Operating System
 Gluu Server Community Edition is available for the following Operating Systems.
 Click on the desired operating system for deployment guide.
 
 |	Operating System	|	Supported Versions	|	Architecture|	
 |-------------------------------|-------------------------------|-------------------|
-|[Ubuntu Server](./ubuntu.md)	|**14.04.2**			|	64 Bit|
-|[CentOS 6.x](./centos.md)	|**6.5**, **6.6**, **6.7**	|	64 Bit|
+|[Ubuntu Trusty](./ubuntu14.md)	|**14.04.2**			|	64 Bit|
+|[Ubuntu Xenial](./ubuntu16.md) |**16.04**                      |       64 Bit|
+|[CentOS 6.x](./centos6.md)	|**6.5**, **6.6**, **6.7**	|	64 Bit|
 |[CentOS 7.2](./centos7.md)	|**7.1**			|	64 Bit|
-|[RHEL 6.x](./rhel.md)		|**6.5**, **6.6**, **6.7**	|	64 Bit|
+|[RHEL 6.x](./rhel6.md)		|**6.5**, **6.6**, **6.7**	|	64 Bit|
 |[RHEL 7](./rhel7.md)		|**7**				|	64 Bit|
+|[Debian Jessie](./debian.md) 	|**8.x**		        |       64 Bit|
 	
-## Memory allocated for Tomcat's heap.
-You must allocate at least 3GB of RAM for Tomcat's heap to spin up a test instance of Gluu CE 2.4.3 (and later). For production setups we strongly recommend to allocate at least 4-6GB of RAM for that purpose.
+## Tomcat Memory Heap
+The minimum recommended heap for tomcat server is 3GB for a test instance of Gluu Server Community Edition (CE). The minimum recommended tomcat heap memory is scaled higher for production instance at 4GB .
 
-You'll be asked to provide amount of RAM allocated during `setup.py` script's phase of installation. You also will be able to change this property after installation has completed, by editing `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside of the container and setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties there to desired values.
+The tomcat heap memory is set generally from the `setup.py` script prompt. This property can also altered from the `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside the Gluu Server chroot container setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties.
 
 ## File Descriptor
-Set `file descriptors`
-to 65k. The following steps will help set the `file descriptor` limit.
+Gluu recommends setting the `file descriptors` to 65k for Gluu Server CE. The following steps will help set the `file descriptor` limit.
 
 * Edit the `/etc/security/limits.conf` file.
 * Add the following lines in the `limits.conf` file. Please replace the `username` with the user that will install Gluu Server.
@@ -61,7 +59,7 @@ ulimit -n unlimited
 * Restart your system.
 
 ## Port
-The following ports need to stay open for the Gluu Server to run. Please keep the ports open before installing Gluu Server.
+The following ports open for the Gluu Server to run. Please keep the ports open before installing Gluu Server.
 
 |	Port Number	|	Protocol	|
 |-----------------------|-----------------------|
@@ -80,7 +78,36 @@ the Public/Private IP. Azure assigns a new Public/Private IP
 addresses each time the server is started. Please see the [Azure Guide](./azure.md) for more info.
 
 ## Linode
-The Linode Virtual Machines (VM) use a custom kernel which is not supported by Gluu Server, therefore the kernel must be updated before Gluu Server can be installed in Linode VM. Please see the [Linode Guide](./linode.md) to update your Linode VM Kernel.
+The Linode Virtual Machines (VM) use a custom kernel which is not supported by Gluu Server, therefore the kernel must be updated before Gluu Server can be installed in Linode VM. The following steps will guide you through kernel update in the Linode VM.
+
+* Check for the current version of the kernel. If the output contains `-Linode`, then proceed
+```
+# uname -a
+```
+
+* Run the following command to update the kernel
+```
+# apt-get install linux-image-virtual grub2
+```
+
+* Modify `grub` file in the `/etc/default/` folder
+```
+# vim /etc/default/grub
+```
+
+    - Ensure that the following lines are present in the glub file
+```
+GRUB_TIMEOUT=10
+GRUB_CMDLINE_LINUX="console=ttyS0,19200n8"
+GRUB_DISABLE_LINUX_UUID=true
+GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"
+```
+
+* Finally run the following commands to update `grub` and reboot
+```
+# update-grub
+# reboot
+```
 
 # Available Components
 
