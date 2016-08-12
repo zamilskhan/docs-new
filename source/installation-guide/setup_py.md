@@ -1,4 +1,18 @@
-# setup.py Command Line Options
+# Setup Options
+## Scripted Installation
+
+If you want to script the installation of the Gluu Server, here is what you can do to achieve your goal:
+
+* Save and backup your existing file `setup.properties.last`.
+* Uninstall existing Gluu Server installation.
+* For a new installation you can either grab a new VM, or just use the existing one.
+* Install Gluu Server CE, and log into the chroot.
+* Copy your file `setup.properties.last` into the new server's  `/install/community-edition-setup/` location.
+* Rename the file `setup.properties.last` to `setup.properties`.
+* Run the setup script with `./setup.py` command.
+
+
+## Command Line Options
 
 Use `setup.py` to configure your Gluu Server and to add initial data
 required for oxAuth and oxTrust to start. If `setup.properties` is found
