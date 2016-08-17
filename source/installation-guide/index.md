@@ -1,3 +1,4 @@
+[TOC]
 # Hardware 
 Gluu Server is very flexible, and can be used for a wide array of
 access management requirements. Depending on the size of your data, and
@@ -19,12 +20,9 @@ Click on the desired operating system for deployment guide.
 
 |	Operating System	|	Supported Versions	|	Architecture|	
 |-------------------------------|-------------------------------|-------------------|
-|[Ubuntu Trusty](./ubuntu14.md)	|**14.04.2**			|	64 Bit|
-|[Ubuntu Xenial](./ubuntu16.md) |**16.04**                      |       64 Bit|
-|[CentOS 6.x](./centos6.md)	|**6.5**, **6.6**, **6.7**	|	64 Bit|
-|[CentOS 7.2](./centos7.md)	|**7.1**			|	64 Bit|
-|[RHEL 6.x](./rhel6.md)		|**6.5**, **6.6**, **6.7**	|	64 Bit|
-|[RHEL 7](./rhel7.md)		|**7**				|	64 Bit|
+|[Ubuntu](./ubuntu.md)		|**14.04.2**, **16.04**		|	64 Bit|
+|[CentOS](./centos.md)		|**6.5, 6.6, 6.7**, **7.2**	|	64 Bit|
+|[RHEL](./rhel.md)		|**6**, **7**			|	64 Bit|
 |[Debian Jessie](./debian.md) 	|**8.x**		        |       64 Bit|
 	
 ## Tomcat Memory Heap

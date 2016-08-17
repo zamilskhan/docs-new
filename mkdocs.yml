@@ -19,8 +19,7 @@ pages:
 - Installation Guide:
     - Single Setup:
         - 'Preparing VM': 'installation-guide/index.md'
-        - 'Ubuntu 14.04 (Trusty)': 'installation-guide/ubuntu14.md'
-        - 'Ubuntu 16.04 (Xenial)': 'installation-guide/ubuntu16.md'
+        - 'Ubuntu': 'installation-guide/ubuntu.md'
         - 'CentOS': 'installation-guide/centos.md'
         - 'RHEL 6.x': 'installation-guide/rhel6.md'
         - 'RHEL 7': 'installation-guide/rhel7.md'
