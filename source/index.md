@@ -14,6 +14,6 @@ The code is open source, and available on [Github](github.com/GluuFederation/).
 
 Community support can be enlisted on the [Gluu support site](http://support.gluu.org). If your organization needs to open private tickets with us, or needs an SLA or consultative support, Gluu offers a range of [VIP support](gluu.org/pricing) options. 
 
-# Navigating The Docs
+
 ## Support
 Please see the [FAQ Page](todo) for basic troubleshooting, or [open a ticket](http://support.gluu.org) on our support portal for community support. Gluu also offers paid support. Please view our [pricing page](http://gluu.org/pricing) to learn more about our VIP support options. 

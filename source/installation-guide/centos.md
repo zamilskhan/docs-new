@@ -8,6 +8,7 @@ The following commands will install Gluu Server `chroot`. The supported versions
 |-------------------------------|---------------------------------------|
 |       Add Gluu Repository     |wget https://repo.gluu.org/centos/Gluu-centos6.repo -O /etc/yum.repos.d/Gluu.repo|
 |       Add Gluu GPG Key        |wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU|
+|       Import GPG Key          |rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU|
 |       Update/Clean Repo       |yum clean all                          |
 |       Install Gluu Server     |yum install gluu-server-2.4.4          |
 
@@ -21,6 +22,7 @@ The following commands will install Gluu Server `chroot`
 |-------------------------------|---------------------------------------|
 |       Add Gluu Repository     |wget https://repo.gluu.org/centos/Gluu-centos7.repo -O /etc/yum.repos.d/Gluu.repo|
 |       Add Gluu GPG Key        |wget https://repo.gluu.org/centos/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU|
+|       Import GPG Key          |rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU|
 |       Update/Clean Repo       |yum clean all                          |
 |       Install Gluu Server     |yum install gluu-server-2.4.4          |
 
@@ -45,7 +47,7 @@ The setup is completed by running the setup script `setup.py` from the setup fol
 |       Run Setup Script        |cd /install/community-edition-setup/ <br/>./setup.py|
 
 ## Uninstall Gluu chroot Package
-Gluu Server uninstallation follows the same principle as package removal from Ubuntu. The serer must be stopped to remove the package.
+Gluu Server uninstallation follows the same principle as package removal from CentOS. The server must be stopped to remove the package.
 
 |       Command Description     |               CentOS 6.x	        |
 |-------------------------------|---------------------------------------|
@@ -58,5 +60,3 @@ Gluu Server uninstallation follows the same principle as package removal from Ub
 |       Stop Gluu Server        |/sbin/gluu-serverd-2.4.4 stop		|
 |       Uninstall Gluu Server	|yum remove gluu-server-2.4.4		|
 |	Remove backup folder	|rm -rf /opt/gluu-server-2.4.4*		|
-
-

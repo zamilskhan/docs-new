@@ -1,141 +1,35 @@
-[TOC]
+# Gluu Server Community Edition in Ubuntu Server
+Gluu Server Community Edition is installed through `.deb` package supplied from the Gluu repository.
+## Install Gluu chroot Package
+The following commands will install Gluu Server `chroot`
 
-# Debian 8 Installation Guide
-## Installing Gluu Server 
-Download and install Gluu Server by the following commands. Use the
-`.deb` installation to perform a base chroot installation with the
-following Gluu Server Base Ubuntu requirements.
+|       Command Description     |               Jessie Commands         |
+|-------------------------------|---------------------------------------|
+|       Add Gluu Repository     |echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list|
+|       Add Gluu GPG Key        |curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -|
+|       Update/Clean Repo       |apt-get update                         |
+|       Install Gluu Server     |apt-get install gluu-server-2.4.4      |
 
-As an alternative, use our Gluu repository for Debian Jessie (8):
+**Note:** See the [Setup Script Options Page](setup_py.md) for information on finalizing installation.
 
-```
-# echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list
+## Finalizing Installation
+The setup is completed by running the setup script `setup.py` from the setup folder. The server must be running so that the administrator can log into the chroot environment and run the script.
 
-# curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -
+* Log into Gluu Server `chroot`
+* Run the setup script
 
-# apt-get update
+|       Command Description     |               Jessie Commands |
+|-------------------------------|---------------------------------------|
+|       Start Gluu Server       |/etc/init.d/gluu-server-2.4.4 start    |
+|       Log into Gluu `chroot`  |/etc/init.d/gluu-server-2.4.4 login    |
+|       Run Setup Script        |cd /install/community-edition-setup/ <br/>./setup.py|
 
-# apt-get install gluu-server-2.4.3
-```
+## Uninstall Gluu chroot Package
+Gluu Server uninstallation follows the same principle as package removal from Ubuntu. The server must be stopped to remove the package.
 
-## Configuring Gluu Server
-After both the retrieval, and the installation of the Gluu Server
-software package start the Gluu Server, and login into the local chroot
-environment to configure the Gluu Server. These are the single steps:
+|       Command Description     |               Jessie Commands 	|
+|-------------------------------|---------------------------------------|
+|       Stop Gluu Server        |/etc/init.d/gluu-server-2.4.4 stop     |
+|	Uninstall Gluu Server   |apt-get remove gluu-server-2.4.4	|
+|	Remove backup folder	|rm -rf /opt/gluu-server-2.4.4*		|
 
-```
-# /etc/init.d/gluu-server-2.4.3 start
-
-# /etc/init.d/gluu-server-2.4.3 login
-
-# cd /install/community-edition-setup/
-
-#./setup.py
-```
-
-The `setup.py` script will bring up a prompt to provide information for certificate. It is recommened to use
-`hostname.domain` structure for hostname and refrain from using `127.x.x.x`
-for IP address. After the successful execution of `setup.py` script, login to oxTrust,
-the policy administration point for Gluu. Point your browser to the uri
-`https://hostname.domain`.
-
-For both help and the latest
-installation options see either [setup.py help](./setup_py.md), or run
-`./setup.py -h`.
-
-If you are not using a resolvable DNS host, you will need to add
-the hostname to your hosts file on the server which is running your browser.
-Login with the default user name “admin” and the password printed back in
-the confirmation (also contained in `setup.properties.last` (use the
-Unix command `grep --color -i pass` to find the according line quickly)
-and look for the LDAP password which is the same as the admin password.
-
-Make sure you remove or encrypt `setup.properties.last` It has the clear 
-text passwords for everything: LDAP, admin user, keystores, and 3DES salt.
-If something goes wrong, check `setup.log` for a detailed step-by-step
-of the installation. As an alternative you may check the file
-`setup_errors.log` to just see the errors (or stderr output from the
-scripts).
-
-## Starting and Stopping the Gluu Server
-
-You can start the Gluu Server with this command:
-
-```
-# /etc/init.d/gluu-server-2.4.3 start
-
-```
-
-You can stop the Gluu Server with this command:
-
-```
-# /etc/init.d/gluu-server-2.4.3 stop
-
-```
-
-## Login to the chroot environment
-
-```
-# /etc/init.d/gluu-server-2.4.3 login
-
-```
-
-Or if you prefer...
-
-```
-# chroot /home/gluu-server24/ su -
-
-```
-### Scripted Installation
-
-If you want to script the installation of the Gluu Server, here is what
-you can do to achieve your goal:
-
-* Save and backup your existing file `setup.properties.last`.
-* Uninstall existing Gluu Server installation.
-* For a new installation you can either grab a new VM, or just use the
-  existing one.
-* Run all the commands until `service gluu-server24 login`.
-* Copy your file `setup.properties.last` into the new server's
-  `/install/community-edition-setup/` location.
-* Rename the file `setup.properties.last` to `setup.properties`.
-* Run the setup script with `./setup.py` command.
-
-## Uninstallation
-
-First, exit from the chroot environment to main Linux.
-
-Second, stop the Gluu Server chroot environment which will unmount all
-chroot directories. As a third step, delete both the Gluu Server
-packages that are installed, and the home directory of the Gluu Server
-user. The following commands illustrate the single steps:
-
-```
-# service gluu-server-2.4.3 stop
-
-# apt-get remove gluu-server-2.4.3
-
-# rm -rf /opt/gluu-server-2.4.3*
-
-```
-
-On an installation, any modified files are saved in the directory
-`/home/gluu-server24.save`. If you want to remove all the remnants of the
-installation, delete these files with the command `rm -rf
-/home/gluu-server24.save'.
-
-In some circumstances, the installation can be broken. In that case
-please try the following to force to uninstall the package.
-
-```
-# dpkg --purge --force-all gluu-server-2.4.3
-
-```
-
-## Support
-
-Gluu offers both community and VIP support. Anyone can browse and open
-tickets on our [support portal](http://support.gluu.org). For private
-support, expedited assistance, and strategic consultations, please view
-[our pricing](http://gluu.org/pricing) and [schedule a meeting with
-us](http://gluu.org/booking) to discuss VIP support options.

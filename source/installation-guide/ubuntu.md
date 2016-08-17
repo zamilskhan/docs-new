@@ -31,16 +31,16 @@ The setup is completed by running the setup script `setup.py` from the setup fol
 * Log into Gluu Server `chroot`
 * Run the setup script
 
-|       Command Description     |               Trusty & XenialCommands |
+|       Command Description     |               Trusty & Xenial Commands|
 |-------------------------------|---------------------------------------|
 |       Start Gluu Server       |/etc/init.d/gluu-server-2.4.4 start    |
 |       Log into Gluu `chroot`  |/etc/init.d/gluu-server-2.4.4 login    |
 |       Run Setup Script        |cd /install/community-edition-setup/ <br/>./setup.py|
 
 ## Uninstall Gluu chroot Package
-Gluu Server uninstallation follows the same principle as package removal from Ubuntu. The serer must be stopped to remove the package.
+Gluu Server uninstallation follows the same principle as package removal from Ubuntu. The server must be stopped to remove the package.
 
-|       Command Description     |               Trusty & XenialCommands |
+|       Command Description     |               Trusty & Xenial Commands|
 |-------------------------------|---------------------------------------|
 |       Stop Gluu Server        |/etc/init.d/gluu-server-2.4.4 stop     |
 |	Uninstall Gluu Server   |apt-get remove gluu-server-2.4.4	|

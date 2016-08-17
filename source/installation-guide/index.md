@@ -73,7 +73,7 @@ Private IP address.
 ## Microsoft Azure
 Accessing the Gluu Server on Azure can be a little bit tricky because of
 the Public/Private IP. Azure assigns a new Public/Private IP
-addresses each time the server is started. Please see the [Azure Guide](./azure.md) for more info.
+addresses each time the server is started. Please see the [Azure Guide](./azure.md) for a step-by-step guide.
 
 ## Linode
 The Linode Virtual Machines (VM) use a custom kernel which is not supported by Gluu Server, therefore the kernel must be updated before Gluu Server can be installed in Linode VM. The following steps will guide you through kernel update in the Linode VM.
