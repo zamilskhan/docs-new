@@ -5,9 +5,12 @@ body {
     font-size: 90%;
 }
 
-h3, h4, h5, h6 {
-    color: #014923;
-    font-weight: 300
+h6 {
+    color: black;
+    font-weight: 100;
+    font-size: 14px;
+    font-style: italic;
+    background-color: lightskyblue;
 }
 
 /*

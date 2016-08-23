@@ -32,4 +32,4 @@ pages:
         - 'Upgrade Guide' : 'upgrade/index.md'
 
 - Administration Guide:
-   - 'Admin GUI (oxTrust)' : 'adminn-guide/index.md' 
+   - 'Admin GUI (oxTrust)' : 'admin-guide/index.md' 
