@@ -32,4 +32,5 @@ pages:
         - 'Upgrade Guide' : 'upgrade/index.md'
 
 - Administration Guide:
-   - 'Admin GUI (oxTrust)' : 'admin-guide/index.md' 
+   - 'Admin Interface (oxTrust)' : 'admin-guide/index.md'
+   - 'Authentication Management' : 'admin-guide/authentication-management.md' 

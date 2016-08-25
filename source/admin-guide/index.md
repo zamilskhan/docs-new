@@ -1,18 +1,23 @@
 [TOC]
 
-# oxTrust Admin Interface
-This guide is prepared for the Gluu Server Administrators to configure/maintain Gluu Server CE.
+The administration interface (oxTrust) is accessible from the `hostname` provided in the prompt from the setup script. After the installation is complete, log in to the web-based interface with the username `admin` and the `LDAP superuser` password. 
 
 # Welcome Page
-The welcome page has the menu bar on the left for `oxTrust`, the administrator interface for Gluu Server. The home screen, after successful login, looks like the screnshot below.
-
+The administrator is taken to the welcome page if the username and the password is correct. Some basic information about the VM/server is displayed in the welcome screen. The version is displayed on top followed by free memory,disk space. The health of the VM/server can be easily determined from the welcome page.
 ![welcome-page.png](../img/oxtrust/welcome-page.png)
+------------------------------------------
+The menu on the left side of the welcome page is used to navigate the admin interface for Gluu Server.
+![gluu-menu](../img/oxtrust/gluu-menu.png)
 
-# Authentication in Gluu Server
-Gluu Server supports a wide range of authentication mechanisms including multi-factor authentication. It will be an understatement to say that Gluu Server only performs authentication, it also provides authorization making Gluu CE a complete identity management suite. The identity management suite supports multiple protocols such as SAML, OpenID Connct, SCIM. The details will follow later in the administration guide.
+# Configuration
+The configuration tab contians the tools to configure Gluu Server CE. This section is dedicated to all tuning and tinkering except integration tools.
+The configuration menu is divided in to other sections which are revealed on click. The administrator can manage authentication, registration, attributes, cache-refresh,logs etc. from this menu.
 
-Gluu Server CE makes it possible to define the business logic for complex authentication workflows providing Single-Sign On (SSO) using smart cards, tokens, mobile or even biometric authentication mechanisms. The choice of multi-factor authentication technology is not limited to one active at a time, rather it is possible to use multiple authentication technique active at the same time. 
+![configuration-menu](../img/oxtrust/configuration-menu.png)
 
-A number of multi-factor authentication scripts are shipped in the Gluu Server by default, including support for FIDO U2F tokens, Gluu's free mobile two-factor application [Super Gluu](https://super.gluu.org/), certificate authentication, and Duo Security.
+###Organization Configuration
+#### System Configuration
+![organization-config-head](../img/oxtrust/organization-config-head.png)
 
-Gluu leverages its interception script infrastructure for multi-factor authentication--custom jython interception scripts can call third party authentication services via API's or vendor libraries. Sophisticated authentication logic can implement adaptive authentication. For example, you can add extra authentication steps based on contextual information, such as fraud scores, location, or browser profiling. You can also customize the look and feel of a web authentication: html, css, images and javascript can be externalized and managed by your organization.
+Gluu Server CE is shipped with a built-in `White Pages` feature which can be enabled from the system configuration page. This page also contains the options to enable `Self-Service Password Reset` which allows the Gluu Server users to reset their password via email. This options depends on the SMTP Server Configuration, so this option should only be enabled if the SMTP server has been successfully configured. Additionally the `SCIM Support` can be enabled from the System Configuration page. If the organization uses any custom `DNS Server(s)`, the address should be updated on this page too.
+![system-config-options](../img/oxtrust/system-config-options.png)
