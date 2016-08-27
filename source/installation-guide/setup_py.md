@@ -1,6 +1,5 @@
 [TOC]
-# Setup Script
-## setup.py
+# setup.py
 The `setup.py` script will bring up a prompt to provide information for certificate as well as the IP Address and the hostname for the Gluu Server. The prompt is given below.
 
 ```
@@ -28,8 +27,10 @@ It is recommened to use `hostname.domain` structure for hostname and refrain fro
 If you are not using a resolvable DNS host, you will need to add the hostname to your hosts file on the server which is running your browser. Login with the default user name `admin` and the password printed back in the confirmation (also contained in `setup.properties.last` (use the Unix command `grep --color -i pass` to find the according line quickly) and look for the LDAP password which is the same as the admin password.
 
 Make sure you remove or encrypt setup.properties.last It has the clear text passwords for everything: *LDAP, admin user, keystores, and 3DES salt*. If something goes wrong, check `setup.log` for a detailed step-by-step of the installation. As an alternative you may check the file `setup_errors.log` to just see the errors (or stderr output from the scripts).
-                                                                                                                                                29,1          Bot
-## Scripted Installation
+
+<h6>Note: Plese use a FQDN (fully qualified domain name) as hostname and refrain from using 127.0.0.1 as IP address</h6>
+
+# Scripted Installation
 
 If you want to script the installation of the Gluu Server, here is what you can do to achieve your goal:
 
