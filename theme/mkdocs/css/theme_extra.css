@@ -5,12 +5,9 @@ body {
     font-size: 90%;
 }
 
-h6 {
-    color: black;
-    font-weight: 100;
-    font-size: 14px;
-    font-style: italic;
-    background-color: lightskyblue;
+h3, h4, h5, h6 {
+    color: #014923;
+    font-weight: 300
 }
 
 /*
@@ -20,9 +17,9 @@ h6 {
  * https://github.com/mkdocs/mkdocs/issues/175
  */
 .wy-menu-vertical span {
-    line-height: 10px;
+    line-height: 20px;
     padding: 0.4045em 1.618em;
-    display: inline-block;
+    display: block;
     position: relative;
     font-size: 110%;
     font-weight: bold;
@@ -32,7 +29,7 @@ h6 {
 .wy-menu-vertical .subnav a {
     padding: 0.2045em 2.427em;
     color: #ffffff;
-    position: sticky;
+    position: relative;
     left: 15px;
 }
 
@@ -44,7 +41,7 @@ h6 {
  */
 .wy-nav-side {
     height: 100%;
-    overflow-y: inherit;
+    overflow-y: auto;
 }
 
 /*
