@@ -36,3 +36,22 @@ The mail server used by the Gluu Server to send notification to the pre-selected
 Some basic information abouht the administrator interface is available in this page. The administrator can find out the oxTrust build date and number by accessing the oxTrust settings page. The administrator can change the organization name, logo and favicon settings from this page as well. Finally oxTrust Settings page contains the name of the administrator group for Gluu Server. The users added in this group will have administrator access in Gluu Server where they will be able to maintain/configure the server.
 
 ![oxtrust-settings](../img/oxtrust/oxtrust-settings.png "OxTrust Settings")
+
+## JSON Configuration
+The configuration files are accessible from the administrator interface (oxTrust). There are three tabs under the `JSON Configuration` menu
+![json-config-head](../img/oxtrust/json-config-head.png "JSON Configuration Headers")
+
+### oxTrust Configuration
+The oxtrust JSON configuration file is accessible from this tab and it can be edited from this page. The changes are updated by clicking on the `Update` button on the bottom of the page. The details of the file is given later in the [Reference Guide](../reference-guide/index.md).
+
+### oxAuth Configuration
+The oxAuth JSON configuration page gives easy access to the different endpoints used by Gluu Server CE. This page also contains the supported response, grants and algorithms among other information. The details will follow later on this documentation.
+
+### oxTrust Import Person Configuration
+This page contains the configuration for the file method of importing users into Gluu Server CE. The administrator can import users from a `xls` file which must be defined in this tab to import data in the LDAP attributes. The default format should contain the following fields
+
+|**XLS Coloumn Heading**|Username|First Name|Last Name|Email|Password|
+|-----------------------|--------|----------|---------|-----|--------|
+|**Attribute Mapping**  |uid     |givenName |sn       | mail|userPassword|
+
+The order of the headings and the format should be exactly like this table, by default, for Gluu Server to import users from any `xls` file. The configuration can be tailored to fit any pre-existing format used by the organization to store user data.
