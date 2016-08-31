@@ -12,27 +12,27 @@ extra:
 pages:
 - Home: 'index.md'
     
-- Introduction:
-    - 'Summary': 'introduction/index.md'
-    - 'History': 'introduction/history.md'
-    - 'Design Goals': 'introduction/design.md'
-    - 'Gluu Server Architecture': 'introduction/architecture.md'
+- 1.Introduction:
+    - '1.1 Summary': 'introduction/index.md'
+    - '1.2 History': 'introduction/history.md'
+    - '1.3 Design Goals': 'introduction/design.md'
+    - '1.4 Gluu Server Architecture': 'introduction/architecture.md'
 
 - Installation Guide:
-    - Single Setup:
-        - 'Preparing VM': 'installation-guide/index.md'
-        - 'Ubuntu': 'installation-guide/ubuntu.md'
-        - 'CentOS': 'installation-guide/centos.md'
-        - 'RHEL': 'installation-guide/rhel.md'
-        - 'Debian': 'installation-guide/debian.md'
-        - 'Setup Script Options': 'installation-guide/setup_py.md'
-        - 'Microsoft Azure Guide': 'installation-guide/azure.md'
-    - Cluster Setup: 
-        - 'Cluster Deployment Guide': 'cluster/index.md'
-        - 'Csync Install Guide': 'cluster/csync-installation.md'
-    - Upgrade Gluu Server: 
-        - 'Upgrade Guide' : 'upgrade/index.md'
+    - 1.Single Setup:
+        - '1.1 Preparing VM': 'installation-guide/index.md'
+        - '1.2 Ubuntu': 'installation-guide/ubuntu.md'
+        - '1.3 CentOS': 'installation-guide/centos.md'
+        - '1.4 RHEL': 'installation-guide/rhel.md'
+        - '1.5 Debian': 'installation-guide/debian.md'
+        - '1.6 Setup Script Options': 'installation-guide/setup_py.md'
+        - '1.7 Microsoft Azure Guide': 'installation-guide/azure.md'
+    - 2.Cluster Setup: 
+        - '2.1 Csync Install Guide': 'cluster/csync-installation.md'
+        - '2.2 Cluster Deployment Guide': 'cluster/index.md'
+    - 3.Upgrade Gluu Server: 
+        - '3.1 Upgrade Guide' : 'upgrade/index.md'
 
 - Administration Guide:
-   - 'Admin Interface (oxTrust)' : 'admin-guide/index.md'
-   - 'Authentication Management' : 'admin-guide/authentication-management.md' 
+        - '1. Admin Interface (oxTrust)' : 'admin-guide/index.md'
+        - '2. Authentication Management' : 'admin-guide/authentication-management.md' 

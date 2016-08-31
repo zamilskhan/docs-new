@@ -1,9 +1,7 @@
 [TOC]
 
 # History
-
 ## How we got started
-
 Gluu was founded in 2009 by Mike Schwartz. After selling his ISP to
 Verio in 1998, Mike advised many large companies on identity and access
 management, directory services, and application security. In late 2008,
@@ -14,9 +12,7 @@ alternative to expensive enterprise solutions. The Gluu Server was
 envisioned as an integrated identity platform, based on free open source
 software, to make application security available to significantly
 greater number of organizations.
-
 ## Versions 1 and 2
-
 Versions 1 of the Gluu Server was based on Sun OpenSSO and OpenDS. Mike
 presented the idea at an OpenSSO community group at the European
 Identity Conference in Munich in May 2009. Version 1 worked a little,
@@ -37,9 +33,7 @@ switching had marketing advantages, and would reduce the event risk
 around OpenSSO. Shortly thereafter, a new project from scratch was
 launched for Gluu Server v3 with the goal of using templates to simplify
 the management of the Shibboleth IdP.
-
 ## Version 3
-
 The first live demo of the Gluu Server was presented at an InCommon
 event in Atlanta, GA in early November 2010. At that demo, Hakeem Fahm,
 then IT director at the University of the District of Columbia, was
@@ -50,9 +44,7 @@ and it was finally delivered in early February 2011. Mike helped write
 some of the python scripts (few, if any of which are still in use), and
 establish the operating procedures for delivery of the Gluu Server. In
 2011, a few more campuses also adopted the Gluu Server.
-
 ## Enter OAuth2
-
 OAuth2 had been on Gluu's roadmap since inception, but work started due
 to a consulting project Gluu had undertaken for
 [IDCubed](https://idcubed.org). This is the reason the OX software is

@@ -9,7 +9,7 @@ the Shibboleth SAML identity provider, Forgerock community release of
 OpenDJ, the Asimba SAML proxy, the CAS authentication server and many
 more components that are part of the Linux distributions.
 
-# History
+## History
 Gluu was founded in 2009 by Mike Schwartz. After selling his ISP to
 Verio in 1998, Mike advised many large companies on identity and access
 management, directory services, and application security. In late 2008,
@@ -21,19 +21,19 @@ envisioned as an integrated identity platform, based on free open source
 software, to make application security available to significantly
 greater number of organizations.([Read More](./history.md))
 
-# Design Goals
+## Design Goals
 At OSCON 2014, Gluu introduced easier to install packages for the Gluu
 Server, and support for the Ubuntu Juju orchestration framework. The
 goal of these distributions was to promote adoption of OX in the major
 distributions of Linux...([Read More](./design.md))
 
-# Architecture
+## Architecture
 There are several key components that make Gluu Server a reality and 
 while choosing, the open-source softwares were given preference. Most 
 of the components of the Gluu Server are written in Java, and
 deployed as a web application in a J2EE servlet container.([Read More](./architecture.md))
 
-# License
+## License
 Any software published by Gluu in the OX Project is under the [MIT License](http://opensource.org/licenses/MIT).
 The third party components have separate licenses.
 
@@ -44,5 +44,4 @@ The third party components have separate licenses.
 |	Asimba		|	[GNU APGL 3.0](http://www.gnu.org/licenses/agpl-3.0.html)|
 |	Jagger		|	[MIT License](http://opensource.org/licenses/MIT)|
 
-Note: Gluu maintains a fork of OpenDJ 3 in [our Github](https://github.com/GluuFederation/gluu-opendj3).
-
+> Note: Gluu maintains a fork of OpenDJ 3 in [our Github](https://github.com/GluuFederation/gluu-opendj3).
