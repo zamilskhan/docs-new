@@ -1,6 +1,9 @@
+[TOC]
 # Introduction
 The administration interface (oxTrust) is accessible from the `hostname` provided in the prompt from the setup script. After the installation is complete, log in to the web-based interface with the username `admin` and the `LDAP superuser` password. 
 
+!!! Note
+    This is a note
 # Welcome Page
 The administrator is taken to the welcome page if the username and the password is correct. Some basic information about the VM/server is displayed in the welcome screen. The version is displayed on top followed by free memory,disk space. The health of the VM/server can be easily determined from the welcome page. There is a photo icon on the right hand top side of the page which can be used to navigate to the user-profile and logging out of Gluu Server CE.
 ![welcome-page.png](../img/oxtrust/welcome-page.png "Welcome to Gluu Server")
@@ -13,8 +16,6 @@ The menu on the left side of the welcome page is used to navigate the admin inte
 The configuration tab contians the tools to configure Gluu Server CE. This section is dedicated to all tuning and tinkering except integration tools.
 The configuration menu is divided in to other sections which are revealed on click. The administrator can manage authentication, registration, attributes, cache-refresh,logs etc. from this menu.
 
-[Back to top](#introduction)
-
 ##Organization Configuration
 There are three sections in the organization configuration page which are [System Configuration](#system-configuration), [SMTP Server Configuration](#smtp-server-configuration) and [OxTrust Settings](#oxtrust-settings). These sections are detailed below with screenshots.
 
@@ -24,13 +25,9 @@ There are three sections in the organization configuration page which are [Syste
 Gluu Server CE is shipped with a built-in `White Pages` feature which can be enabled from the system configuration page. This page also contains the options to enable `Self-Service Password Reset` which allows the Gluu Server users to reset their password via email. This options depends on the [SMTP Server Configuration](#smtp-server-configuration), also available under the organization configuration page. Additionally the `SCIM Support` can be enabled from the System Configuration page. If the organization uses any custom `DNS Server(s)`, the address should be updated from the System Configuration interface.
 ![system-config-options](../img/oxtrust/system-config-options.png)
 
-[Back to top](#introduction)
-
 ### SMTP Server Configuration
 The mail server used by the Gluu Server to send notification to the pre-selected email address is configured in this page/panel. All the fields in this page are manadory and the configuration can be tested before confirmation. The fields are self-explanatory and simple such as hostname, user, password, ssl-requirement, authentication requirement, sending name and address.
 ![smtp-config](../img/oxtrust/smtp-config.png "SMTP Configuration")
-
-[Back to top](#introduction)
 
 ### OxTrust Settings
 Some basic information abouht the administrator interface is available in this page. The administrator can find out the oxTrust build date and number by accessing the oxTrust settings page. The administrator can change the organization name, logo and favicon settings from this page as well. Finally oxTrust Settings page contains the name of the administrator group for Gluu Server. The users added in this group will have administrator access in Gluu Server where they will be able to maintain/configure the server.
@@ -50,8 +47,21 @@ The oxAuth JSON configuration page gives easy access to the different endpoints 
 ### oxTrust Import Person Configuration
 This page contains the configuration for the file method of importing users into Gluu Server CE. The administrator can import users from a `xls` file which must be defined in this tab to import data in the LDAP attributes. The default format should contain the following fields
 
-|**XLS Coloumn Heading**|Username|First Name|Last Name|Email|Password|
-|-----------------------|--------|----------|---------|-----|--------|
-|**Attribute Mapping**  |uid     |givenName |sn       | mail|userPassword|
+## Manage Authentication
+The `Manage Authentication` page contains the internal OpenDJ settings for Gluu Server CE. The `Default Authentication Method` defines the authentication mechanism used for general authentication and oxTrust authentication. The separation is introduced because the users logging into Service Providers (SP) do not see the administrative console. The `oxTrust authentication mode` decides the authentication mechasims for the users logging into the oxTrust admin interface.
+![manage-authentication-head](../img/oxtrust/manage-authentication-head.png)
 
-The order of the headings and the format should be exactly like this table, by default, for Gluu Server to import users from any `xls` file. The configuration can be tailored to fit any pre-existing format used by the organization to store user data.
+## Manage Custom Scripts
+It will not be an understatement to say that the custom script feature makes Gluu Server CE so robust and dynamic. The scripts are available for all intents and purposes the major being multi-factor authentication. There are many custom scritps included with the vanilla Gluu Server CE which can be enabled by clicking the check box.
+
+![enable](../img/oxtrust/enable.png)
+
+The details about the custom scripts are given later in this guide.
+
+## Manage Registration
+Gluu Server CE is shiped with the feature to register users via the user-registration endpoint. The registry feature contains a Captcha which can be disabled from this page. Additionally it is possible to enable registration configuration from attributes.
+
+## Attributes
+The attributes that are avalaible in the Gluu Server CE is found in this page. The administration can only see the active attributes when this page is accessed. The `Show All Attributes` button will show the inactive attributes too. Custom attributes can be added by clicking the `Add Attribute` button and filling up a simple form.
+
+![attribute-head](../img/oxtrust/attribute-head.png) 
