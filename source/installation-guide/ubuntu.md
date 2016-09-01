@@ -11,7 +11,12 @@ The following commands will install Gluu Server `chroot`
 |       Update/Clean Repo       |apt-get update                         |
 |       Install Gluu Server     |apt-get install gluu-server-2.4.4      |
 
-**Note:** See the [Setup Script Options Page](setup_py.md) for information on finalizing installation.
+<button class="btn" data-clipboard-text="this text is copied">
+    Copy to clipboard
+</button>
+
+!!! Note "Finalize Gluu Server CE Installation"
+    See the [Setup Script Options Page](setup_py.md) for information on finalizing installation.
 
 ### Ubuntu Server 16.04
 The following commands will install Gluu Server `chroot`

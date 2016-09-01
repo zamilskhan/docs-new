@@ -2,7 +2,6 @@
 
 # How to install csync2 in different Gluu CE containers
 
-
 ## CentOS 6.x
 
 1. Log into Gluu-Server container
