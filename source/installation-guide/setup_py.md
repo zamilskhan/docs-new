@@ -28,7 +28,8 @@ If you are not using a resolvable DNS host, you will need to add the hostname to
 
 Make sure you remove or encrypt setup.properties.last It has the clear text passwords for everything: *LDAP, admin user, keystores, and 3DES salt*. If something goes wrong, check `setup.log` for a detailed step-by-step of the installation. As an alternative you may check the file `setup_errors.log` to just see the errors (or stderr output from the scripts).
 
-<h6>Note: Plese use a FQDN (fully qualified domain name) as hostname and refrain from using 127.0.0.1 as IP address</h6>
+!!! Note
+    Plese use a FQDN (fully qualified domain name) as hostname and refrain from using 127.0.0.1 as IP address</h6>
 
 # Scripted Installation
 

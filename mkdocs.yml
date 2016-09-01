@@ -4,8 +4,7 @@ site_favicon: '/img/gluu_favicon.ico'
 copyright: Copyright &copy; 2016, Gluu, Inc.
 docs_dir: source
 repo_url: https://github.com/GluuFederation/docs
-theme: readthedocs
-theme_dir: ./theme/mkdocs
+theme_dir: theme 
 extra:
     version: '2.4.4'
     logo: 'gluu.jpg'
