@@ -16,17 +16,24 @@
       {% if h1 %}
         {% set toc = (toc | first).children %}
       {% endif %}
-      {% if toc and (toc | first) %}
+      {% if toc %}
         <ul>
           {% for toc_item in toc %}
             <li class="anchor">
               <a title="{{ toc_item.title }}" href="{{ toc_item.url }}">
-                {{ toc_item.title }}
+                <b>{{ toc_item.title }}</b>
               </a>
             </li>
+            {% for toc_item in toc_item.children %}
+              <li class="anchor">
+              <a title="{{ toc_item.title }}" href="{{ toc_item.url }}">
+                  <font size=2>&#8627<i>{{ toc_item.title }}</i></font>
+              </a>
+            </li>
+             {% endfor %}
           {% endfor %}
         </ul>
       {% endif %}
     {% endif %}
   </li>
-{% endif %}
+{% endif %}                  
