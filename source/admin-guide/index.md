@@ -76,4 +76,20 @@ This page will give some basic information about the Gluu Server such as the hos
 ### Certificates
 The certificate page will give the certificate information for Gluu Server. The issuer info along with the algorithm used and the expiry date is also available.
 
-## SAML 
+## SAML
+Gluu Server CE contains all SAML related functionalities under the `SAML` tab divided into outbound and inbound SAML transactions. Inbound SAML is also known as ASIMBA. 
+
+### Outbound
+
+![saml](../img/oxtrust/saml.png)
+
+The `Trust Relationships` page, as the name suggests, will allow the administrator to view the created trust relationships (TRs) by searching using the search button. There is a button to add relationship with the same name. All the available TRs can be searched by using two (2) spaces in the search bar. There are some information that the administrator needs to gather before creating any new TR in Gluu Server. The metadata of the Service Provider (SP) connected using TR must be gathered along with the required attributes. The creation of TR will be covered in detail later.
+
+## OpenID Connect
+OpenID Connect is another protocol supported by Gluu Server CE following the [openID Connect specifications](http://openid.net/specs/openid-connect-core-1_0.html). The scopes page contains the `Add Scope` button which can be used to add new scopes in Gluu Server. Additionally the available scopes can be searched by name or listed using two (2) spaces in the search bar.
+
+![scopes](../img/oxtrust/scopes.png)
+
+The OpenID Connect clients are accessible from the `Clients` page under `OpenID Connect` tab. The structure is similar to the scopes page with the functionality to search by name or use two (2) spaces to list all the available clients. New clients can be added by clicking the `Add Client` button.
+
+![clients](../img/oxtrust/clients.png)

@@ -15,6 +15,7 @@
       {% else %}
         <title>{{ site_name }}</title>
       {% endif %}
+<link href="{{ base_url }}/assets/stylesheets/font.css" rel="stylesheet">
       {% if page_description %}
         <meta name="description" content="{{ page_description }}">
       {% endif %}
@@ -109,11 +110,11 @@
           {% endif %}
           {{ content }}
           <aside class="copyright" role="note">
-            此文档使用
-            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a> +
+           Built with 
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a> using
             <a href="http://gitlab.testbird.io:8099/frontend/testbird-mkdocs-theme.git" target="_blank">
               testBird-mkdocs-theme
-            </a>创建 <br>
+            </a> <br>
             {% if copyright %}
             {{ copyright }}
             {% endif %}

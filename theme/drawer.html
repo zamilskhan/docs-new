@@ -22,16 +22,17 @@
     <div class="wrapper">
       <ul class="repo">
         {% if home %}
-        <li class="repo-download">
+        <li class="home">
           <a href="{{ home }}" title="Home">
-            <i class="icon icon-back"></i>Home
+            <div class="home-image">
+            <i class="fa fa-home"></i> Doc Home</div>
           </a>
         </li>
         {% endif %}
         {% if repo_name == "Gitlab" and repo_url %}
         <li class="repo-download">
           <a href="{{ repo_url }}" target="_blank" title="Source Repo">
-            <i class="icon icon-star"></i> 查看源代码
+            <i class="icon icon-star"></i>
           </a>
         </li>
         {% endif %}
