@@ -93,3 +93,10 @@ OpenID Connect is another protocol supported by Gluu Server CE following the [op
 The OpenID Connect clients are accessible from the `Clients` page under `OpenID Connect` tab. The structure is similar to the scopes page with the functionality to search by name or use two (2) spaces to list all the available clients. New clients can be added by clicking the `Add Client` button.
 
 ![clients](../img/oxtrust/clients.png)
+
+## UMA
+UMA or (User-Managed Access) is an access management protocol supported by Gluu Server.The available scopes can be searched using the search bar on the top of the page. New scope descriptions can be added using the `Add Scope Description` button.
+![uma-scopes](../img/oxtrust/uma-scopes.png)
+
+UMA resources page also has a searchbar on the top of the page and can be used to search for resource sets. New resource sets can be added by clocking on the `Add Resource Set` button.
+![uma-resources](../img/oxtrust/uma-resources.png)
