@@ -1,5 +1,5 @@
-[TOC]
-# setup.py
+
+### 2.5.1 Setup Prompt
 The `setup.py` script will bring up a prompt to provide information for certificate as well as the IP Address and the hostname for the Gluu Server. The prompt is given below.
 
 ```
@@ -22,36 +22,21 @@ Install CAS? [No] :
 Install oxAuth RP? [No] :
 ```
 
-It is recommened to use `hostname.domain` structure for hostname and refrain from using `127.x.x.x` for IP address. After the successful execution of setup.py script, login to oxTrust, the policy administration point for Gluu. Point your browser to the uri `https://hostname.domain`.
-
+It is recommended to use `hostname.domain` structure for hostname and refrain from using `127.x.x.x` for IP address. 
 If you are not using a resolvable DNS host, you will need to add the hostname to your hosts file on the server which is running your browser. Login with the default user name `admin` and the password printed back in the confirmation (also contained in `setup.properties.last` (use the Unix command `grep --color -i pass` to find the according line quickly) and look for the LDAP password which is the same as the admin password.
 
 Make sure you remove or encrypt setup.properties.last It has the clear text passwords for everything: *LDAP, admin user, keystores, and 3DES salt*. If something goes wrong, check `setup.log` for a detailed step-by-step of the installation. As an alternative you may check the file `setup_errors.log` to just see the errors (or stderr output from the scripts).
 
-!!! Note
-    Plese use a FQDN (fully qualified domain name) as hostname and refrain from using 127.0.0.1 as IP address</h6>
+!!! warning
+    Use a FQDN (fully qualified domain name) as hostname and refrain from using 127.0.0.1 as IP address
 
-# Scripted Installation
-
-If you want to script the installation of the Gluu Server, here is what you can do to achieve your goal:
-
-* Save and backup your existing file `setup.properties.last`.
-* Uninstall existing Gluu Server installation.
-* For a new installation you can either grab a new VM, or just use the existing one.
-* Install Gluu Server CE, and log into the chroot.
-* Copy your file `setup.properties.last` into the new server's  `/install/community-edition-setup/` location.
-* Rename the file `setup.properties.last` to `setup.properties`.
-* Run the setup script with `./setup.py` command.
-
-
-## Command Line Options
-
-Use `setup.py` to configure your Gluu Server and to add initial data
-required for oxAuth and oxTrust to start. If `setup.properties` is found
+### 2.5.2 Script Command Line Options
+The `setup.py` script can be used to configure your Gluu Server and to add initial data
+for oxAuth and oxTrust to start. If `setup.properties` is found
 in this folder, these properties will automatically be used instead of
 the interactive setup.
 
-The following options are available:
+The administrator can use the following command line options to include additional components:
 
 * __-a__ install Asimba
 * __-c__ install CAS
@@ -65,3 +50,4 @@ The following options are available:
 * __-u__ update hosts file with IP address/hostname
 * __-w__ get the development head war files
 
+Example Command: `# ./setup.py -cas` This command will install Gluu Server with CAS, Asimba and Shibboleth IDP.

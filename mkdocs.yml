@@ -22,20 +22,16 @@ pages:
     - '1.4 Gluu Server Architecture': 'introduction/architecture.md'
 
 - Installation Guide:
-    - 1.Single Setup:
-        - '1.1 Preparing VM': 'installation-guide/index.md'
-        - '1.2 Ubuntu': 'installation-guide/ubuntu.md'
-        - '1.3 CentOS': 'installation-guide/centos.md'
-        - '1.4 RHEL': 'installation-guide/rhel.md'
-        - '1.5 Debian': 'installation-guide/debian.md'
-        - '1.6 Setup Script Options': 'installation-guide/setup_py.md'
-        - '1.7 Microsoft Azure Guide': 'installation-guide/azure.md'
-    - 2.Cluster Setup: 
-        - '2.1 Csync Install Guide': 'cluster/csync-installation.md'
-        - '2.2 Cluster Deployment Guide': 'cluster/index.md'
-    - 3.Upgrade Gluu Server: 
-        - '3.1 Upgrade Guide' : 'upgrade/index.md'
+    - Single Setup:
+        - '1 Preparing VM': 'installation-guide/index.md'
+        - '2 Install Gluu Server': 'installation-guide/install.md'
+        - '2.5 Setup Script Options': 'installation-guide/setup_py.md'
+    - Cluster Setup: 
+        - '3.1 Csync Install Guide': 'cluster/csync-installation.md'
+        - '3.2 Cluster Deployment Guide': 'cluster/index.md'
+    - Upgrade Gluu Server: 
+        - '4.1 Upgrade Guide' : 'upgrade/index.md'
 
 - Administration Guide:
         - '1. Admin Interface (oxTrust)' : 'admin-guide/index.md'
-        - '2. Authentication Management' : 'admin-guide/authentication-management.md' 
+        - '2. Authentication Protocol': 'admin-guide/authentication-protocol.md' 
