@@ -72,3 +72,140 @@ Once this is done, the SPs under the federation can be added by selecting the Fe
 ![federation-entityid.png](../img/saml/federation-entityid.png)
 
 ## 2.2 Inbound SAML
+Gluu Server uses an open source product called Asimba to achieve inbound SAML. Asimba allows websites to use a single IDP for SSO even when the organization has multiple trusted IDPs. Please see the [Asimba website](http://www.asimba.org/site/) for more information.
+
+Gluu Server CE makes Asimba configuration easy from the oxTrust admin interface. This section provides a step-by-step method of configuring Asimba with two (2) IDPs and a single SP. The administrator can add multiple IDPs or SPs if required using the same method. However, it is mandatory that all the SPs and IDPs are connected to the Asimba server, or the IDP that has the Asimba module enabled.
+
+### 2.2.1 Required Setup
+|Setup hostname|Description|
+|--------------|-----------|
+|https://sp.gluu.org|This is a shibboleth SP connected to _https://test.gluu.org_|
+|https://test.gluu.org| This is a Gluu Server SAML IdP with Asimba|
+|https://nest.gluu.org|This is a second Gluu Server SAML IdP connected to _https://test.gluu.org_ |
+
+!!! Note
+    Ideally all SPs and IdPs should be connected to Asimba server.
+
+### 2.2.2 Adding IDP in Asimba Server
+
+* Log into the oxTrust interface
+
+* Navigate to SAML --> Idp
+
+![image](../img/asimba/asimba_idp.png)
+
+* Click on 'Add IDP' button
+
+![image](../img/asimba/asimba-idp_button.png)
+
+* Fill up the form with the information below:
+    
+    * ID: The entityID of the remote ID/ADFS 
+
+        - Example: `https:<hostname_of_gluu_server>/idp/shibboleth`  
+
+    * Friendly Name: There is no particular format for this field, use anything 
+
+    * Metadata URL: Keep it blank, we will upload metadata
+
+    * Metadata Timeout: Keep it as it is. 
+
+    * Metadata File: Download metadata of remote IDP/ADFS and upload that XML file. 
+    
+        - Example: The metadata for Gluu IdP can be downloaded using `wget -c https:<hostname_of_gluu_server>/idp/shibboleth`
+
+    * Trust Certificate File: Grab the SAML cert from remote IDP/ADFS and upload that x509 certificate
+
+        - Example: You will get the SAML certificate from Gluu Server's metadata link or available inside `/etc/certs/shibIDP.crt`
+
+    * NameIDFormat: SAML2 URI nameID format if remote IDP is a Gluu Server otherwise ask for their nameID format.
+
+        - Example: `urn:oasis:names:tc:SAML:2.0:nameid-format:transient'
+
+* Restart tomcat service using this command `service tomcat restart`
+
+![image](../img/asimba/add_idp.png)
+
+
+### 2.2.3 Adding SP in Asimba Server
+* Log into oxTrust interface
+
+* Navigate to SAML --> SP Requestor
+
+![image](../img/asimba/asimba-sp_menu.png)
+
+* Click on 'Add SP Requestor'
+
+![image](../img/asimba/asimba-sp_addbutton.png)
+
+* Please fill up the form with the information below:
+
+    * ID: The entityID of SP
+
+        - Example: Shibboleth SP entityID: `https://sp.gluu.org/shibboleth`
+
+    * Friendly Name: Anything is fine
+
+    * Metadata URL: Keep it blank; we will upload metadata
+
+    * Metadata Timeout: Keep it as it is
+
+    * Metadata File: Upload SP metadata ( xml file )
+
+    * Trust Certificate File: Upload SAML cert from SP
+
+* Restart tomcat service using this command `service tomcat restart`
+
+![image](../img/asimba/add_sp2mod.png)
+
+### 2.2.4 Adding Selectors in Asimba Server
+his feature will allow you 'automatically' select specific IDP for specific SP. As for example: If OrgA has SP 'orgASP.gluu.org' and 'orgAIDP.gluu.org' respectively and if you configure selector for 'orgASP.gluu.org' –> 'orgAIDP.gluu.org', then after whenever user will go to 'orgASP.gluu.org', your Gluu Server Asimba will automatically forward user to 'orgAIDP.gluu.org' for authentication.
+
+* Log into oxTrust interface
+
+* Navigate to SAML --> Selectors
+
+![image](../img/asimba/add-selector_menu.png)
+
+* Click on the 'Add Selector' button
+
+![image](../img/asimba/add-selector_button.png)
+
+    * Select SP Requestor: Select your desired SP from drop down menu
+
+    * Select IDP : Select your desired IDP from drop down menu
+
+* Click on the 'Update' button
+
+* Restart tomcat service using this command `service tomcat restart`
+
+![image](../img/asimba/selector.png)
+
+
+### 2.2.5 Attribute Handling
+oxAsimba will transact all kind of attributes whichever authentication server ( remote IDP/ADFS ) can release to SP. By default this feature is not enabled.
+
+* Gluu Server administrator needs to add `<attribute name=“*” />` inside `attributerelease class` in the `asimba.xml` file under `/opt/tomcat/webapps/asimba/WEB-INF/conf` folder
+
+```
+         <attributerelease class="com.alfaariss.oa.engine.attribute.release.configuration.ConfigurationFactory">
+                <policy id="asimba.releasepolicy.1" friendlyname="Default Attribute Release policy" enabled="true">
+                        <attribute name="firstname" />
+                        <attribute name="lastname" />
+                        <attribute name="email" />
+                        <attribute name="role" />
+                        <attribute name="*" />
+                </policy>
+        </attributerelease> 
+```
+
+* Uncomment `attributegatherer` part
+
+```
+ <gather>
+  <attribute name="whitelist-attribute-name" />
+ </gather> 
+```
+
+* Restart tomcat service:`service tomcat restart` from Gluu Server container
+
