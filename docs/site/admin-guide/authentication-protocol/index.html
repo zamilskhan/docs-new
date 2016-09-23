@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>2. Authentication Protocol - Gluu Docs</title>
+      
+<link href="../../assets/stylesheets/font.css" rel="stylesheet">
+      
+      
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="Gluu Docs">
+    <meta property="og:image" content="None/../../gluu.jpg">
+    <meta name="apple-mobile-web-app-title" content="Gluu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../../gluu.jpg">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-60feabe0e5.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-60feabe0e5.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-f58e216493.css">
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/zenburn-28d5b94970.css">
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Noto Sans:400,700|Source+Code+Pro">
+      <style>
+        body, input {
+          font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../assets/javascripts/modernizr-4a5cc7e01e.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Administration Guide <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        2. Authentication Protocol
+      </div>
+    </div>
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" placeholder="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+
+  
+  <a href="https://github.com/GluuFederation/docs" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../gluu.jpg">
+        </div>
+      
+      <div class="name">
+        <strong>Gluu Docs</strong><br>
+        version: 2.4.4
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      <ul class="repo">
+        
+        <li class="home">
+          <a href="/" title="Home">
+            <div class="home-image">
+            <i class="fa fa-home"></i> Doc Home</div>
+          </a>
+        </li>
+        
+        
+        
+        <li class="repo-download">
+          
+          <a href="https://github.com/GluuFederation/docs/archive/2.4.4.zip" target="_blank" title="Download" data-action="download">
+            <i class="icon icon-download"></i> Download
+          </a>
+        </li>
+        
+      </ul>
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Home" href="../..">
+      Home
+    </a>
+    
+  </li>
+                  
+          
+            
+  <li>
+    <span class="section">1.Introduction</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="1.1 Summary" href="../../introduction/">
+      1.1 Summary
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="1.2 History" href="../../introduction/history/">
+      1.2 History
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="1.3 Design Goals" href="../../introduction/design/">
+      1.3 Design Goals
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="1.4 Gluu Server Architecture" href="../../introduction/architecture/">
+      1.4 Gluu Server Architecture
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+          
+            
+  <li>
+    <span class="section">Installation Guide</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Single Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="1 Preparing VM" href="../../installation-guide/">
+      1 Preparing VM
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="2 Install Gluu Server" href="../../installation-guide/install/">
+      2 Install Gluu Server
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="2.5 Setup Script Options" href="../../installation-guide/setup_py/">
+      2.5 Setup Script Options
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+      
+        
+  <li>
+    <span class="section">Cluster Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="3.1 Csync Install Guide" href="../../cluster/csync-installation/">
+      3.1 Csync Install Guide
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="3.2 Cluster Deployment Guide" href="../../cluster/">
+      3.2 Cluster Deployment Guide
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+      
+        
+  <li>
+    <span class="section">Upgrade Gluu Server</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="4.1 Upgrade Guide" href="../../upgrade/">
+      4.1 Upgrade Guide
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+          
+            
+  <li>
+    <span class="section">Administration Guide</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="1. Admin Interface (oxTrust)" href="../">
+      1. Admin Interface (oxTrust)
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="current" title="2. Authentication Protocol" href="./">
+      2. Authentication Protocol
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="2.1 Outbound SAML" href="#21-outbound-saml">
+                <b>2.1 Outbound SAML</b>
+              </a>
+            </li>
+            
+              <li class="anchor">
+              <a title="2.1.1 Trust Relationship Requirements" href="#211-trust-relationship-requirements">
+                  <font size=2><i>2.1.1 Trust Relationship Requirements</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="2.1.2 Create a Trust Relationship" href="#212-create-a-trust-relationship">
+                  <font size=2><i>2.1.2 Create a Trust Relationship</i></font>
+              </a>
+            </li>
+             
+          
+            <li class="anchor">
+              <a title="2.2 Inbound SAML" href="#22-inbound-saml">
+                <b>2.2 Inbound SAML</b>
+              </a>
+            </li>
+            
+              <li class="anchor">
+              <a title="2.2.1 Required Setup" href="#221-required-setup">
+                  <font size=2><i>2.2.1 Required Setup</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="2.2.2 Adding IDP in Asimba Server" href="#222-adding-idp-in-asimba-server">
+                  <font size=2><i>2.2.2 Adding IDP in Asimba Server</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="2.2.3 Adding SP in Asimba Server" href="#223-adding-sp-in-asimba-server">
+                  <font size=2><i>2.2.3 Adding SP in Asimba Server</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="2.2.4 Adding Selectors in Asimba Server" href="#224-adding-selectors-in-asimba-server">
+                  <font size=2><i>2.2.4 Adding Selectors in Asimba Server</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="2.2.5 Attribute Handling" href="#225-attribute-handling">
+                  <font size=2><i>2.2.5 Attribute Handling</i></font>
+              </a>
+            </li>
+             
+          
+        </ul>
+      
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <div class="toc">
+<ul>
+<li><a href="#authentication-protocol-in-gluu-server">Authentication Protocol in Gluu Server</a><ul>
+<li><a href="#21-outbound-saml">2.1 Outbound SAML</a><ul>
+<li><a href="#211-trust-relationship-requirements">2.1.1 Trust Relationship Requirements</a><ul>
+<li><a href="#2111-metadata-of-the-sp">2.1.1.1 Metadata of the SP</a></li>
+<li><a href="#2112-required-attributes">2.1.1.2 Required Attributes</a></li>
+<li><a href="#2113-sso-testing-endpoint">2.1.1.3 SSO Testing Endpoint</a></li>
+</ul>
+</li>
+<li><a href="#212-create-a-trust-relationship">2.1.2 Create a Trust Relationship</a><ul>
+<li><a href="#2121-relying-party-configuration">2.1.2.1 Relying Party Configuration</a></li>
+<li><a href="#2122-federation-configuration">2.1.2.2 Federation Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#22-inbound-saml">2.2 Inbound SAML</a><ul>
+<li><a href="#221-required-setup">2.2.1 Required Setup</a></li>
+<li><a href="#222-adding-idp-in-asimba-server">2.2.2 Adding IDP in Asimba Server</a></li>
+<li><a href="#223-adding-sp-in-asimba-server">2.2.3 Adding SP in Asimba Server</a></li>
+<li><a href="#224-adding-selectors-in-asimba-server">2.2.4 Adding Selectors in Asimba Server</a></li>
+<li><a href="#225-attribute-handling">2.2.5 Attribute Handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="authentication-protocol-in-gluu-server">Authentication Protocol in Gluu Server<a class="headerlink" href="#authentication-protocol-in-gluu-server" title="Permanent link">#</a></h1>
+<p>Gluu Server supports Security Assertion Markup Language (SAML) and OpenID Connect protocols to authenticate users against Service Providers (SPs) and Requesting Parties (RPs). There are two different flows of SAML known as outbound SAML and inbound SAML, both supported out-of-the-box in Gluu Server Community Edition (Gluu CE).</p>
+<h2 id="21-outbound-saml">2.1 Outbound SAML<a class="headerlink" href="#21-outbound-saml" title="Permanent link">#</a></h2>
+<p>Outbound SAML can also be called SP-initiated Single Sign On (SSO) or traditional SAML. In an outbound SAML transaction, the SP redirects the user to the designated Identity Provider (IDP) for authentication and authorization. The IDP will ask for the username and password for the user and up on successful authentication, the user is sent back to the SP logged in. The requirement for the IDP is a trust relationship (TR) set up beforehand with the SP. The next section covers how to set up a TR in Gluu Server.</p>
+<h3 id="211-trust-relationship-requirements">2.1.1 Trust Relationship Requirements<a class="headerlink" href="#211-trust-relationship-requirements" title="Permanent link">#</a></h3>
+<p>Trust Relationship creation is easy in Gluu Server from the oxTrust GUI. The following information is necessary to create TR.</p>
+<ul>
+<li><a href="#metadata-of-website">Metadata of website</a></li>
+<li><a href="#required-attribute-of-website">Required attribute of website</a></li>
+<li><a href="#sso-testing-endpoint-of-website">SSO testing endpoint of website</a></li>
+</ul>
+<h4 id="2111-metadata-of-the-sp">2.1.1.1 Metadata of the SP<a class="headerlink" href="#2111-metadata-of-the-sp" title="Permanent link">#</a></h4>
+<p>Metadata is a XML file which has configuration data used to provision any
+website (SP) or IDP (Gluu Server) to communicate with each other. It is
+interchangeable between the IDP and the SP.</p>
+<p>Websites (SP) can provide metadata via URL or as a separate file. If the
+SP provides an separate XML file, the Gluu Server can check the
+integrity of that metadata with its own mechanism. This mechanism can be
+shown and tested from Gluu Server oxTrust GUI.</p>
+<h4 id="2112-required-attributes">2.1.1.2 Required Attributes<a class="headerlink" href="#2112-required-attributes" title="Permanent link">#</a></h4>
+<p>Every organization has their own policy to release/share attributes with
+any IDP or SP. The oxTrust GUI supports both preconfigured and custom attribute
+Release to the SP. The administrator only needs to click on the desired 
+attribute and it will be released to the SP.</p>
+<h4 id="2113-sso-testing-endpoint">2.1.1.3 SSO Testing Endpoint<a class="headerlink" href="#2113-sso-testing-endpoint" title="Permanent link">#</a></h4>
+<p>Every website (SP) should have both a staging and a production uri
+endpoint which can be checked for SSO, where the user will access to log
+into that SP.</p>
+<h3 id="212-create-a-trust-relationship">2.1.2 Create a Trust Relationship<a class="headerlink" href="#212-create-a-trust-relationship" title="Permanent link">#</a></h3>
+<ul>
+<li>Go to SAML → Trust Relationships</li>
+<li>Click on “Add Relationship”</li>
+</ul>
+<p><img alt="addTR" src="../../img/saml/addTR.png" /></p>
+<ul>
+<li>A new page will appear. Here, as a Gluu Server administrator you need
+  to provide all the information regarding the SP to establish Trust
+  Relationship from Gluu Server.</li>
+</ul>
+<p><img alt="newTR" src="../../img/saml/newTR.png" /></p>
+<ul>
+<li><em>Display Name</em>: Name of the Trust Relationship (it should be unique for every trust relationship)</li>
+<li><em>Description</em>: Little description. Purpose and SSO link can be added here.</li>
+<li><em>Metadata Type</em>: Depending on trusted party’s metadata (SP), there are four available types in Gluu Server<ul>
+<li><em>File</em>: If SP has uploadable metadata in XML format, this option works best.</li>
+<li><em>URI</em>: If the metadata of SP has URI link and accessible from the internet, Gluu Server Administrator can use this option.</li>
+</ul>
+</li>
+<li><em>Released</em>: The attributes that are required for the SP must be in this pane. The required attributes can be selected from the left side pane with the heading “Release Additional Attributes”.
+The TR is added by clicking on the <code>Add</code> button located in the lower left side of the page.</li>
+</ul>
+<h4 id="2121-relying-party-configuration">2.1.2.1 Relying Party Configuration<a class="headerlink" href="#2121-relying-party-configuration" title="Permanent link">#</a></h4>
+<p>The Relying Party must be configured for some SPs. The relying party configuration is accessible on the TR Creation page. The checkbox <code>Configure specific Relying Party</code> must be checked.</p>
+<p><img alt="enable-relying-party.png" src="../../img/saml/enable-relying-party.png" /></p>
+<p>The checkbox will result in a link which can be accessed to configure relying party for the TR. The image below shows the relying party config panel from which the administrator can add the specific option.</p>
+<p><img alt="tr-relying-party" src="../../img/saml/tr-relying-party.png" /></p>
+<h4 id="2122-federation-configuration">2.1.2.2 Federation Configuration<a class="headerlink" href="#2122-federation-configuration" title="Permanent link">#</a></h4>
+<p>If the SP is part of any identity federation such as InCommon Federation, then the administrator must add the federation as a SP in Gluu Server. This will allow the administrator to add SPs under the federation easily from a TR. The requirement of a federation TR created using the general TR is a must. The example below shows an administrator adding a TR for InCommon Federation.</p>
+<p><img alt="federationTR" src="../../img/saml/federationTR.png" /></p>
+<p>Once this is done, the SPs under the federation can be added by selecting the Federation from the <code>Federation Name</code> drop down menu and selecting the entity-id for the SP.</p>
+<p><img alt="federation-entityid.png" src="../../img/saml/federation-entityid.png" /></p>
+<h2 id="22-inbound-saml">2.2 Inbound SAML<a class="headerlink" href="#22-inbound-saml" title="Permanent link">#</a></h2>
+<p>Gluu Server uses an open source product called Asimba to achieve inbound SAML. Asimba allows websites to use a single IDP for SSO even when the organization has multiple trusted IDPs. Please see the <a href="http://www.asimba.org/site/">Asimba website</a> for more information.</p>
+<p>Gluu Server CE makes Asimba configuration easy from the oxTrust admin interface. This section provides a step-by-step method of configuring Asimba with two (2) IDPs and a single SP. The administrator can add multiple IDPs or SPs if required using the same method. However, it is mandatory that all the SPs and IDPs are connected to the Asimba server, or the IDP that has the Asimba module enabled.</p>
+<h3 id="221-required-setup">2.2.1 Required Setup<a class="headerlink" href="#221-required-setup" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Setup hostname</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>https://sp.gluu.org</td>
+<td>This is a shibboleth SP connected to <em>https://test.gluu.org</em></td>
+</tr>
+<tr>
+<td>https://test.gluu.org</td>
+<td>This is a Gluu Server SAML IdP with Asimba</td>
+</tr>
+<tr>
+<td>https://nest.gluu.org</td>
+<td>This is a second Gluu Server SAML IdP connected to <em>https://test.gluu.org</em></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ideally all SPs and IdPs should be connected to Asimba server.</p>
+</div>
+<h3 id="222-adding-idp-in-asimba-server">2.2.2 Adding IDP in Asimba Server<a class="headerlink" href="#222-adding-idp-in-asimba-server" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>Log into the oxTrust interface</p>
+</li>
+<li>
+<p>Navigate to SAML --&gt; Idp</p>
+</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/asimba_idp.png" /></p>
+<ul>
+<li>Click on 'Add IDP' button</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/asimba-idp_button.png" /></p>
+<ul>
+<li>
+<p>Fill up the form with the information below:</p>
+<ul>
+<li>
+<p>ID: The entityID of the remote ID/ADFS </p>
+<ul>
+<li>Example: <code>https:&lt;hostname_of_gluu_server&gt;/idp/shibboleth</code>  </li>
+</ul>
+</li>
+<li>
+<p>Friendly Name: There is no particular format for this field, use anything </p>
+</li>
+<li>
+<p>Metadata URL: Keep it blank, we will upload metadata</p>
+</li>
+<li>
+<p>Metadata Timeout: Keep it as it is. </p>
+</li>
+<li>
+<p>Metadata File: Download metadata of remote IDP/ADFS and upload that XML file. </p>
+<ul>
+<li>Example: The metadata for Gluu IdP can be downloaded using <code>wget -c https:&lt;hostname_of_gluu_server&gt;/idp/shibboleth</code></li>
+</ul>
+</li>
+<li>
+<p>Trust Certificate File: Grab the SAML cert from remote IDP/ADFS and upload that x509 certificate</p>
+<ul>
+<li>Example: You will get the SAML certificate from Gluu Server's metadata link or available inside <code>/etc/certs/shibIDP.crt</code></li>
+</ul>
+</li>
+<li>
+<p>NameIDFormat: SAML2 URI nameID format if remote IDP is a Gluu Server otherwise ask for their nameID format.</p>
+<ul>
+<li>Example: `urn:oasis:names:tc:SAML:2.0:nameid-format:transient'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Restart tomcat service using this command <code>service tomcat restart</code></p>
+</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/add_idp.png" /></p>
+<h3 id="223-adding-sp-in-asimba-server">2.2.3 Adding SP in Asimba Server<a class="headerlink" href="#223-adding-sp-in-asimba-server" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>Log into oxTrust interface</p>
+</li>
+<li>
+<p>Navigate to SAML --&gt; SP Requestor</p>
+</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/asimba-sp_menu.png" /></p>
+<ul>
+<li>Click on 'Add SP Requestor'</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/asimba-sp_addbutton.png" /></p>
+<ul>
+<li>
+<p>Please fill up the form with the information below:</p>
+<ul>
+<li>
+<p>ID: The entityID of SP</p>
+<ul>
+<li>Example: Shibboleth SP entityID: <code>https://sp.gluu.org/shibboleth</code></li>
+</ul>
+</li>
+<li>
+<p>Friendly Name: Anything is fine</p>
+</li>
+<li>
+<p>Metadata URL: Keep it blank; we will upload metadata</p>
+</li>
+<li>
+<p>Metadata Timeout: Keep it as it is</p>
+</li>
+<li>
+<p>Metadata File: Upload SP metadata ( xml file )</p>
+</li>
+<li>
+<p>Trust Certificate File: Upload SAML cert from SP</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Restart tomcat service using this command <code>service tomcat restart</code></p>
+</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/add_sp2mod.png" /></p>
+<h3 id="224-adding-selectors-in-asimba-server">2.2.4 Adding Selectors in Asimba Server<a class="headerlink" href="#224-adding-selectors-in-asimba-server" title="Permanent link">#</a></h3>
+<p>his feature will allow you 'automatically' select specific IDP for specific SP. As for example: If OrgA has SP 'orgASP.gluu.org' and 'orgAIDP.gluu.org' respectively and if you configure selector for 'orgASP.gluu.org' –&gt; 'orgAIDP.gluu.org', then after whenever user will go to 'orgASP.gluu.org', your Gluu Server Asimba will automatically forward user to 'orgAIDP.gluu.org' for authentication.</p>
+<ul>
+<li>
+<p>Log into oxTrust interface</p>
+</li>
+<li>
+<p>Navigate to SAML --&gt; Selectors</p>
+</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/add-selector_menu.png" /></p>
+<ul>
+<li>Click on the 'Add Selector' button</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/add-selector_button.png" /></p>
+<pre><code>* Select SP Requestor: Select your desired SP from drop down menu
+
+* Select IDP : Select your desired IDP from drop down menu
+</code></pre>
+<ul>
+<li>
+<p>Click on the 'Update' button</p>
+</li>
+<li>
+<p>Restart tomcat service using this command <code>service tomcat restart</code></p>
+</li>
+</ul>
+<p><img alt="image" src="../../img/asimba/selector.png" /></p>
+<h3 id="225-attribute-handling">2.2.5 Attribute Handling<a class="headerlink" href="#225-attribute-handling" title="Permanent link">#</a></h3>
+<p>oxAsimba will transact all kind of attributes whichever authentication server ( remote IDP/ADFS ) can release to SP. By default this feature is not enabled.</p>
+<ul>
+<li>Gluu Server administrator needs to add <code>&lt;attribute name=“*” /&gt;</code> inside <code>attributerelease class</code> in the <code>asimba.xml</code> file under <code>/opt/tomcat/webapps/asimba/WEB-INF/conf</code> folder</li>
+</ul>
+<pre><code>         &lt;attributerelease class=&quot;com.alfaariss.oa.engine.attribute.release.configuration.ConfigurationFactory&quot;&gt;
+                &lt;policy id=&quot;asimba.releasepolicy.1&quot; friendlyname=&quot;Default Attribute Release policy&quot; enabled=&quot;true&quot;&gt;
+                        &lt;attribute name=&quot;firstname&quot; /&gt;
+                        &lt;attribute name=&quot;lastname&quot; /&gt;
+                        &lt;attribute name=&quot;email&quot; /&gt;
+                        &lt;attribute name=&quot;role&quot; /&gt;
+                        &lt;attribute name=&quot;*&quot; /&gt;
+                &lt;/policy&gt;
+        &lt;/attributerelease&gt; 
+</code></pre>
+
+<ul>
+<li>Uncomment <code>attributegatherer</code> part</li>
+</ul>
+<pre><code> &lt;gather&gt;
+  &lt;attribute name=&quot;whitelist-attribute-name&quot; /&gt;
+ &lt;/gather&gt; 
+</code></pre>
+
+<ul>
+<li>Restart tomcat service:<code>service tomcat restart</code> from Gluu Server container</li>
+</ul>
+          <aside class="copyright" role="note">
+           Built with 
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a> using
+            <a href="http://gitlab.testbird.io:8099/frontend/testbird-mkdocs-theme.git" target="_blank">
+              testBird-mkdocs-theme
+            </a> <br>
+            
+            Copyright &copy; 2016, Gluu, Inc.
+            
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../" title="1. Admin Interface (oxTrust)">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                1. Admin Interface (oxTrust)
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = '';
+    </script>
+    <script src="../../assets/javascripts/application-ce3999cf34.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+      <script src="../../dist/clipboard.js"></script>
+    
+      <script src="../../dist/clipboard.min.js"></script>
+    
+    
+  </body>
+</html>
