@@ -405,3 +405,38 @@ oxAsimba will transact all kind of attributes whichever authentication server ( 
 
 * Restart tomcat service:`service tomcat restart` from Gluu Server container
 
+## 2.4 OpenID Connect
+[OpenID Connect](http://openid.net/connect "Connect") is a standard
+profile of OAuth2 which defines a protocol to enable a website or mobile
+application to send a person to a domain for authentication and required
+attributes (e.g. email address, first name, last name, etc.). OpenID Connect
+also provides some of the plumbing around authentication to automate how
+this happens. If a person is visiting a website for the first time, the
+process that OpenID Connect defines is 100% bootstrapable by the
+website. This is really critical for Internet scalability. To visit
+someone's website, or to send someone an email, you do not need to get
+the system administrators involved. Connect provides the same type of
+scalable infrastructure for authentication and authorization, and promises to define a base level domain
+identification.
+
+### 2.4.1 Scopes
+In SAML, the IdP releases attributes to the SP. OpenID Connect provides
+similar functionality, with more flexibility in case the person needs to
+self-approve the release of information from the IdP to the website (or
+mobile application). In OAuth2, scopes can be used for various purposes.
+OpenID Connect uses OAuth2 scopes to "group" attributes. For example, we
+could have a scope called "address" that includes the street, city,
+state, and country user claims. 
+
+![scopes](../img/openid/scopes.png)
+
+#### 2.4.1.1 Add Scope
+The Gluu Server administrator can easily add more scopes in the GUI.
+
+![add-scope](../img/openid/add-scope.png)
+
+Click *Add Scope* and you will be presented with the following screen:
+
+![scope-adding](../img/openid/scope-adding.png)
+
+
