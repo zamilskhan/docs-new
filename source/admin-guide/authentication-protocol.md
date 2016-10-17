@@ -71,11 +71,11 @@ Once this is done, the SPs under the federation can be added by selecting the Fe
 
 ![federation-entityid.png](../img/saml/federation-entityid.png)
 
-## 2.2 Inbound SAML
+## 2.2 Inbound SAML Script
 Gluu Server uses an open source product called Asimba to achieve inbound SAML. Asimba allows websites to use a single IDP for SSO even when the organization has multiple trusted IDPs. Please see the [Asimba website](http://www.asimba.org/site/) for more information.
 
 Gluu Server CE makes Asimba configuration easy from the oxTrust admin interface. This section provides a step-by-step method of configuring Asimba with two (2) IDPs and a single SP. The administrator can add multiple IDPs or SPs if required using the same method. However, it is mandatory that all the SPs and IDPs are connected to the Asimba server, or the IDP that has the Asimba module enabled.
-i![asimba-overview](../img/asimba/asimba-overview.png)
+i![asimba-overview](../img/asimba/overview.png)
 
 ### 2.2.1 Required Setup
 
@@ -103,11 +103,11 @@ The Gluu Server setup with the hostname `https://test.gluu.org` must be setup wi
 
 * Navigate to Configuration --> Manage Custom Scripts
 
-![custom-script-menu](../img/oxtrust/custom-script-menu)
+![custom-script-menu](../img/oxtrust/custom-script-menu.png)
 
 * Select/Add `saml` script from `Person Authentication` tab
 
-![custom-script-person-authentication](../img/asimba-custom-script-person-authentication.png)
+![custom-script-person-authentication](../img/asimba/cspa.png)
 
    - Name: saml
     - Description: Saml Authentication module
