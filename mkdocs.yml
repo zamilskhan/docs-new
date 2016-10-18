@@ -27,10 +27,9 @@ pages:
         - '2 Install Gluu Server': 'installation-guide/install.md'
         - '2.5 Setup Script Options': 'installation-guide/setup_py.md'
     - Cluster Setup: 
-        - '3.1 Csync Install Guide': 'cluster/csync-installation.md'
-        - '3.2 Cluster Deployment Guide': 'cluster/index.md'
+        - '3 Cluster Deployment Guide': 'cluster/index.md'
     - Upgrade Gluu Server: 
-        - '4.1 Upgrade Guide' : 'upgrade/index.md'
+        - '4 Upgrade Guide' : 'upgrade/index.md'
 
 - Administration Guide:
         - '1. Admin Interface (oxTrust)' : 'admin-guide/index.md'
