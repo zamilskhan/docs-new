@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>3.2 Cluster Deployment Guide - Gluu Docs</title>
+        <title>3 Cluster Deployment Guide - Gluu Docs</title>
       
 <link href="../assets/stylesheets/font.css" rel="stylesheet">
       
@@ -95,7 +95,7 @@
             
           </span>
         
-        3.2 Cluster Deployment Guide
+        3 Cluster Deployment Guide
       </div>
     </div>
     <div class="button button-search" role="button" aria-label="Search">
@@ -263,17 +263,8 @@
       
         
   <li>
-    <a class="" title="3.1 Csync Install Guide" href="csync-installation/">
-      3.1 Csync Install Guide
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="current" title="3.2 Cluster Deployment Guide" href="./">
-      3.2 Cluster Deployment Guide
+    <a class="current" title="3 Cluster Deployment Guide" href="./">
+      3 Cluster Deployment Guide
     </a>
     
       
@@ -283,68 +274,68 @@
         <ul>
           
             <li class="anchor">
-              <a title="Design" href="#design">
-                <b>Design</b>
+              <a title="3.1 Design" href="#31-design">
+                <b>3.1 Design</b>
               </a>
             </li>
             
           
             <li class="anchor">
-              <a title="Requirements" href="#requirements">
-                <b>Requirements</b>
-              </a>
-            </li>
-            
-          
-            <li class="anchor">
-              <a title="Preparing VMs" href="#preparing-vms">
-                <b>Preparing VMs</b>
-              </a>
-            </li>
-            
-          
-            <li class="anchor">
-              <a title="LDAP Replication" href="#ldap-replication">
-                <b>LDAP Replication</b>
-              </a>
-            </li>
-            
-          
-            <li class="anchor">
-              <a title="File System Replication" href="#file-system-replication">
-                <b>File System Replication</b>
+              <a title="3.2 Requirements" href="#32-requirements">
+                <b>3.2 Requirements</b>
               </a>
             </li>
             
               <li class="anchor">
-              <a title="Csync2 installation" href="#csync2-installation">
-                  <font size=2><i>Csync2 installation</i></font>
-              </a>
-            </li>
-             
-              <li class="anchor">
-              <a title="Csync2 configuration for host-1" href="#csync2-configuration-for-host-1">
-                  <font size=2><i>Csync2 configuration for host-1</i></font>
-              </a>
-            </li>
-             
-              <li class="anchor">
-              <a title="Csync2 configuration for host-2" href="#csync2-configuration-for-host-2">
-                  <font size=2><i>Csync2 configuration for host-2</i></font>
+              <a title="3.2.1 Csync2 Installation" href="#321-csync2-installation">
+                  <font size=2><i>3.2.1 Csync2 Installation</i></font>
               </a>
             </li>
              
           
             <li class="anchor">
-              <a title="Certificate Management" href="#certificate-management">
-                <b>Certificate Management</b>
+              <a title="3.3 Preparing VMs" href="#33-preparing-vms">
+                <b>3.3 Preparing VMs</b>
               </a>
             </li>
             
           
             <li class="anchor">
-              <a title="[Optional] Actions in case setup.properties.last method of installation didn't work for you" href="#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">
-                <b>[Optional] Actions in case setup.properties.last method of installation didn't work for you</b>
+              <a title="3.4 LDAP Replication" href="#34-ldap-replication">
+                <b>3.4 LDAP Replication</b>
+              </a>
+            </li>
+            
+          
+            <li class="anchor">
+              <a title="3.5 File System Replication" href="#35-file-system-replication">
+                <b>3.5 File System Replication</b>
+              </a>
+            </li>
+            
+              <li class="anchor">
+              <a title="3.5.1 Csync2 configuration for host-1" href="#351-csync2-configuration-for-host-1">
+                  <font size=2><i>3.5.1 Csync2 configuration for host-1</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="3.5.2 Csync2 configuration for host-2" href="#352-csync2-configuration-for-host-2">
+                  <font size=2><i>3.5.2 Csync2 configuration for host-2</i></font>
+              </a>
+            </li>
+             
+          
+            <li class="anchor">
+              <a title="3.6 Certificate Management" href="#36-certificate-management">
+                <b>3.6 Certificate Management</b>
+              </a>
+            </li>
+            
+          
+            <li class="anchor">
+              <a title="3.7 [Optional] Actions in case setup.properties.last method of installation didn't work for you" href="#37-optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">
+                <b>3.7 [Optional] Actions in case setup.properties.last method of installation didn't work for you</b>
               </a>
             </li>
             
@@ -366,8 +357,8 @@
       
         
   <li>
-    <a class="" title="4.1 Upgrade Guide" href="../upgrade/">
-      4.1 Upgrade Guide
+    <a class="" title="4 Upgrade Guide" href="../upgrade/">
+      4 Upgrade Guide
     </a>
     
   </li>
@@ -436,30 +427,11 @@
       <article class="article">
         <div class="wrapper">
           
-          <div class="toc">
-<ul>
-<li><a href="#manual-cluster">Manual Cluster</a><ul>
-<li><a href="#design">Design</a></li>
-<li><a href="#requirements">Requirements</a></li>
-<li><a href="#preparing-vms">Preparing VMs</a></li>
-<li><a href="#ldap-replication">LDAP Replication</a></li>
-<li><a href="#file-system-replication">File System Replication</a><ul>
-<li><a href="#csync2-installation">Csync2 installation</a></li>
-<li><a href="#csync2-configuration-for-host-1">Csync2 configuration for host-1</a></li>
-<li><a href="#csync2-configuration-for-host-2">Csync2 configuration for host-2</a></li>
-</ul>
-</li>
-<li><a href="#certificate-management">Certificate Management</a></li>
-<li><a href="#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">[Optional] Actions in case setup.properties.last method of installation didn't work for you</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<h1 id="manual-cluster">Manual Cluster<a class="headerlink" href="#manual-cluster" title="Permanent link">#</a></h1>
-<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
+          <h1 id="3-manual-cluster">3 Manual Cluster<a class="headerlink" href="#3-manual-cluster" title="Permanent link">#</a></h1>
+<h2 id="31-design">3.1 Design<a class="headerlink" href="#31-design" title="Permanent link">#</a></h2>
 <p>The following diagram outlines the design of the cluster.
 <img alt="image" src="https://cloud.githubusercontent.com/assets/7156097/13850591/9a553fde-ec28-11e5-8fa7-675f96743a10.png" /></p>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<h2 id="32-requirements">3.2 Requirements<a class="headerlink" href="#32-requirements" title="Permanent link">#</a></h2>
 <p>For complete deployment requirements and instructions, please see the <a href="../installation-guide/">Deployment Page</a>.
 The requirements for Clusters vary only in the RAM requirement. Clusters require at least 8GB RAM for smooth performance. The requirements below are specific for Cluster Installation VMs.</p>
 <table>
@@ -483,7 +455,107 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 </tbody>
 </table>
 <p><strong>Note:</strong> For convenience, the VMs are identified as <code>host-1</code> and <code>host-2</code></p>
-<h2 id="preparing-vms">Preparing VMs<a class="headerlink" href="#preparing-vms" title="Permanent link">#</a></h2>
+<h3 id="321-csync2-installation">3.2.1 Csync2 Installation<a class="headerlink" href="#321-csync2-installation" title="Permanent link">#</a></h3>
+<h4 id="3211-centos-6x">3.2.1.1 CentOS 6.x<a class="headerlink" href="#3211-centos-6x" title="Permanent link">#</a></h4>
+<ol>
+<li>
+<p>Log into Gluu-Server container</p>
+</li>
+<li>
+<p>Install epel-release-latest by running <code>rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm</code></p>
+</li>
+<li>
+<p>Install <code>csync2</code> package by running <code>yum install csync2</code></p>
+</li>
+</ol>
+<h4 id="3212-centos-7x">3.2.1.2 CentOS 7.x<a class="headerlink" href="#3212-centos-7x" title="Permanent link">#</a></h4>
+<p>On the moment of writing csync2 can't be found in public repositories. The only option is to compile from sources.</p>
+<ol>
+<li>
+<p>Log into Gluu-Server container</p>
+</li>
+<li>
+<p>Enable epel-release repo: <code># yum install epel-release</code></p>
+</li>
+<li>
+<p>Install compiler and development environment: <code># yum group install "Development Tools"</code></p>
+</li>
+<li>
+<p>Install csync2's dependencies:</p>
+<ol>
+<li>
+<p><code># yum install librsync-devel</code></p>
+</li>
+<li>
+<p><code># yum install gnutls-devel</code></p>
+</li>
+<li>
+<p><code># yum install sqlite-devel</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p><code># mkdir building_csync &amp;&amp; cd building_csync/</code></p>
+</li>
+<li>
+<p>Download the latest version of the tool from <a href="http://oss.linbit.com/csync2/">here</a>: <code># wget http://oss.linbit.com/csync2/csync2-2.0.tar.gz</code></p>
+</li>
+<li>
+<p>Unpack: <code># tar -xz -f ./csync2-2.0.tar.gz &amp;&amp; cd csync2-2.0/</code></p>
+</li>
+<li>
+<p>Build &amp; install, while directing it to use <code>/usr/local/etc/csync2/</code> directory for storing configuration (for convenience): <code># ./configure --sysconfdir /usr/local/etc/csync2/ &amp;&amp; make &amp;&amp; make install</code>. Don't forget to update paths to csync's binaries and configuration files later on, as they are different from the ones used in examples in the main article!</p>
+</li>
+</ol>
+<h4 id="3213-ubuntu-14x-compiling-from-sources">3.2.1.3 Ubuntu 14.x (compiling from sources)<a class="headerlink" href="#3213-ubuntu-14x-compiling-from-sources" title="Permanent link">#</a></h4>
+<ol>
+<li>
+<p>Log into Gluu-Server container</p>
+</li>
+<li>
+<p>Run <code>apt-get update</code></p>
+</li>
+<li>
+<p>Install csync2's dependencies:</p>
+<ol>
+<li>
+<p><code># apt-get install pkg-config</code></p>
+</li>
+<li>
+<p><code># apt-get install libsqlite-dev</code></p>
+</li>
+<li>
+<p><code># apt-get install libsqlite3-dev</code></p>
+</li>
+<li>
+<p><code># apt-get install librsync-dev</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Download the latest version of the tool from <a href="http://oss.linbit.com/csync2/">here</a>: <code># wget http://oss.linbit.com/csync2/csync2-2.0.tar.gz</code></p>
+</li>
+<li>
+<p>Unpack: <code># tar -xz -f ./csync2-2.0.tar.gz &amp;&amp; cd csync2-2.0/</code></p>
+</li>
+<li>
+<p>Build &amp; install, while directing it to use <code>/etc/csync2/</code> directory for storing configuration and <code>/usr/sbin</code> directory for executables (for convenience): <code>./configure --sysconfdir /etc/csync2/ --prefix /usr/ &amp;&amp; make &amp;&amp; make install</code></p>
+</li>
+</ol>
+<h4 id="3214-ubuntu-14x-from-repo">3.2.1.4 Ubuntu 14.x (from repo)<a class="headerlink" href="#3214-ubuntu-14x-from-repo" title="Permanent link">#</a></h4>
+<ol>
+<li>
+<p>Log into Gluu-Server container</p>
+</li>
+<li>
+<p>Run <code>apt-get update</code></p>
+</li>
+<li>
+<p>Run <code>apt-get install csync2</code>
+[TOC]</p>
+</li>
+</ol>
+<h2 id="33-preparing-vms">3.3 Preparing VMs<a class="headerlink" href="#33-preparing-vms" title="Permanent link">#</a></h2>
 <ul>
 <li>
 <p>Install Gluu CE following the <a href="../installation-guide/">Deployment Page</a> in <code>host-1</code></p>
@@ -492,7 +564,7 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 <p><sub><em><code>(!)</code>Please note: you must do this step right after initial installation on the 2nd node, but before you'll run setup.py script there<code>(!)</code></em></sub> Copy <code>setup.properties.last</code> that will be generated in <code>/install/community-edition-setup/</code> right after <code>setup.py</code>'s completion on <code>host-1</code>, change IP address in it to the one of <code>host-2</code> and put it into the same directory of <code>host-2</code> while renaming the file to <code>setup.properties</code>, then run <code>setup.py</code> the usual way. As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run <code># ./setup.py -h</code> for full list of them) Please be sure to read <a href="./#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">this part</a> in case you failed to setup the 2nd node using <code>setup.properties.last</code> file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.</p>
 </li>
 </ul>
-<h2 id="ldap-replication">LDAP Replication<a class="headerlink" href="#ldap-replication" title="Permanent link">#</a></h2>
+<h2 id="34-ldap-replication">3.4 LDAP Replication<a class="headerlink" href="#34-ldap-replication" title="Permanent link">#</a></h2>
 <ul>
 <li>Things to know</li>
 </ul>
@@ -620,7 +692,7 @@ operation.
 </code></pre>
 
 <p><sub><em><code>(!)</code> OpenDJ may become picky about certificates used for SSL connections during replication in certain linux distros. Make sure you've added certificates of each OpenDJ instance to default java key storage of each node; another option is to use the same OpenDJ certificate/key pair for both nodes</em></sub>   </p>
-<h2 id="file-system-replication">File System Replication<a class="headerlink" href="#file-system-replication" title="Permanent link">#</a></h2>
+<h2 id="35-file-system-replication">3.5 File System Replication<a class="headerlink" href="#35-file-system-replication" title="Permanent link">#</a></h2>
 <p><sub><em><code>(!)</code> Be advised that backup feature is broken in some of earlier versions of csync2 you may get installed from your distribution's repo. In that case you will need either to disable it by commenting out <code>backup-*</code> clauses in tool's configuration file, or to build csync2 of version 2.0+ from sources and use key <code>-l</code> in your xinetd.d's config (like <code>server_args     = -i -l -N idp1.gluu.org</code>) on both nodes.</em></sub> <br />
 <sub><em><code>(!)</code> Be sure to verify all pathes (for executables, keys etc) in configuration files' examples before using them in your production instance, as they may differ for different linux distros.</em></sub></p>
 <p><code>csync2</code> is used for file system syncing between <code>host-1</code> and <code>host-2</code>. The following locations are synced in between the two VMs.</p>
@@ -631,9 +703,7 @@ operation.
 <li>/opt/tomcat/conf</li>
 <li>/etc/csync2/csync2.cfg</li>
 </ol>
-<h3 id="csync2-installation">Csync2 installation<a class="headerlink" href="#csync2-installation" title="Permanent link">#</a></h3>
-<p>Please follow steps provided in next articles to install csync2 on both nodes: <a href="csync-installation/#centos-6x">CentOS 6.x</a>, <a href="csync-installation/#centos-7x">CentOS 7.x</a>, <a href="csync-installation/#ubuntu-14x-from-repo">Ubuntu 14.x (from repo)</a>, <a href="csync-installation/#ubuntu-14x-compiling-from-sources">Ubuntu 14.x (compiling from sources)</a>.</p>
-<h3 id="csync2-configuration-for-host-1">Csync2 configuration for host-1<a class="headerlink" href="#csync2-configuration-for-host-1" title="Permanent link">#</a></h3>
+<h3 id="351-csync2-configuration-for-host-1">3.5.1 Csync2 configuration for host-1<a class="headerlink" href="#351-csync2-configuration-for-host-1" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>Log into Gluu-Server container</p>
@@ -758,7 +828,7 @@ group cluster_group
 <pre><code>1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp1.gluu.org -xv 2&gt;/var/log/csync2.log 
 </code></pre>
 
-<h3 id="csync2-configuration-for-host-2">Csync2 configuration for host-2<a class="headerlink" href="#csync2-configuration-for-host-2" title="Permanent link">#</a></h3>
+<h3 id="352-csync2-configuration-for-host-2">3.5.2 Csync2 configuration for host-2<a class="headerlink" href="#352-csync2-configuration-for-host-2" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>Log into Gluu-Server container</p>
@@ -877,11 +947,11 @@ group cluster_group
 <pre><code>1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp2.gluu.org -xv 2&gt;/var/log/csync2.log 
 </code></pre>
 
-<h2 id="certificate-management">Certificate Management<a class="headerlink" href="#certificate-management" title="Permanent link">#</a></h2>
+<h2 id="36-certificate-management">3.6 Certificate Management<a class="headerlink" href="#36-certificate-management" title="Permanent link">#</a></h2>
 <p>The certificates do not vary in the manual cluster configuration. The certificates should be updated manually 
 in each host, when required. Move to <code>/etc/certs/</code> on the 1st node (inside the container). Copy all keys, certs and key storages conforming to these masks: <code>httpd.*</code>, <code>asimba.*</code>, <code>asimbaIDP.*</code> and <code>shibIDP.*</code> to the same directory on the 2nd node (overwriting files that exist there; you may opt to backup them first, just in case).</p>
 <p>After that's done you still will need to update default system storage (<code>cacerts</code> file) at the 2nd node with these newly copied certificates.</p>
-<h2 id="optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">[Optional] Actions in case setup.properties.last method of installation didn't work for you<a class="headerlink" href="#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you" title="Permanent link">#</a></h2>
+<h2 id="37-optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">3.7 [Optional] Actions in case setup.properties.last method of installation didn't work for you<a class="headerlink" href="#37-optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you" title="Permanent link">#</a></h2>
 <p>In this case jks keystores you'll be moving to the 2nd node will be protected by passwords hardcoded into different configuration files on the 1st node, which are different from the similar passwords hardcoded into the same files on the 2nd node.</p>
 <p>Thus you MUST ensure that the 1st node will be the one that will initialize the 2nd node during first csync's run (i.e., that it will win any conflicts due to changes in files that csync may detect during its very first run), as otherwise different components won't be able to decrypt these keystores and will fail.</p>
 <p>To achieve this you should run initial sync manualy after completing configuring it, but before you install cron jobs:</p>
@@ -924,7 +994,7 @@ in each host, when required. Move to <code>/etc/certs/</code> on the 1st node (i
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="csync-installation/" title="3.1 Csync Install Guide">
+        <a href="../installation-guide/setup_py/" title="2.5 Setup Script Options">
           <span class="direction">
             Previous
           </span>
@@ -934,7 +1004,7 @@ in each host, when required. Move to <code>/etc/certs/</code> on the 1st node (i
             </div>
             <div class="stretch">
               <div class="title">
-                3.1 Csync Install Guide
+                2.5 Setup Script Options
               </div>
             </div>
           </div>
@@ -943,14 +1013,14 @@ in each host, when required. Move to <code>/etc/certs/</code> on the 1st node (i
     </div>
     <div class="next">
       
-        <a href="../upgrade/" title="4.1 Upgrade Guide">
+        <a href="../upgrade/" title="4 Upgrade Guide">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                4.1 Upgrade Guide
+                4 Upgrade Guide
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
