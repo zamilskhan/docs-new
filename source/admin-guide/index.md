@@ -1,102 +1,145 @@
-[TOC]
-# Gluu Server Administrative Interface
-The administration interface (oxTrust) is accessible from the `hostname` provided in the prompt from the setup script. After the installation is complete, log in to the web-based interface with the username `admin` and the `LDAP superuser` password. 
+Gluu Server supports Security Assertion Markup Language (SAML) and OpenID Connect protocols to authenticate users against Service Providers (SPs) and Requesting Parties (RPs). There are two different flows of SAML known as outbound SAML and inbound SAML, both supported out-of-the-box in Gluu Server Community Edition (Gluu CE).
 
-## Welcome Page
-The administrator is taken to the welcome page if the username and the password is correct. Some basic information about the VM/server is displayed in the welcome screen. The version is displayed on top followed by free memory,disk space. The health of the VM/server can be easily determined from the welcome page. There is a photo icon on the right hand top side of the page which can be used to navigate to the user-profile and logging out of Gluu Server CE.
-![welcome-page.png](../img/oxtrust/welcome-page.png "Welcome to Gluu Server")
+## 2 SAML
+![image](https://www.oasis-open.org/committees/download.php/29723/draft-saml-logo-03.png)
 
-The menu on the left side of the welcome page is used to navigate the admin interface for Gluu Server. The menu has separate buttons for SAML, OpenID Connect and UMA. The user-management menu is found under `Users` and the user-profile is under `Personal`.
+Security Assertion Markup Language (SAML) is an authentication and authorization protocol that defines the transaction process for XML-encoded assertions about authentication, authorization and attributes. The protocol is goverened by [Security Assertion Markup Language Core
+(SAML) V2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf "SAML 2.0 Core"). The goal of this protocol is to exchange authentication and authorization data between Service Providers (SP) and the Identity Provider (IDP).
+Gluu Server supports both inbound and outbound flow of SAML transaction. The oxTrutst administrator interface makes it easy to use SAML.
 
-## Configuration
-![configuration-menu](../img/oxtrust/configuration-menu.png "Organization Menu")
+Trust Relationships are the foundation on which SAML works. Gluu Server makes it easy to setup Trust Relationships from the oxTrust admin interface. There are two types of flow Gluu CE supports, inbound and outbound SAML.
+Trust Relationship creation is mandatory in both flows; however, the inbound flow also acts as a SAML proxy. The details about how to setup a Trust Relationship and how to setup SAML proxy follows later in this documentation. The image below is taken from wikipedia, showing a SAML transaction workflow.
 
-The configuration tab contians the tools to configure Gluu Server CE. This section is dedicated to all tuning and tinkering except integration tools.
-The configuration menu is divided in to other sections which are revealed on click. The administrator can manage authentication, registration, attributes, cache-refresh,logs etc. from this menu.
+![wikipedia image](https://upload.wikimedia.org/wikipedia/en/0/04/Saml2-browser-sso-redirect-post.png)
 
-### Organization Configuration
-There are three sections in the organization configuration page which are [System Configuration](#system-configuration), [SMTP Server Configuration](#smtp-server-configuration) and [OxTrust Settings](#oxtrust-settings). These sections are detailed below with screenshots.
+## 3 OpenID Connect
+![image](http://wiki.openid.net/f/openid-logo-wordmark.png)
 
-![organization-config-head](../img/oxtrust/organization-config-head.png "Organization Configuration")
+[OpenID Connect](http://openid.net/connect "Connect") is a standard     │s/new-docs/source/img/uma/auth-complete.png
+OpenID Connect is a standard profile of OAuth2 which defines a protocol to enable any website, mobile application to verify the identity of the user accessing its resources through an authorization server or identity server. The protocol is API friendly and works through endpoints making it easy for applications to use it. 
 
-**System Configuration**
-Gluu Server CE is shipped with a built-in `White Pages` feature which can be enabled from the system configuration page. This page also contains the options to enable `Self-Service Password Reset` which allows the Gluu Server users to reset their password via email. This options depends on the [SMTP Server Configuration](#smtp-server-configuration), also available under the organization configuration page. Additionally the `SCIM Support` can be enabled from the System Configuration page. If the organization uses any custom `DNS Server(s)`, the address should be updated from the System Configuration interface.
-![system-config-options](../img/oxtrust/system-config-options.png)
+OpenID Connect specification consists of different documents which outline different aspects of the protocol. The basic implementation requires the [OpenID Connect Core Specification](http://openid.net/specs/openid-connect-core-1_0.html "Core Specification"). The figure below taken from the [OpenID Connect website](http://openid.net/ "openid.net") shows the overview of the protocol and the different parts of the specification.
 
-**SMTP Server Configuration**
-The mail server used by the Gluu Server to send notification to the pre-selected email address is configured in this page/panel. All the fields in this page are manadory and the configuration can be tested before confirmation. The fields are self-explanatory and simple such as hostname, user, password, ssl-requirement, authentication requirement, sending name and address.
-![smtp-config](../img/oxtrust/smtp-config.png "SMTP Configuration")
+![openid.net image](http://openid.net/wordpress-content/uploads/2014/02/OpenIDConnect-Map-4Feb2014.png)
 
-**OxTrust Settings**
-Some basic information abouht the administrator interface is available in this page. The administrator can find out the oxTrust build date and number by accessing the oxTrust settings page. The administrator can change the organization name, logo and favicon settings from this page as well. Finally oxTrust Settings page contains the name of the administrator group for Gluu Server. The users added in this group will have administrator access in Gluu Server where they will be able to maintain/configure the server.
+### 3.1 Terminology
 
-![oxtrust-settings](../img/oxtrust/oxtrust-settings.png "OxTrust Settings")
+- Claim: Information about the entity
+- ID Token: JSON Web Token (JWT) that contains claims about the authentication
+- Issuer: The authority that issues the claims
+- OpenID Provider (OP): OAuth2.0 authorization server that authenticates user through claims to the Relying Party (RP)
+- Relying Party (RP): OAuth 2.0 Client application that requires authentication and claims from an OpenID Provider(OP)
+- UserInfo Endpoint: An URL using https that returns authorization for the user from the OP to the RP
 
-### JSON Configuration
-The configuration files are accessible from the administrator interface (oxTrust). There are three tabs under the `JSON Configuration` menu
-![json-config-head](../img/oxtrust/json-config-head.png "JSON Configuration Headers")
+### 3.2 Discovery
+OpenID Connect provides a simple mechanism to notify about the available endpoints. This is difined in the [OpenID Connect Discovery Specification](http://openid.net/specs/openid-connect-discovery-1_0.html "OpenID Connect Discovery). 
 
-The oxtrust JSON configuration file is accessible from this tab and it can be edited from this page. The changes are updated by clicking on the `Update` button on the bottom of the page. The details of the file is given later in the [Reference Guide](../reference-guide/index.md).
+In order for an OpenID Connect Relying Party (RP) to utilize OpenID Connect services for an End-User, the RP needs to know where the OpenID Provider is. OpenID Connect uses WebFinger to locate the OpenID Provider for an End-User.
+Once the OpenID Provider has been identified, the configuration information for the OP is retrieved from a well-known location as a JSON document, including its OAuth 2.0 endpoint locations.
+If you want to try a discovery request, you can make the following WebFinger request to discover the Issuer location:
 
-The oxAuth JSON configuration page gives easy access to the different endpoints used by Gluu Server CE. This page also contains the supported response, grants and algorithms among other information. The details will follow later on this documentation.
+```
+GET /.well-known/webfinger?resource=https%3A%2F%2Fidp.gluu.org&rel=http%3A%2F%2Fopenid.net%2Fspecs%2Fconnect%2F1.0%2Fissuer HTTP/1.1
+Host: idp.gluu.org
 
-The oxTrust Import Person Configuration page contains the configuration for the file method of importing users into Gluu Server CE. The administrator can import users from a `xls` file which must be defined in this tab to import data in the LDAP attributes. The default format should contain the following fields
+HTTP/1.1 200
+Content-Type: application/jrd+json
 
-### Manage Authentication
-The `Manage Authentication` page contains the internal OpenDJ settings for Gluu Server CE. The `Default Authentication Method` defines the authentication mechanism used for general authentication and oxTrust authentication. The separation is introduced because the users logging into Service Providers (SP) do not see the administrative console. The `oxTrust authentication mode` decides the authentication mechasims for the users logging into the oxTrust admin interface.
-![manage-authentication-head](../img/oxtrust/manage-authentication-head.png)
+{
+    "subject": "https://idp.gluu.org",
+    "links": [{
+        "rel": "http://openid.net/specs/connect/1.0/issuer",
+        "href": "https://idp.gluu.org"
+    }]
+}
+```
 
-### Manage Custom Scripts
-It will not be an understatement to say that the custom script feature makes Gluu Server CE so robust and dynamic. The scripts are available for all intents and purposes the major being multi-factor authentication. There are many custom scritps included with the vanilla Gluu Server CE which can be enabled by clicking the check box.
+## 4 User-Managed Access (UMA)
+![image](http://kantarainitiative.org/confluence/download/attachments/17760302/UMA-logo.png)
 
-![enable](../img/oxtrust/enable.png)
+UMA is an oAuth based protocol to "enable a resource owner to control the authorization of data sharing and other protected-resource access made between online services on the owner’s behalf or with the owner’s authorization by an autonomous requesting party"[1][].
 
-The details about the custom scripts are given later in this guide.
+### 4.1 Enterprise UMA
+The Gluu Server implements UMA in a way that enables the protection of any web resource. Through the oxTrust interface, the server admin can write [custom authorization interception scripts][2] which may contain logic to grant (or forbid) access. The diagram below shows an overview of the UMA Authorization workflow.
 
-### Manage Registration
-Gluu Server CE is shiped with the feature to register users via the user-registration endpoint. The registry feature contains a Captcha which can be disabled from this page. Additionally it is possible to enable registration configuration from attributes.
+![overview](../img/uma/overview.png "UMA Auth Overview")
+### 4.2 Terminology
+- Resource Server (RS): Where the resources are held. 
+- Authorization Server (AS): A server that governs access based on resource owner policies. 
+- Requesting Party (RP): An end-user, or a corporation or other legal person, that uses a client to seek access to a protected resource. The requesting party may or may not be the same party as the resource owner. 
+- Client: A web or native app that is used to access a digital resource. 
+- Protection API Token (PAT): An entity seeking protection API access MUST have the scope "uma_protection". An access token with at least this scope is called a protection API token (PAT) and an entity that can acquire an access token with this scope is by definition a resource server. 
+- Requesting Party Token (RPT): the token that a client presents to a resource server when trying to access a protected resource. 
+- Authorization API Token (AAT): An entity seeking authorization API access MUST have the scope "uma_authorization". An access token with at least this scope is called an authorization API token (AAT) and an entity that can acquire an access token with this scope is by definition a client.
 
-### Attributes
-The attributes that are avalaible in the Gluu Server CE is found in this page. The administration can only see the active attributes when this page is accessed. The `Show All Attributes` button will show the inactive attributes too. Custom attributes can be added by clicking the `Add Attribute` button and filling up a simple form.
+### 4.3 UMA Workflow
+The complete workflow sequence is shown in the diagram below. However there are two different authorization workflow given below for authorization and authorization token.
 
-![attribute-head](../img/oxtrust/attribute-head.png)
+![auth-complete](../img/uma/auth-complete.png "UMA Complete Auth Workflow")
+#### 4.3.1 Authorization
+![auth](../img/uma/auth.png "UMA Authorization Workflow")
 
-### Cache Refresh
-Cache Refresh is the mechanism used by Gluu Server CE to import users from a backend LDAP/AD data source. The entire configuration is handled from this page. The `Cache Refresh` will notify the administrator of any problem with cache refresh the last time it was run. The frequency of cache refresh is also set from this page with the `Polling interval (minutes)` form. The key attributes, object class and the source attributes can be defined from the `Customer BackendKey/Attributes` tab. The backend server address, bind DN and other information must go to the `Source Backend LDAP Servers` tab. The details about performing cache refresh will follow later in this guide.
+#### 4.3.1 Authorization Token
+![auth-token](../img/uma/auth-token.png "UMA Authorization Token Workflow")
 
-### Configure Log Viewer
-The logs for oxauth, oxtrust, cache refresh and the tomcat log can be configured from this tab. The log paths are given with the functionality to define any new log template with log file path.
+### 4.4 Discovery
+Gluu Server CE provides an endpoint for discovering information about UMA Provider configuration. A resource server or client can perform an HTTP GET on `https://<hostname>/.well-known/uma-configuration` to retrieve a JSON object indicating the UMA Provider configuration.
 
-### View Log File
-The log files are listed in the `View Log File` page under the `Allowed Log Files` tab. The individual logs can be tailed by clicking them. The `Configuration` contains the last line count which will show the number of lines specified from the log in the `Tail of Log File` tab. This section is an alternative to getting into the Gluu `chroot` and tailing the log files.
+The following is an example of a GET request to the UMA configuration discovery endpoint:
+```
+{
+  "version": "1.0",
+  "issuer": "https://gluuserver.org",
+  "pat_profiles_supported": [
+    "bearer"
+  ],
+  "aat_profiles_supported": [
+    "bearer"
+  ],
+  "rpt_profiles_supported": [
+    "bearer"
+  ],
+  "pat_grant_types_supported": [
+    "authorization_code"
+  ],
+  "aat_grant_types_supported": [
+    "authorization_code"
+  ],
+  "claim_profiles_supported": [
+    "openid"
+  ],
+  "dynamic_client_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/oxauth/register",
+  "token_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/oxauth/token",
+  "user_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/oxauth/authorize",
+  "introspection_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/host/status",
+  "resource_set_registration_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/host/rsrc",
+  "permission_registration_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/host/rsrc_pr",
+  "rpt_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/requester/rpt",
+  "authorization_request_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/requester/perm",
+  "scope_endpoint": "https://gluuserver.org/oxauth/seam/resource/restv1/uma/scopes"
+}
+```
 
-### Server Status
-This page will give some basic information about the Gluu Server such as the hostname, IP address, free memory & disk space. The number of users in the backend is also available in this page.
+!!! Note
+    The UMA Response  may contain custom properties which are uniquely named for convenience and disguishing between standard & custom properties.
 
-### Certificates
-The certificate page will give the certificate information for Gluu Server. The issuer info along with the algorithm used and the expiry date is also available.
+[1]:http://kantarainitiative.org/confluence/display/uma/Charter "UMA Charter"
+[2]: ../index.md "Custom Scripts"
 
-## SAML
-Gluu Server CE contains all SAML related functionalities under the `SAML` tab divided into outbound and inbound SAML transactions. Inbound SAML is also known as ASIMBA. 
+## 4 OAuth2.0 
+![image](https://oauth.net/images/oauth-2-sm.png)
 
-### Outbound
+OAuth2.0 is the next version in the OAuth protocol focusing on simplicity with specific authorization flows for different platforms. The core specification is called the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). OAuth introduces an authorization layer and separates the role of the client from the resource owner. The resource is accessed using access tokens instead of credentials.
 
-![saml](../img/oxtrust/saml.png)
+### 4.1 Terminology
+- Resource Owner (RO): Entity that owns and controls the access to any resource
+- Resource Server (RS): Where the resources are held
+- Client: Any application/web-site that requests access to the protected resource stored in any RS.
+- Authorization Server: The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization
 
-The `Trust Relationships` page, as the name suggests, will allow the administrator to view the created trust relationships (TRs) by searching using the search button. There is a button to add relationship with the same name. All the available TRs can be searched by using two (2) spaces in the search bar. There are some information that the administrator needs to gather before creating any new TR in Gluu Server. The metadata of the Service Provider (SP) connected using TR must be gathered along with the required attributes. The creation of TR will be covered in detail later.
+### 4.2 Workflows
+####4.2.1 Client Credentials Grant
+The Client Credentials Grant allows [RO][] to use username and password as an authorization grant to obtain an access token. This flow is only encouraged when there is high degree of trust between [RO][] and the client and no other grant types are not available.
+![client-credential-grant](../img/oauth2/client-credentials-grant.png)
 
-## OpenID Connect
-OpenID Connect is another protocol supported by Gluu Server CE following the [openID Connect specifications](http://openid.net/specs/openid-connect-core-1_0.html). The scopes page contains the `Add Scope` button which can be used to add new scopes in Gluu Server. Additionally the available scopes can be searched by name or listed using two (2) spaces in the search bar.
-
-![scopes](../img/oxtrust/scopes.png)
-
-The OpenID Connect clients are accessible from the `Clients` page under `OpenID Connect` tab. The structure is similar to the scopes page with the functionality to search by name or use two (2) spaces to list all the available clients. New clients can be added by clicking the `Add Client` button.
-
-![clients](../img/oxtrust/clients.png)
-
-## UMA
-UMA or (User-Managed Access) is an access management protocol supported by Gluu Server.The available scopes can be searched using the search bar on the top of the page. New scope descriptions can be added using the `Add Scope Description` button.
-![uma-scopes](../img/oxtrust/uma-scopes.png)
-
-UMA resources page also has a searchbar on the top of the page and can be used to search for resource sets. New resource sets can be added by clocking on the `Add Resource Set` button.
-![uma-resources](../img/oxtrust/uma-resources.png)
+[RO]: ./index.md#41-terminology "Resource Owner"

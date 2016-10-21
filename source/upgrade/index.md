@@ -1,6 +1,4 @@
-[TOC]
-
-# Upgrading Gluu Server CE
+# 4 Upgrading Gluu Server CE
 
 Upgrading a Gluu Server is NOT a simple `apt-get upgrade`. The admin needs to explicitly install the version of the Gluu Server. It generally involves the following steps:
 
@@ -14,7 +12,7 @@ Gluu provides the necessary [scripts](https://github.com/GluuFederation/communit
 
 > NOTE: In this documentation we are specifying '2.4.x' as older version and '2.4.y' the latest one. 
 
-## Export the data from the current installation
+## 4.1 Export the data from the current installation
 
 ```
 # service gluu-server-2.4.x login
@@ -29,7 +27,7 @@ Gluu provides the necessary [scripts](https://github.com/GluuFederation/communit
 The export script will generate a directory called `backup_24` which will have all the data backed up from the current installation.
 Check the log file generated in the directory for any errors.
 
-## Install the latest version of the Gluu server
+## 4.2 Install the latest version of the Gluu server
 
 Stop the current version of the gluu-server.
 
@@ -37,7 +35,7 @@ Stop the current version of the gluu-server.
 # service gluu-server-2.4.x stop
 ```
 
-Consult the [docs](https://www.gluu.org/docs/deployment/) of the respective distribution about how to install the Gluu Server using the package manager.
+Consult the [installation guide](../install-guide/index.md) of the respective distribution about how to install the Gluu Server using the package manager.
 Once the package manager has installed the version `2.4.y`, then:
 
 ```
@@ -56,7 +54,7 @@ Once the package manager has installed the version `2.4.y`, then:
 
 Enter the required information for the setup and complete the installation.
 
-## Import your old data
+## 4.3 Import your old data
 
 Go to the folder where you have the `backup_24` folder (if the above commands were followed, it is in /root/) and  get the necessary scripts.
 
@@ -88,4 +86,4 @@ Install the `json-merge` Python package and run the import script.
 # ./import24.py backup_24
 ```
 
-Any error or warning will be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place.
+Any error or warning will 4be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place.

@@ -1,4 +1,5 @@
-# 3 Manual Cluster
+# 3 Cluster with Gluu CE
+It is possible to setup a cluster of servers with Gluu Server CE. This page outlines the setup process of a cluster with two (2) nodes. It is possible to add more nodes, but it is recommened to contact Gluu for higher level solutions.
 ## 3.1 Design
 The following diagram outlines the design of the cluster.
 ![image](https://cloud.githubusercontent.com/assets/7156097/13850591/9a553fde-ec28-11e5-8fa7-675f96743a10.png)
@@ -6,14 +7,15 @@ The following diagram outlines the design of the cluster.
 ## 3.2 Requirements
 
 For complete deployment requirements and instructions, please see the [Deployment Page](../installation-guide/index.md).
-The requirements for Clusters vary only in the RAM requirement. Clusters require at least 8GB RAM for smooth performance. The requirements below are specific for Cluster Installation VMs.
+The requirements for Clusters vary only in the RAM requirement. Clusters require at least 8GB RAM for smooth performance. The requirements below are specific for Cluster Installation VMs. Please remember that the requirements from the deployment page will apply as well.
 
 
 |	Number of VMs	|CPU Units	|	RAM	|Root Partion	|	Port Requirements	|
 |-----------------------|---------------|---------------|---------------|-------------------------------|
 |	2		|	2 CPU ea.	|	8 GB	|	40 GB	|	4444 and 8989 (LDAP replication), 30865 (file system syncing)|
 
-**Note:** For convenience, the VMs are identified as `host-1` and `host-2`
+!!! Note
+    For convenience, the nodes are identified as `host-1` and `host-1`
 
 ### 3.2.1 Csync2 Installation
 #### 3.2.1.1 CentOS 6.x
@@ -86,11 +88,14 @@ On the moment of writing csync2 can't be found in public repositories. The only 
 
 * Install Gluu CE following the [Deployment Page](../installation-guide/index.md) in `host-1`
 
-* <sub>*`(!)`Please note: you must do this step right after initial installation on the 2nd node, but before you'll run setup.py script there`(!)`*</sub> Copy `setup.properties.last` that will be generated in `/install/community-edition-setup/` right after `setup.py`'s completion on `host-1`, change IP address in it to the one of `host-2` and put it into the same directory of `host-2` while renaming the file to `setup.properties`, then run `setup.py` the usual way. As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run `# ./setup.py -h` for full list of them) Please be sure to read [this part](./index.md#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup the 2nd node using `setup.properties.last` file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.
+!!! Note
+    The following step must be done right after initial installation of the Gluu CE Package but before finalizing the setup by running the `setup.py` script.
+
+* Copy the `setup.properties.last` file that is generated afther finalizing the installation of Gluu CE on `host-1` and paste it in the `/install/community-edition-setup/` folder inside the `host-2` chroot. Please remember that the interactive setup mode will not run with this command, so add keywords such as `-a` to include asimba, shibboleth or any other component that was installed. Read [this section](#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup Gluu CE in `host-2`.
+
+* Finalize the installation by running the setup script with any additional components that was installed in `host-1`.
 
 ## 3.4 LDAP Replication
-
-* Things to know
 
 |	host-1			|	host-2		   |
 |-------------------------------|--------------------------|
@@ -193,12 +198,16 @@ See /tmp/opendj-replication-808135637744675184.log for a detailed log of this
 operation.
 ```
 
-<sub>*`(!)` OpenDJ may become picky about certificates used for SSL connections during replication in certain linux distros. Make sure you've added certificates of each OpenDJ instance to default java key storage of each node; another option is to use the same OpenDJ certificate/key pair for both nodes*</sub>   
+!!! Note
+    OpenDJ may become picky about certificates used for SSL connections during replication in certain linux distros. Make sure you've added certificates of each OpenDJ instance to default java key storage of each node; an alternative is to use the same OpenDJ certificate/key pair for both nodes
 
 ## 3.5 File System Replication
 
-<sub>*`(!)` Be advised that backup feature is broken in some of earlier versions of csync2 you may get installed from your distribution's repo. In that case you will need either to disable it by commenting out `backup-*` clauses in tool's configuration file, or to build csync2 of version 2.0+ from sources and use key `-l` in your xinetd.d's config (like `server_args     = -i -l -N idp1.gluu.org`) on both nodes.*</sub>   
-<sub>*`(!)` Be sure to verify all pathes (for executables, keys etc) in configuration files' examples before using them in your production instance, as they may differ for different linux distros.*</sub>
+!!! Advice
+    The backup feature is broken in some of earlier versions of csync2. In that case it msut either be disabled by commenting out `backup-*` clauses in tool's configuration file, or build csync2 version 2.0+ from sources and use key `-l` in your xinetd.d's config (like `server_args     = -i -l -N idp1.gluu.org`) on both nodes.
+
+!!! Warning
+    Please verify all pathes (for executables, keys etc) in configuration files' examples before using them in your production instance, as they may differ in different linux distributions.
 
 `csync2` is used for file system syncing between `host-1` and `host-2`. The following locations are synced in between the two VMs.
 
@@ -216,7 +225,7 @@ operation.
 
 3. Copy the private key to `host-2` and put it into the same file there
 
-4. Generate certificate/key pair that will be used to establish SSL protection layer for incoming connections by running next commands on <code>host-1</code> (location of the files and their names are hardcoded into executable). Don't fill any fields, just hit `Enter` accepting default values:
+4. Generate certificate/key pair that will be used to establish SSL protection layer for incoming connections by running next commands on `host-1` (location of the files and their names are hardcoded into executable). Don't fill any fields, just hit `Enter` accepting default values:
 
 ```
 openssl genrsa -out /etc/csync2_ssl_key.pem 1024
@@ -238,8 +247,9 @@ ff02::2         ip6-allrouters
 192.168.6.2     idp2.gluu.org  
 ```
 <ol start ="6">
-<li> Modify <code>csync2</code> in the <code>/etc/xinetd.d/</code> folder (some packages may reqire you to install it first; run <code># yum install xinetd</code>, then <code># chkconfig xinetd on</code>):</li>
+<li> Modify <code>csync2</code> in the <code>/etc/xinetd.d/</code> folder (some packages may reqire you to install it first; run <code># yum install xinetd</code>, followed by <code># chkconfig xinetd on</code></li>
 </ol>
+
 ```
 # default: off
 # description: csync2
@@ -267,7 +277,8 @@ service csync2
 service xinetd restart
 chkconfig xinetd on
 ```
-**Note:** The status can be checked by running `chkconfig xinetd –list` and `iptables -L -nv | grep 30865`. For confirmation, telnet 30865 port from the VMs.
+!!! Note
+    The status can be checked by running `chkconfig xinetd –list` and `iptables -L -nv | grep 30865`. For confirmation, telnet 30865 port from the VMs.
 
 <ol start="8">
 <li> Configure <code>csync2.cfg</code> to reflect the configuration below (Please note that csync2 doesn't allow to use symlinks in this file; you'll may need to correct full paths to certain directories as they may change in future Gluu's CE packages)</li>
@@ -331,7 +342,7 @@ group cluster_group
 
 1. Log into Gluu-Server container
 
-2. (If you haven't done it yet) Copy the private key you generated on `host-1` previously to `host-2` and put it into `/etc/csync2/csync2.key` file 
+2. Please copy the private key generated on `host-1` to `host-2` and put it into `/etc/csync2/csync2.key` file 
 
 3. Generate certificate/key pair that will be used to establish SSL protection layer for incoming connections by running next commands on `host-2` (location of the files and their names are hardcoded into executable). Don't fill any fields, just hit "Enter" accepting default values:
 ```

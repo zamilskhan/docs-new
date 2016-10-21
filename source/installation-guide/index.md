@@ -1,6 +1,6 @@
 
 # 1 Preparing VM for Gluu Server Installation
-Gluu Server Community Edition (CE) does not have any fixed requirement to function properly, as the requirements depend on the data size it will handle. However there is a recommended minimum that Gluu suggests. If all the components are installed and used, then the VM needs at least the following:
+Gluu Server Community Edition (CE) resource allocation depends on the backend data size. The requirements below are a bare minimum for Gluu CE to function properly. It is strongly recommended to allocate more resource for bigger backend data size.
 
 |CPU Unit       |       RAM     |       Disk Space      | Processor Type|
 |---------------|---------------|-----------------------|-------------------------|
@@ -10,8 +10,6 @@ Gluu Server Community Edition (CE) does not have any fixed requirement to functi
     The processor type must be 64 bit for Gluu Server to function
 !!! note
     Insufficient memory may cause unexpected errors and bugs which will require adjusting the resources for a smooth performance.
-
-There are some other requirements that must fulfilled before you can install Gluu Server CE in the VM regarding tomcat memory heap and file descriptor settings.
 
 ## 1.1 Port
 The following ports open for the Gluu Server to run. Please keep the ports open before installing Gluu Server.
@@ -23,11 +21,14 @@ The following ports open for the Gluu Server to run. Please keep the ports open 
 
 ## 1.2 Tomcat Memory Heap
 
-The minimum recommended heap for tomcat server is 3GB for a test instance of Gluu Server Community Edition (CE). The minimum recommended tomcat heap memory is scaled higher for production instance at 4GB .
+The minimum recommended heap for tomcat server is 3GB for a test instance of Gluu Server Community Edition (CE). This estimate is based on the minumum RAM requirements. It is best to keep this ratio when tomcat memory is allocated in production environments as the size will depend on the available RAM; as an example, a 6GB tomcat memory heap in a production server with 8 GB ram is ideal for a small organization running Gluu CE.
 
 ### 1.2.1 Alter Tomcat Memory Heap
 
-The tomcat heap memory is set generally from the `setup.py` script prompt. This property can also altered from the `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside the Gluu Server chroot container setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties.
+The tomcat heap memory is set from the `setup.py` script prompt. 
+![tomcat-prompt](../img/oxtrust/tomcat-prompt.png)
+
+This property can also altered from the `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside the Gluu Server chroot container setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties.
 Use the following command to open the gluuTomcatWrapper file
 ```
 # vi /opt/tomcat/conf/gluuTomcatWrapper.conf
@@ -56,7 +57,7 @@ Gluu recommends setting the `file descriptors` to 65k for Gluu Server CE. The fo
 
 * Edit the `/etc/pam.d/login` by adding the line:
 ```
-session required /lib/security/pam_limits.so
+session required pam_limits.so
 ```
 * Use the system file limit to increase the file descriptor limit to 65535. The system file limit is set in `/proc/sys/fs/file-max`.
 ```
@@ -123,7 +124,7 @@ dropdown menu.
     installation instructions.
 
 #### 1.4.2.2 Setup.py Configuration
-s section describes what to put in the prompt when `setup.py` is run
+This section describes what to put in the prompt when `setup.py` is run
 after installing Gluu Server.
 
 * IP Address: Do not change the default IP address; just press `enter`.
@@ -132,12 +133,7 @@ after installing Gluu Server.
 
 * Update hostname: Choose to update hostname for Ubuntu, but do not
   change if you are running CentOS.
-        * For CentOS, manually update the file `/etc/sysconfig/networking`,
-      and add the full DNS name.
-
-* Other Settings: The other settings can be left to the default values.
-        * Recommendation: the Gluu Server requires a 64bit OS, and allocates
-      at least 4GB of RAM for Apache Tomcat in production environments.
+        * For CentOS, manually update the file `/etc/sysconfig/networking`, and add the full DNS name.
 
 * Now the chosen DNS name can be used to access the Gluu Server.
 
@@ -160,7 +156,7 @@ The Linode Virtual Machines (VM) use a custom kernel which is not supported by G
 # vim /etc/default/grub
 ```
 
-    - Ensure that the following lines are present in the glub file
+  * Ensure that the following lines are present in the grub file
 ```
 GRUB_TIMEOUT=10
 GRUB_CMDLINE_LINUX="console=ttyS0,19200n8"

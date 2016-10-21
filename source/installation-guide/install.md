@@ -8,7 +8,7 @@ The following commands will install Gluu Server `chroot`
 |       Command Description     |               Trusty Commands         |
 |-------------------------------|---------------------------------------|
 |       Add Gluu Repository     |echo "deb https://repo.gluu.org/ubuntu/ trusty main" > /etc/apt/sources.list.d/gluu-repo.list|
-|       Add Gluu GPG Key        |`curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -`|
+|       Add Gluu GPG Key        |curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -|
 |       Update/Clean Repo       |apt-get update                         |
 |       Install Gluu Server     |apt-get install gluu-server-2.4.4      |
 
@@ -21,7 +21,7 @@ The following commands will install Gluu Server `chroot`
 |       Command Description     |               Xenial Commands         |
 |-------------------------------|---------------------------------------|
 |       Add Gluu Repository     |echo "deb https://repo.gluu.org/ubuntu/ xenial main" > /etc/apt/sources.list.d/gluu-repo.list|
-|       Add Gluu GPG Key        |`curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -`|
+|       Add Gluu GPG Key        |curl https://repo.gluu.org/ubuntu/gluu-apt.key | apt-key add -|
 |       Update/Clean Repo       |apt-get update                         |
 |       Install Gluu Server     |apt-get install gluu-server-2.4.4      |
 
