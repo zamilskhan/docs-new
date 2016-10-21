@@ -172,51 +172,6 @@
           
             
   <li>
-    <span class="section">1.Introduction</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="1.1 Summary" href="../introduction/">
-      1.1 Summary
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.2 History" href="../introduction/history/">
-      1.2 History
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.3 Design Goals" href="../introduction/design/">
-      1.3 Design Goals
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.4 Gluu Server Architecture" href="../introduction/architecture/">
-      1.4 Gluu Server Architecture
-    </a>
-    
-  </li>
-                  
-      
-    </ul>
-  </li>
-                  
-          
-            
-  <li>
     <span class="section">Installation Guide</span>
     <ul>
       
@@ -292,22 +247,22 @@
         <ul>
           
             <li class="anchor">
-              <a title="Export the data from the current installation" href="#export-the-data-from-the-current-installation">
-                <b>Export the data from the current installation</b>
+              <a title="4.1 Export the data from the current installation" href="#41-export-the-data-from-the-current-installation">
+                <b>4.1 Export the data from the current installation</b>
               </a>
             </li>
             
           
             <li class="anchor">
-              <a title="Install the latest version of the Gluu server" href="#install-the-latest-version-of-the-gluu-server">
-                <b>Install the latest version of the Gluu server</b>
+              <a title="4.2 Install the latest version of the Gluu server" href="#42-install-the-latest-version-of-the-gluu-server">
+                <b>4.2 Install the latest version of the Gluu server</b>
               </a>
             </li>
             
           
             <li class="anchor">
-              <a title="Import your old data" href="#import-your-old-data">
-                <b>Import your old data</b>
+              <a title="4.3 Import your old data" href="#43-import-your-old-data">
+                <b>4.3 Import your old data</b>
               </a>
             </li>
             
@@ -333,8 +288,8 @@
       
         
   <li>
-    <a class="" title="1. Admin Interface (oxTrust)" href="../admin-guide/">
-      1. Admin Interface (oxTrust)
+    <a class="" title="1. Introduction" href="../admin-guide/">
+      1. Introduction
     </a>
     
   </li>
@@ -342,8 +297,17 @@
       
         
   <li>
-    <a class="" title="2. Authentication Protocol" href="../admin-guide/authentication-protocol/">
-      2. Authentication Protocol
+    <a class="" title="2. SAML" href="../admin-guide/authentication-protocol-saml/">
+      2. SAML
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="3. OpenID Connect" href="../admin-guide/authentication-protocol-openid/">
+      3. OpenID Connect
     </a>
     
   </li>
@@ -381,17 +345,7 @@
       <article class="article">
         <div class="wrapper">
           
-          <div class="toc">
-<ul>
-<li><a href="#upgrading-gluu-server-ce">Upgrading Gluu Server CE</a><ul>
-<li><a href="#export-the-data-from-the-current-installation">Export the data from the current installation</a></li>
-<li><a href="#install-the-latest-version-of-the-gluu-server">Install the latest version of the Gluu server</a></li>
-<li><a href="#import-your-old-data">Import your old data</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<h1 id="upgrading-gluu-server-ce">Upgrading Gluu Server CE<a class="headerlink" href="#upgrading-gluu-server-ce" title="Permanent link">#</a></h1>
+          <h1 id="4-upgrading-gluu-server-ce">4 Upgrading Gluu Server CE<a class="headerlink" href="#4-upgrading-gluu-server-ce" title="Permanent link">#</a></h1>
 <p>Upgrading a Gluu Server is NOT a simple <code>apt-get upgrade</code>. The admin needs to explicitly install the version of the Gluu Server. It generally involves the following steps:</p>
 <ul>
 <li>Install new version</li>
@@ -404,7 +358,7 @@
 <blockquote>
 <p>NOTE: In this documentation we are specifying '2.4.x' as older version and '2.4.y' the latest one. </p>
 </blockquote>
-<h2 id="export-the-data-from-the-current-installation">Export the data from the current installation<a class="headerlink" href="#export-the-data-from-the-current-installation" title="Permanent link">#</a></h2>
+<h2 id="41-export-the-data-from-the-current-installation">4.1 Export the data from the current installation<a class="headerlink" href="#41-export-the-data-from-the-current-installation" title="Permanent link">#</a></h2>
 <pre><code># service gluu-server-2.4.x login
 
 # wget https://raw.githubusercontent.com/GluuFederation/community-edition-setup/master/static/scripts/export24.py
@@ -416,12 +370,12 @@
 
 <p>The export script will generate a directory called <code>backup_24</code> which will have all the data backed up from the current installation.
 Check the log file generated in the directory for any errors.</p>
-<h2 id="install-the-latest-version-of-the-gluu-server">Install the latest version of the Gluu server<a class="headerlink" href="#install-the-latest-version-of-the-gluu-server" title="Permanent link">#</a></h2>
+<h2 id="42-install-the-latest-version-of-the-gluu-server">4.2 Install the latest version of the Gluu server<a class="headerlink" href="#42-install-the-latest-version-of-the-gluu-server" title="Permanent link">#</a></h2>
 <p>Stop the current version of the gluu-server.</p>
 <pre><code># service gluu-server-2.4.x stop
 </code></pre>
 
-<p>Consult the <a href="https://www.gluu.org/docs/deployment/">docs</a> of the respective distribution about how to install the Gluu Server using the package manager.
+<p>Consult the <a href="../installation-guide/">installation guide</a> of the respective distribution about how to install the Gluu Server using the package manager.
 Once the package manager has installed the version <code>2.4.y</code>, then:</p>
 <pre><code># cp -r /opt/gluu-server-2.4.x/root/backup_24/ /opt/gluu-server-2.4.y/root/
 
@@ -437,7 +391,7 @@ Once the package manager has installed the version <code>2.4.y</code>, then:</p>
 </code></pre>
 
 <p>Enter the required information for the setup and complete the installation.</p>
-<h2 id="import-your-old-data">Import your old data<a class="headerlink" href="#import-your-old-data" title="Permanent link">#</a></h2>
+<h2 id="43-import-your-old-data">4.3 Import your old data<a class="headerlink" href="#43-import-your-old-data" title="Permanent link">#</a></h2>
 <p>Go to the folder where you have the <code>backup_24</code> folder (if the above commands were followed, it is in /root/) and  get the necessary scripts.</p>
 <pre><code># cd ~
 
@@ -462,7 +416,7 @@ or
 # ./import24.py backup_24
 </code></pre>
 
-<p>Any error or warning will be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place.</p>
+<p>Any error or warning will 4be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place.</p>
           <aside class="copyright" role="note">
            Built with 
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a> using
@@ -498,14 +452,14 @@ or
     </div>
     <div class="next">
       
-        <a href="../admin-guide/" title="1. Admin Interface (oxTrust)">
+        <a href="../admin-guide/" title="1. Introduction">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                1. Admin Interface (oxTrust)
+                1. Introduction
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>2. Authentication Protocol - Gluu Docs</title>
+        <title>2. SAML - Gluu Docs</title>
       
 <link href="../../assets/stylesheets/font.css" rel="stylesheet">
       
@@ -95,7 +95,7 @@
             
           </span>
         
-        2. Authentication Protocol
+        2. SAML
       </div>
     </div>
     <div class="button button-search" role="button" aria-label="Search">
@@ -167,51 +167,6 @@
       Home
     </a>
     
-  </li>
-                  
-          
-            
-  <li>
-    <span class="section">1.Introduction</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="1.1 Summary" href="../../introduction/">
-      1.1 Summary
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.2 History" href="../../introduction/history/">
-      1.2 History
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.3 Design Goals" href="../../introduction/design/">
-      1.3 Design Goals
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.4 Gluu Server Architecture" href="../../introduction/architecture/">
-      1.4 Gluu Server Architecture
-    </a>
-    
-  </li>
-                  
-      
-    </ul>
   </li>
                   
           
@@ -303,8 +258,8 @@
       
         
   <li>
-    <a class="" title="1. Admin Interface (oxTrust)" href="../">
-      1. Admin Interface (oxTrust)
+    <a class="" title="1. Introduction" href="../">
+      1. Introduction
     </a>
     
   </li>
@@ -312,12 +267,10 @@
       
         
   <li>
-    <a class="current" title="2. Authentication Protocol" href="./">
-      2. Authentication Protocol
+    <a class="current" title="2. SAML" href="./">
+      2. SAML
     </a>
     
-      
-        
       
       
         <ul>
@@ -342,8 +295,8 @@
              
           
             <li class="anchor">
-              <a title="2.2 Inbound SAML Script" href="#22-inbound-saml-script">
-                <b>2.2 Inbound SAML Script</b>
+              <a title="2.2 Inbound SAML" href="#22-inbound-saml">
+                <b>2.2 Inbound SAML</b>
               </a>
             </li>
             
@@ -378,33 +331,17 @@
             </li>
              
           
-            <li class="anchor">
-              <a title="2.3 OpenID Connect" href="#23-openid-connect">
-                <b>2.3 OpenID Connect</b>
-              </a>
-            </li>
-            
-              <li class="anchor">
-              <a title="2.3.1 Scopes" href="#231-scopes">
-                  <font size=2><i>2.3.1 Scopes</i></font>
-              </a>
-            </li>
-             
-              <li class="anchor">
-              <a title="2.3.2 Client" href="#232-client">
-                  <font size=2><i>2.3.2 Client</i></font>
-              </a>
-            </li>
-             
-              <li class="anchor">
-              <a title="2.3.3 Custom Client Registration" href="#233-custom-client-registration">
-                  <font size=2><i>2.3.3 Custom Client Registration</i></font>
-              </a>
-            </li>
-             
-          
         </ul>
       
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="3. OpenID Connect" href="../authentication-protocol-openid/">
+      3. OpenID Connect
+    </a>
     
   </li>
                   
@@ -441,78 +378,31 @@
       <article class="article">
         <div class="wrapper">
           
-          <div class="toc">
-<ul>
-<li><a href="#authentication-protocol-in-gluu-server">Authentication Protocol in Gluu Server</a><ul>
-<li><a href="#21-outbound-saml">2.1 Outbound SAML</a><ul>
-<li><a href="#211-trust-relationship-requirements">2.1.1 Trust Relationship Requirements</a><ul>
-<li><a href="#2111-metadata-of-the-sp">2.1.1.1 Metadata of the SP</a></li>
-<li><a href="#2112-required-attributes">2.1.1.2 Required Attributes</a></li>
-<li><a href="#2113-sso-testing-endpoint">2.1.1.3 SSO Testing Endpoint</a></li>
-</ul>
-</li>
-<li><a href="#212-create-a-trust-relationship">2.1.2 Create a Trust Relationship</a><ul>
-<li><a href="#2121-relying-party-configuration">2.1.2.1 Relying Party Configuration</a></li>
-<li><a href="#2122-federation-configuration">2.1.2.2 Federation Configuration</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#22-inbound-saml-script">2.2 Inbound SAML Script</a><ul>
-<li><a href="#221-required-setup">2.2.1 Required Setup</a><ul>
-<li><a href="#2211-specific-setup-details">2.2.1.1 Specific Setup Details</a></li>
-</ul>
-</li>
-<li><a href="#222-custom-script-configuration">2.2.2 Custom Script Configuration</a></li>
-<li><a href="#223-adding-idp-in-asimba-server">2.2.3 Adding IDP in Asimba Server</a></li>
-<li><a href="#223-adding-sp-requestor-in-asimba-server">2.2.3 Adding SP Requestor in Asimba Server</a></li>
-<li><a href="#225-test-asimba-with-saml-proxy">2.2.5 Test Asimba with SAML Proxy</a></li>
-</ul>
-</li>
-<li><a href="#23-openid-connect">2.3 OpenID Connect</a><ul>
-<li><a href="#231-scopes">2.3.1 Scopes</a><ul>
-<li><a href="#2411-add-scope">2.4.1.1 Add Scope</a></li>
-</ul>
-</li>
-<li><a href="#232-client">2.3.2 Client</a><ul>
-<li><a href="#2321-register-client">2.3.2.1 Register Client</a></li>
-<li><a href="#2321-multi-factor-authentication-for-clients">2.3.2.1 Multi-Factor Authentication for Clients</a></li>
-<li><a href="#2322-algorithm">2.3.2.2 Algorithm</a></li>
-</ul>
-</li>
-<li><a href="#233-custom-client-registration">2.3.3 Custom Client Registration</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<h1 id="authentication-protocol-in-gluu-server">Authentication Protocol in Gluu Server<a class="headerlink" href="#authentication-protocol-in-gluu-server" title="Permanent link">#</a></h1>
-<p>Gluu Server supports Security Assertion Markup Language (SAML) and OpenID Connect protocols to authenticate users against Service Providers (SPs) and Requesting Parties (RPs). There are two different flows of SAML known as outbound SAML and inbound SAML, both supported out-of-the-box in Gluu Server Community Edition (Gluu CE).</p>
-<h2 id="21-outbound-saml">2.1 Outbound SAML<a class="headerlink" href="#21-outbound-saml" title="Permanent link">#</a></h2>
+            <h1>2. SAML</h1>
+          
+          <h2 id="21-outbound-saml">2.1 Outbound SAML<a class="headerlink" href="#21-outbound-saml" title="Permanent link">#</a></h2>
 <p>Outbound SAML can also be called SP-initiated Single Sign On (SSO) or traditional SAML. In an outbound SAML transaction, the SP redirects the user to the designated Identity Provider (IDP) for authentication and authorization. The IDP will ask for the username and password for the user and up on successful authentication, the user is sent back to the SP logged in. The requirement for the IDP is a trust relationship (TR) set up beforehand with the SP. The next section covers how to set up a TR in Gluu Server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For any SAML transaction, a trust relationship must be created with the IDP.</p>
+</div>
 <h3 id="211-trust-relationship-requirements">2.1.1 Trust Relationship Requirements<a class="headerlink" href="#211-trust-relationship-requirements" title="Permanent link">#</a></h3>
-<p>Trust Relationship creation is easy in Gluu Server from the oxTrust GUI. The following information is necessary to create TR.</p>
+<p>Trust Relationship requires the infomation listed below.</p>
 <ul>
 <li><a href="#metadata-of-website">Metadata of website</a></li>
 <li><a href="#required-attribute-of-website">Required attribute of website</a></li>
 <li><a href="#sso-testing-endpoint-of-website">SSO testing endpoint of website</a></li>
 </ul>
 <h4 id="2111-metadata-of-the-sp">2.1.1.1 Metadata of the SP<a class="headerlink" href="#2111-metadata-of-the-sp" title="Permanent link">#</a></h4>
-<p>Metadata is a XML file which has configuration data used to provision any
-website (SP) or IDP (Gluu Server) to communicate with each other. It is
-interchangeable between the IDP and the SP.</p>
-<p>Websites (SP) can provide metadata via URL or as a separate file. If the
-SP provides an separate XML file, the Gluu Server can check the
-integrity of that metadata with its own mechanism. This mechanism can be
-shown and tested from Gluu Server oxTrust GUI.</p>
+<p>Metadata is a XML file which has configuration data used to provision any website (SP) or IDP (Gluu Server) to communicate with each other. It is interchangeable between the IDP and the SP.</p>
+<p>Websites (SP) can provide metadata via URL or as a separate file.</p>
 <h4 id="2112-required-attributes">2.1.1.2 Required Attributes<a class="headerlink" href="#2112-required-attributes" title="Permanent link">#</a></h4>
 <p>Every organization has their own policy to release/share attributes with
 any IDP or SP. The oxTrust GUI supports both preconfigured and custom attribute
 Release to the SP. The administrator only needs to click on the desired 
 attribute and it will be released to the SP.</p>
 <h4 id="2113-sso-testing-endpoint">2.1.1.3 SSO Testing Endpoint<a class="headerlink" href="#2113-sso-testing-endpoint" title="Permanent link">#</a></h4>
-<p>Every website (SP) should have both a staging and a production uri
+<p>Every website (SP) should have both a staging and a production URI
 endpoint which can be checked for SSO, where the user will access to log
 into that SP.</p>
 <h3 id="212-create-a-trust-relationship">2.1.2 Create a Trust Relationship<a class="headerlink" href="#212-create-a-trust-relationship" title="Permanent link">#</a></h3>
@@ -548,9 +438,9 @@ The TR is added by clicking on the <code>Add</code> button located in the lower 
 <p><img alt="federationTR" src="../../img/saml/federationTR.png" /></p>
 <p>Once this is done, the SPs under the federation can be added by selecting the Federation from the <code>Federation Name</code> drop down menu and selecting the entity-id for the SP.</p>
 <p><img alt="federation-entityid.png" src="../../img/saml/federation-entityid.png" /></p>
-<h2 id="22-inbound-saml-script">2.2 Inbound SAML Script<a class="headerlink" href="#22-inbound-saml-script" title="Permanent link">#</a></h2>
+<h2 id="22-inbound-saml">2.2 Inbound SAML<a class="headerlink" href="#22-inbound-saml" title="Permanent link">#</a></h2>
 <p>Gluu Server uses an open source product called Asimba to achieve inbound SAML. Asimba allows websites to use a single IDP for SSO even when the organization has multiple trusted IDPs. Please see the <a href="http://www.asimba.org/site/">Asimba website</a> for more information.</p>
-<p>Gluu Server CE makes Asimba configuration easy from the oxTrust admin interface. This section provides a step-by-step method of configuring Asimba with two (2) IDPs and a single SP. The administrator can add multiple IDPs or SPs if required using the same method. However, it is mandatory that all the SPs and IDPs are connected to the Asimba server, or the IDP that has the Asimba module enabled.
+<p>Gluu Server is shipped with the SAML Script which simplifies the process of using SAML Proxy. The SAML proxy configuration is made easy from the oxTrust admin interface. This section provides a step-by-step method of configuring the proxy with two (2) IDPs and a single SP. The administrator can add multiple IDPs or SPs if required using the same method. However, it is mandatory that all the SPs and IDPs are connected to the Asimba server, or the IDP that has the Asimba module enabled.
 i<img alt="asimba-overview" src="../../img/asimba/overview.png" /></p>
 <h3 id="221-required-setup">2.2.1 Required Setup<a class="headerlink" href="#221-required-setup" title="Permanent link">#</a></h3>
 <table>
@@ -806,319 +696,6 @@ i<img alt="asimba-overview" src="../../img/asimba/overview.png" /></p>
 <ul>
 <li><a href="https://youtu.be/YEyrOWJu0yo">Youtube Video Link</a></li>
 </ul>
-<h2 id="23-openid-connect">2.3 OpenID Connect<a class="headerlink" href="#23-openid-connect" title="Permanent link">#</a></h2>
-<p><a href="http://openid.net/connect" title="Connect">OpenID Connect</a> is a standard
-profile of OAuth2 which defines a protocol to enable a website or mobile
-application to send a person to a domain for authentication and required
-attributes (e.g. email address, first name, last name, etc.). OpenID Connect
-also provides some of the plumbing around authentication to automate how
-this happens. If a person is visiting a website for the first time, the
-process that OpenID Connect defines is 100% bootstrapable by the
-website. This is really critical for Internet scalability. To visit
-someone's website, or to send someone an email, you do not need to get
-the system administrators involved. Connect provides the same type of
-scalable infrastructure for authentication and authorization, and promises to define a base level domain
-identification.</p>
-<h3 id="231-scopes">2.3.1 Scopes<a class="headerlink" href="#231-scopes" title="Permanent link">#</a></h3>
-<p><img alt="scopemenu" src="../../img/openid/scopemenu.png" /></p>
-<p>In SAML, the IdP releases attributes to the SP. OpenID Connect provides
-similar functionality, with more flexibility in case the person needs to
-self-approve the release of information from the IdP to the website (or
-mobile application). In OAuth2, scopes can be used for various purposes.
-OpenID Connect uses OAuth2 scopes to "group" attributes. For example, we
-could have a scope called "address" that includes the street, city,
-state, and country user claims. </p>
-<p><img alt="scopes" src="../../img/openid/scopes.png" /></p>
-<h4 id="2411-add-scope">2.4.1.1 Add Scope<a class="headerlink" href="#2411-add-scope" title="Permanent link">#</a></h4>
-<p>The Gluu Server administrator can easily add more scopes in the GUI.</p>
-<p><img alt="add-scope" src="../../img/openid/add-scope.png" /></p>
-<p>Click <em>Add Scope</em> and you will be presented with the following screen:</p>
-<p><img alt="scope-adding" src="../../img/openid/scope-adding.png" /></p>
-<p>The following fields are available for input.</p>
-<ul>
-<li>Display Name</li>
-<li>Description</li>
-<li>Scope Type</li>
-<li>Default Scope</li>
-<li>Claims</li>
-</ul>
-<p><em>Default Scope:</em> When a client uses dynamic
-client registration, the OpenID Connect specification says that the
-<code>openid</code> scope should always be released, which contains an identifier
-for that person, normally the username. If you want to release another
-scope automatically, set the Default Scope to <code>true</code> for that scope. You
-can always explicitly release a scope to a certain client later on, but
-this will require some manual intervention by the domain administrator.</p>
-<p><em>Claims:</em> The administrator can add claims in the scope by clicking on <code>Add Claim</code> button. The following screen shall appear on clicking the button.
-<img alt="add-claim" src="../../img/openid/add-scope-in-claim.png" /></p>
-<h3 id="232-client">2.3.2 Client<a class="headerlink" href="#232-client" title="Permanent link">#</a></h3>
-<p><img alt="clientmenu" src="../../img/openid/clientmenu.png" /></p>
-<p>A client in OAuth2 could be either a website or mobile application.
-OpenID Connect has an API for <a href="http://openid.net/specs/openid-connect-registration-1_0.html">Dynamic Client
-Registration</a>
-which efficiently pushes the task to the application developer. If you
-do not want to write an application to register your client, there are a
-few web pages around that can do the job for you. Gluu publishes the
-<a href="https://ce-dev.gluu.org/oxauth-rp">oxAuth-RP</a> and there is also another in <a href="http://www.gluu.co/php-sample-rp">PHP
-RP</a>.</p>
-<p>A new client can be added by clicking the <strong>Add Client</strong> link.</p>
-<p><img alt="addclient" src="../../img/openid/addclient.png" /></p>
-<p>Available <strong>Clients</strong> can be seen by hitting the <strong>Search</strong> button
-leaving the search box empty.</p>
-<p><img alt="clientlist" src="../../img/openid/clientlist.png" /></p>
-<h4 id="2321-register-client">2.3.2.1 Register Client<a class="headerlink" href="#2321-register-client" title="Permanent link">#</a></h4>
-<p>Gluu Server Administrators can click on the <code>Add Client</code> button to register new clients. It is possible to dynamically register any client by calling the dynamic registration endpoint, but this section focuses on the manual registration of the client. The following screen appears when the <code>Add Client</code> button is clicked.</p>
-<p><img alt="add-client" src="../../img/openid/add-client.png" /></p>
-<ul>
-<li>
-<p><em>Client Name:</em> This contains the recognizable and unique display name
-  of the client. The name of the Client to be presented to the End-User.</p>
-</li>
-<li>
-<p><em>Client Secret:</em> This is the Data Encryption Standard scheme used by
-  Confidential Clients to authenticate to the token endpoint. The value for the secret can be inserted manually.</p>
-</li>
-<li>
-<p><em>Application Type:</em> There are two types of applications, Web and
-  Native.</p>
-<ul>
-<li>
-<p><em>Web:</em> The Dynamic Client Registration is the default for web. In this type the redirect_uri for implicit grant type must be a real
-hostname with HTTPS. This type is not approved any localhost or HTTP. The web application uses the authorization code flow for clients which
-can maintain a client secret between the uris and the authorization
-server.</p>
-</li>
-<li>
-<p><em>Native:</em> Custom uri for Native type application have to follow HTTP with localhost. This is suitable for a mobile app which cannot maintain the client secret between itself and the authorization server.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><em>Pre Authorization:</em> Allow pre-authorized Client Applications </p>
-</li>
-<li>
-<p><em>Logo URI:</em> The URL of the logo for the client application.
-  If present, the server will display this image to the End-User during approval.</p>
-</li>
-<li>
-<p><em>Client URI:</em> The URL of the home page of the client.</p>
-</li>
-<li>
-<p><em>Policy URI:</em> The URL of the Privacy policy.</p>
-</li>
-<li>
-<p><em>Terms of Service URI:</em> The URL to the Terms of Use of the Client.</p>
-</li>
-<li>
-<p><em>JWKS URI:</em> The URL for the Client's JSON Web Key Set.</p>
-</li>
-<li>
-<p><em>JWKS:</em> The value of  Client's JSON Web Key Set. The jwks_uri and jwks parameters MUST NOT be used together.</p>
-</li>
-</ul>
-<p><img alt="add-client1" src="../../img/openid/add-client1.png" /></p>
-<ul>
-<li>
-<p><em>Sector Identifier URI:</em> URL using the https scheme to be used in calculating Pseudonymous Identifiers by the OP.
-  The URL references a file with a single JSON array of redirect_uri values.</p>
-</li>
-<li>
-<p><em>Subject Type:</em> The subject type requested for responses to this Client.</p>
-</li>
-<li>
-<p><em>JWS alg Algorithm for signing the ID Token:</em> JWS alg algorithm for signing the ID Token issued to this Client.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWE alg Algorithm for encrypting the ID Token:</em> JWE alg algorithm for encrypting the ID Token issued to this Client.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWE enc Algorithm for encrypting the ID Token:</em> JWE enc algorithm for encrypting the ID Token issued to this Client.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWS alg Algorithm for signing the UserInfo Responses:</em> JWS alg algorithm for signing UserInfo Responses.
-  If this is specified, the response will be JWT serialized, and signed using JWS.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWS alg Algorithm for encrypting the UserInfo Responses:</em>  JWE alg algorithm for encrypting UserInfo Responses.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-</ul>
-<p><img alt="add-client2" src="../../img/openid/add-client2.png" /></p>
-<ul>
-<li>
-<p><em>JWE enc Algorithm for encrypting the UserInfo Responses:</em> JWE enc algorithm for encrypting UserInfo Responses. 
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWS alg Algorithm for signing Request Objects:</em> JWS alg algorithm used for signing Request Objects sent to the OP.
-  This algorithm is used when the Request Object is passed by value (using the request parameter) and when it is
-  passed by reference (using the request_uri parameter).
-  The value none can be used.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWE alg Algorithm for encrypting Request Objects:</em> JWE alg algorithm the RP is declaring that it use for
-  encrypting Request Objects sent to the OP.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>JWE enc Algorithm for encrypting Request Objects:</em> JWE enc algorithm the RP is declaring that it may use for
-  encrypting Request Objects sent to the OP.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>Authentication method for the Token Endpoint:</em> Requested Client Authentication method for the Token Endpoint.
-  The options are client_secret_post, client_secret_basic, client_secret_jwt, private_key_jwt, and none.
-  If omitted, the default is client_secret_basic, the HTTP Basic Authentication Scheme.</p>
-</li>
-</ul>
-<p><img alt="add-client3" src="../../img/openid/add-client3.png" /></p>
-<ul>
-<li>
-<p><em>JWS alg Algorithm for Authentication method to Token Endpoint:</em> JWS alg algorithm used for signing the JWT
-  used to authenticate the Client at the Token Endpoint for the private_key_jwt and client_secret_jwt
-  authentication methods. The value none cannot be used.
-  See <a href="#algorithm">Algorithms section</a> for options.</p>
-</li>
-<li>
-<p><em>Default Maximum Authentication Age:</em> Specifies that the End-User must be actively authenticated if the End-User was
-  authenticated longer ago than the specified number of seconds.
-  If omitted, no default Maximum Authentication Age is specified.</p>
-</li>
-<li>
-<p><em>Require Auth Time:</em> Specifies whether the auth_time Claim in the ID Token is required.
-  If omitted, the default value is false.</p>
-</li>
-<li>
-<p><em>Persist Client Authorizations*:</em> Specifies whether to persist user authorizations.</p>
-</li>
-</ul>
-<p><img alt="add-client-bot" src="../../img/openid/add-client-bot.png" /></p>
-<ul>
-<li>
-<p><em>Initiate Login URI:</em> URI using the https scheme that a third party can use to initiate a login by the RP.</p>
-</li>
-<li>
-<p><em>Request URIs:</em> Array of request_uri values that are pre-registered by the RP for use at the OP.
-   The Server cache the contents of the files referenced by these URIs and not retrieve them at the time they are used in a request.</p>
-</li>
-<li>
-<p><em>Logout URIs:</em> Redirect logout URLs supplied by the RP to which it can request that the End-User's
-  User Agent be redirected using the post_logout_redirect_uri parameter after a logout has been performed.</p>
-</li>
-<li>
-<p><em>Logout Session Required*:</em> Specifies whether the RP requires that a sid (session ID) query parameter
-  be included to identify the RP session at the OP when the logout_uri is used.
-  If omitted, the default value is false.</p>
-</li>
-<li>
-<p><em>Client Secret Expires:</em> Time at which the client will expire or 0 if it will not expire.</p>
-</li>
-<li>
-<p><em>Add Login URI:</em> This option can be used to add the login URL.
-<img alt="add-login-uri" src="../../img/openid/add-login-uri.png" /></p>
-</li>
-<li>
-<p><em>Add Redirect Logout URI:</em> The logout request, if requires a redirection can be added here.
-<img alt="add-logout-uri" src="../../img/openid/add-logout-uri.png" /></p>
-</li>
-<li>
-<p><em>Add Scopes:</em> This option can be used to add the required scopes in the Gluu Server.
-<img alt="add-scope" src="../../img/openid/add-scope-in-client.png" />The available scopes can be listed by hitting the <em>Search</em> button, and
-  keeping the search phrase blank. Furthermore, from this the Gluu Server administrator can select the required scopes.</p>
-</li>
-<li>
-<p><em>Add Response Type:</em> There are three types of responses in the Gluu
-  Server and they are Code, Token and ID Token. The Gluu Server
-  Administrator can select all of them for testing purposes.
-<img alt="add-response-type" src="../../img/openid/add-response-type.png" /></p>
-</li>
-<li>
-<p><em>Add Grant Type:</em> There are 3 grant type available in this option <code>authorization_code, implicit, refresh_token</code>
-<img alt="add-grant-type" src="../../img/openid/add-grant-type.png" /></p>
-</li>
-<li>
-<p><em>Add Contact:</em> Use this option to add the email address for the Client contact</p>
-</li>
-<li>
-<p><em>Add Default ACR value:</em> The default ACR Value is defined through this option and it is used to include multi-factor authentication in registered clients. Please use this option to define which from of authentication to use for specific client. See section 2.3.2.1 for details.
-<img alt="add-default-acr" src="../../img/openid/add-default-acr.png" /></p>
-</li>
-<li>
-<p><em>Add Request URI:</em> Use this option to add the Request URI</p>
-</li>
-<li>
-<p><em>Add Logout URI:</em> Use this option to add the logout URI.</p>
-</li>
-</ul>
-<h4 id="2321-multi-factor-authentication-for-clients">2.3.2.1 Multi-Factor Authentication for Clients<a class="headerlink" href="#2321-multi-factor-authentication-for-clients" title="Permanent link">#</a></h4>
-<p>The <code>acr_values</code> parameter is used to specify the use of specific multi-factor authentication for each client. If a scenario is presented where different clients use different authentication mechanism, then the <code>acr_value</code> parameter is used to specify the choice. Out of the box, GLuu Server supports U2F, DUO, Basic, oxPush/SuperGluu, Google+ and internal LDAP authentication. While registering new clients, put the mode in <code>Add Default ACR value</code> to chosen mechanism. The authentication mechanism must be enabled in the <code>Custom Scripts</code> section as well.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Supported ACR Values in Client Registration: "u2f", "duo", "basic", "mt", "oxpush2", "gplus", "internal"</p>
-</div>
-<p>The values appear in order of preference and the successful authentication is sent as the acr claim value in the issued ID Token. The table below explains the acr values. Please click on the description to access the specific how-to guide for the ACR declared authentication.</p>
-<table>
-<thead>
-<tr>
-<th>ACR Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u2f</td>
-<td><a href="../../multi-factor/u2f">FIDO U2F Device</a></td>
-</tr>
-<tr>
-<td>duo</td>
-<td><a href="../../multi-factor/duo">Duo soft-token authentication</a></td>
-</tr>
-<tr>
-<td>basic</td>
-<td>Username/Password authentication from LDAP Server</td>
-</tr>
-<tr>
-<td>oxpush2</td>
-<td><a href="../../multi-factor/oxpush2">Multi-factor authentication</a></td>
-</tr>
-<tr>
-<td>gplus</td>
-<td><a href="../../customize/social-login-google">Google+ authentication</a></td>
-</tr>
-<tr>
-<td>internal</td>
-<td>Use Gluu Server LDAP to authenticate users</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2322-algorithm">2.3.2.2 Algorithm<a class="headerlink" href="#2322-algorithm" title="Permanent link">#</a></h4>
-<p>oxAuth supports various types of signature and encryption
-algorithms for authorizing request parameter passing, ID token signature
-and encryption, signing return responses, Encrypt User Info Endpoints
-etc.</p>
-<p><strong>Note:</strong> It is a good practice to implement ID Token Signatures with the RSA
-SHA-256 algorithm (algorithm value RS256). Additionally, oxAuth also
-supports other algorithms that are listed below.</p>
-<p><em>Available Signature Algorithms:</em> none, HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512.</p>
-<p><em>Encryption, Key Encryption Algorithms:</em> RSA1_5, RSA-OAEP, A128KW, A256KW.</p>
-<p><em>Block Encryption Algorithms:</em> A128CBC+HS256, A256CBC+HS612, A128GCM, A256GCM,</p>
-<h3 id="233-custom-client-registration">2.3.3 Custom Client Registration<a class="headerlink" href="#233-custom-client-registration" title="Permanent link">#</a></h3>
-<p>Using interception scripts you can customize client registration
-behavior. For example, by default oxAuth allows new clients to access to
-default scopes only. With a custom client registration interception
-script it is possible to allow access to more scopes. For instance, we
-can use <code>redirect_uri</code> to determine if we need to allow access to
-additional scopes or not.</p>
-<p>To access the interface for custom scripts in oxTrust, navigate to
-Configuration --&gt; Custom Scripts --&gt; Custom Client Registration.</p>
-<p><img alt="custom-script-menu" src="../../img/oxtrust/custom-script-menu.png" />
-<img alt="custom-client" src="../../img/openid/custom-client.png" /></p>
-<p>The script is <a href="../sample-client-registration-script.py">available here</a></p>
           <aside class="copyright" role="note">
            Built with 
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a> using
@@ -1135,7 +712,7 @@ Configuration --&gt; Custom Scripts --&gt; Custom Client Registration.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="1. Admin Interface (oxTrust)">
+        <a href="../" title="1. Introduction">
           <span class="direction">
             Previous
           </span>
@@ -1145,7 +722,7 @@ Configuration --&gt; Custom Scripts --&gt; Custom Client Registration.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                1. Admin Interface (oxTrust)
+                1. Introduction
               </div>
             </div>
           </div>
@@ -1154,14 +731,14 @@ Configuration --&gt; Custom Scripts --&gt; Custom Client Registration.</p>
     </div>
     <div class="next">
       
-        <a href="../../reference-guide/" title="1. 'Introduction'">
+        <a href="../authentication-protocol-openid/" title="3. OpenID Connect">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                1. 'Introduction'
+                3. OpenID Connect
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

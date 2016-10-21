@@ -172,51 +172,6 @@
           
             
   <li>
-    <span class="section">1.Introduction</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="1.1 Summary" href="../introduction/">
-      1.1 Summary
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.2 History" href="../introduction/history/">
-      1.2 History
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.3 Design Goals" href="../introduction/design/">
-      1.3 Design Goals
-    </a>
-    
-  </li>
-                  
-      
-        
-  <li>
-    <a class="" title="1.4 Gluu Server Architecture" href="../introduction/architecture/">
-      1.4 Gluu Server Architecture
-    </a>
-    
-  </li>
-                  
-      
-    </ul>
-  </li>
-                  
-          
-            
-  <li>
     <span class="section">Installation Guide</span>
     <ul>
       
@@ -364,8 +319,8 @@
       
         
   <li>
-    <a class="" title="1. Admin Interface (oxTrust)" href="../admin-guide/">
-      1. Admin Interface (oxTrust)
+    <a class="" title="1. Introduction" href="../admin-guide/">
+      1. Introduction
     </a>
     
   </li>
@@ -373,8 +328,17 @@
       
         
   <li>
-    <a class="" title="2. Authentication Protocol" href="../admin-guide/authentication-protocol/">
-      2. Authentication Protocol
+    <a class="" title="2. SAML" href="../admin-guide/authentication-protocol-saml/">
+      2. SAML
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="3. OpenID Connect" href="../admin-guide/authentication-protocol-openid/">
+      3. OpenID Connect
     </a>
     
   </li>
@@ -413,7 +377,7 @@
         <div class="wrapper">
           
           <h1 id="1-preparing-vm-for-gluu-server-installation">1 Preparing VM for Gluu Server Installation<a class="headerlink" href="#1-preparing-vm-for-gluu-server-installation" title="Permanent link">#</a></h1>
-<p>Gluu Server Community Edition (CE) does not have any fixed requirement to function properly, as the requirements depend on the data size it will handle. However there is a recommended minimum that Gluu suggests. If all the components are installed and used, then the VM needs at least the following:</p>
+<p>Gluu Server Community Edition (CE) resource allocation depends on the backend data size. The requirements below are a bare minimum for Gluu CE to function properly. It is strongly recommended to allocate more resource for bigger backend data size.</p>
 <table>
 <thead>
 <tr>
@@ -440,7 +404,6 @@
 <p class="admonition-title">Note</p>
 <p>Insufficient memory may cause unexpected errors and bugs which will require adjusting the resources for a smooth performance.</p>
 </div>
-<p>There are some other requirements that must fulfilled before you can install Gluu Server CE in the VM regarding tomcat memory heap and file descriptor settings.</p>
 <h2 id="11-port">1.1 Port<a class="headerlink" href="#11-port" title="Permanent link">#</a></h2>
 <p>The following ports open for the Gluu Server to run. Please keep the ports open before installing Gluu Server.</p>
 <table>
@@ -462,9 +425,11 @@
 </tbody>
 </table>
 <h2 id="12-tomcat-memory-heap">1.2 Tomcat Memory Heap<a class="headerlink" href="#12-tomcat-memory-heap" title="Permanent link">#</a></h2>
-<p>The minimum recommended heap for tomcat server is 3GB for a test instance of Gluu Server Community Edition (CE). The minimum recommended tomcat heap memory is scaled higher for production instance at 4GB .</p>
+<p>The minimum recommended heap for tomcat server is 3GB for a test instance of Gluu Server Community Edition (CE). This estimate is based on the minumum RAM requirements. It is best to keep this ratio when tomcat memory is allocated in production environments as the size will depend on the available RAM; as an example, a 6GB tomcat memory heap in a production server with 8 GB ram is ideal for a small organization running Gluu CE.</p>
 <h3 id="121-alter-tomcat-memory-heap">1.2.1 Alter Tomcat Memory Heap<a class="headerlink" href="#121-alter-tomcat-memory-heap" title="Permanent link">#</a></h3>
-<p>The tomcat heap memory is set generally from the <code>setup.py</code> script prompt. This property can also altered from the <code>/opt/tomcat/conf/gluuTomcatWrapper.conf</code> file inside the Gluu Server chroot container setting <code>wrapper.java.initmemory</code> and <code>wrapper.java.maxmemory</code> properties.
+<p>The tomcat heap memory is set from the <code>setup.py</code> script prompt. 
+<img alt="tomcat-prompt" src="./../img/oxtrust/tomcat-prompt.png" /></p>
+<p>This property can also altered from the <code>/opt/tomcat/conf/gluuTomcatWrapper.conf</code> file inside the Gluu Server chroot container setting <code>wrapper.java.initmemory</code> and <code>wrapper.java.maxmemory</code> properties.
 Use the following command to open the gluuTomcatWrapper file</p>
 <pre><code># vi /opt/tomcat/conf/gluuTomcatWrapper.conf
 </code></pre>
@@ -490,7 +455,7 @@ wrapper.java.maxmemory=1536
 <ul>
 <li>Edit the <code>/etc/pam.d/login</code> by adding the line:</li>
 </ul>
-<pre><code>session required /lib/security/pam_limits.so
+<pre><code>session required pam_limits.so
 </code></pre>
 
 <ul>
@@ -570,7 +535,7 @@ dropdown menu.</p>
 </li>
 </ol>
 <h4 id="1422-setuppy-configuration">1.4.2.2 Setup.py Configuration<a class="headerlink" href="#1422-setuppy-configuration" title="Permanent link">#</a></h4>
-<p>s section describes what to put in the prompt when <code>setup.py</code> is run
+<p>This section describes what to put in the prompt when <code>setup.py</code> is run
 after installing Gluu Server.</p>
 <ul>
 <li>
@@ -582,13 +547,7 @@ after installing Gluu Server.</p>
 <li>
 <p>Update hostname: Choose to update hostname for Ubuntu, but do not
   change if you are running CentOS.
-        * For CentOS, manually update the file <code>/etc/sysconfig/networking</code>,
-      and add the full DNS name.</p>
-</li>
-<li>
-<p>Other Settings: The other settings can be left to the default values.
-        * Recommendation: the Gluu Server requires a 64bit OS, and allocates
-      at least 4GB of RAM for Apache Tomcat in production environments.</p>
+        * For CentOS, manually update the file <code>/etc/sysconfig/networking</code>, and add the full DNS name.</p>
 </li>
 <li>
 <p>Now the chosen DNS name can be used to access the Gluu Server.</p>
@@ -614,8 +573,9 @@ after installing Gluu Server.</p>
 <pre><code># vim /etc/default/grub
 </code></pre>
 
-<pre><code>- Ensure that the following lines are present in the glub file
-</code></pre>
+<ul>
+<li>Ensure that the following lines are present in the grub file</li>
+</ul>
 <pre><code>GRUB_TIMEOUT=10
 GRUB_CMDLINE_LINUX=&quot;console=ttyS0,19200n8&quot;
 GRUB_DISABLE_LINUX_UUID=true
@@ -644,7 +604,7 @@ GRUB_SERIAL_COMMAND=&quot;serial --speed=19200 --unit=0 --word=8 --parity=no --s
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../introduction/architecture/" title="1.4 Gluu Server Architecture">
+        <a href=".." title="Home">
           <span class="direction">
             Previous
           </span>
@@ -654,7 +614,7 @@ GRUB_SERIAL_COMMAND=&quot;serial --speed=19200 --unit=0 --word=8 --parity=no --s
             </div>
             <div class="stretch">
               <div class="title">
-                1.4 Gluu Server Architecture
+                Home
               </div>
             </div>
           </div>

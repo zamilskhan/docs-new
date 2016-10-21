@@ -35,7 +35,7 @@ Stop the current version of the gluu-server.
 # service gluu-server-2.4.x stop
 ```
 
-Consult the [installation guide](../install-guide/index.md) of the respective distribution about how to install the Gluu Server using the package manager.
+Consult the [installation guide](../installation-guide/index.md) of the respective distribution about how to install the Gluu Server using the package manager.
 Once the package manager has installed the version `2.4.y`, then:
 
 ```

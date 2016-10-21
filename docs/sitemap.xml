@@ -4,37 +4,9 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-10-19</lastmod>
+     <lastmod>2016-10-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
-    <url>
-     <loc>None/introduction/</loc>
-     <lastmod>2016-10-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/introduction/history/</loc>
-     <lastmod>2016-10-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/introduction/design/</loc>
-     <lastmod>2016-10-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/introduction/architecture/</loc>
-     <lastmod>2016-10-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -63,13 +35,19 @@
         
     <url>
      <loc>None/admin-guide/</loc>
-     <lastmod>2016-10-19</lastmod>
+     <lastmod>2016-10-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/admin-guide/authentication-protocol/</loc>
-     <lastmod>2016-10-19</lastmod>
+     <loc>None/admin-guide/authentication-protocol-saml/</loc>
+     <lastmod>2016-10-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/admin-guide/authentication-protocol-openid/</loc>
+     <lastmod>2016-10-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -79,7 +57,7 @@
         
     <url>
      <loc>None/reference-guide/</loc>
-     <lastmod>2016-10-19</lastmod>
+     <lastmod>2016-10-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
