@@ -290,3 +290,29 @@ GAT: true
 
 [GAT]: ./index.md#423-gluu-oauth2-access-management "Gluu Access Token"
 [AS]: ./index.md#41-terminology "Authorization Server"
+
+## 5 SCIM
+SCIM stands for System for Cross-domain Identity Management which is a specification to manage users in a cloud environment. Gluu Server supports SCIM version 1.0 and 2.0 out of the box. The following diagram shows the SCIM model from the [SCIM Website](http://www.simplecloud.info/).
+
+![scim-model](../img/scim/scim-model.png)
+
+The SCIM Specifications are available from the SCIM Website. There are two specifications in SCIM 2.0:
+
+1. [SCIM 2.0 Core Specifications](https://tools.ietf.org/html/rfc7643)
+2. [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644)
+
+### 5.1 Terminology
+The SCIM specification defines some basic terms that are used in the document. The basic terms like attribute, [SP][] are same across all the protocols. A few confusing ones are listed below from the [SCIM 2.0 Specs](https://tools.ietf.org/html/rfc7643).
+
+- Resource:  An artifact that is managed by a service provider and that
+      contains one or more attributes, e.g., "User" or "Group".
+
+- Resource Type:  A type of a resource that is managed by a service provider.  The
+      resource type defines the resource name, endpoint URL, schemas,
+      and other metadata that indicate where a resource is managed and
+      how it is composed, e.g., "User" or "Group".
+
+- Schema: A collection of attribute definitions that describe the contents of an entire or partial resource, e.g.,
+      "urn:ietf:params:scim:schemas:core:2.0:User".
+
+The details of the SCIM API are given later in this documentation.
