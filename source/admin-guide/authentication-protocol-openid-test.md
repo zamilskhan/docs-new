@@ -1,3 +1,4 @@
+[TOC]
 OpenID Connect in Gluu Server can be tested using the Apache module for the protocol. This section defines the installation for Apache Server with the OpenID Connect module and testing against Gluu Server. There are two different registration methods for the OpenID clients called Dynamic and Manual.
 
 ## 5.1 Ubuntu Server 14.04
@@ -75,51 +76,101 @@ Change port numbers to **44443** (for SSL) and **8000** (for non-SSL) in these t
 * /etc/apache2/sites-available/000-default.conf
 * /etc/apache2/sites-available/default-ssl.conf
 
-### 5.1.1 Dynamic Client Registration
+## 5.2 CentOS 6.x
+	The Apache module in CentOS Server requires the Extra Packages for Enterprise Linux (EPEL) repository. Please use the following command to add the `EPEL` repository:
+
+```
+# rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+```
+
+The Apache webserver is installed next with the SSL module. There are some additional components that are required for the OpenID Connect module which are installed as well. Please use the following command to install the software:
+
+```
+# yum install httpd mod_ssl
+# yum install curl hiredis jansson
+``` 
+
+The next step is to generate the SSL certificates for the SSL module in Apache Server. The certificates are kept in the `/etc/httpd/ssl` folder. Please use the following commands to create the directory and generate the certificates:
+
+```
+# mkdir /etc/httpd/ssl
+# openssl req -new -x509 -sha256 -days 365 -nodes -out /etc/httpd/ssl/httpd.pem -keyout /etc/httpd/ssl/httpd.key
+```
+
+This command for the certificate will generate a prompt where some values such as company name, country, state must be entered. Please fill them up and the certificate will be generated. Alternatively if there is any certificate available, that can also be used.
+
+The next step is to configure the Apache server to use the newly generated certificates. The certificate location is updated in the `vhost.conf` file. Please use the following command to open the file:
+
+```
+# vi /etc/httpd/conf.d/vhost.conf
+```
+
+Please add the certificate location and the correct server name in the file. The template below shows an example:
+
+```
+    SSLCertificateFile /etc/httpd/ssl/httpd.pem
+    SSLCertificateKeyFile /etc/httpd/ssl/httpd.key
+    ServerAdmin support@gluu.org
+    ServerName gluu.org
+``` 
+
+Please restart the Apache server for the changes to take effect:
+
+```
+# service httpd restart
+```
+
+The Apache module is installed using the `rpm` command which is given below:
+
+```
+rpm -ivh https://github.com/pingidentity/mod_auth_openidc/releases/download/v1.8.2/mod_auth_openidc-1.8.2-1.el6.x86_64.rpm
+
+```
+
+!!! Note
+    If there are any difficulties installing the package, please run `yum upgrade`
+
+The existance of the package can be tested using the `ls` command. Please use the following command if there is any doubt to check that the apache module for openid connect is present:
+
+```
+# ls -l /usr/lib64/httpd/modules/mod_auth_openidc.so
+```
+
+The next command will create the apache configuration file for the OpenID Connect module.
+
+```
+echo -e "LoadModule auth_openidc_module modules/mod_auth_openidc.so\nListen 44443" > /etc/httpd/conf.d/mod_auth_openidc.conf
+```
+
+Please use the following command to start the Apache Server where the OpenID Connect module will listen to port `44443`.
+
+```
+# service httpd start
+```
+
+## 5.3 Client Registration
+### 5.3.1 Dynamic
 The following example shows the configuration for dynamic client registration.
 The OpenID Connect module requires a folder to store the metadata, therefore create a metadata folder and change permission using the following commands.
 
-
 ```
 # mkdir /var/cache/apache2/metadata
-# chown -R www-data:www-data /var/cache/apache2/metadata
 ```
 
+The command to change the permission is different in Ubuntu and CentOS. The commands are given in the table below. Please use the appropriate command according to the host operating system.
 
-Please add the following lines in the `auth_openidc.conf` configuration file under `/etc/apache2/mods-available/` folder.
-
-```
-OIDCMetadataDir /var/cache/apache2/metadata
-OIDCClientSecret secret
-OIDCRedirectURI https://dynamic.gluu.org:44443/dynamic/fake_redirect_uri
-OIDCCryptoPassphrase secret
-OIDCSSLValidateServer Off
-```
-
-
-The apache module can be enabled now and the following command will do the same. Please restart the Apache Server as well.
-
-```
-$ sudo a2enmod auth_openidc
-$ sudo service apache2 restart
-```
-
-
-!!! Note
-    Restart the server after configuring the module, else the server will not restart and it will throw errors. To check for errors, please chek the `errors.log` file in `/var/log/apache/` folder
-
+|Ubuntu Server 14.04| CentOS 6.x|
+|-------------------|-----------|
+|# chown -R www-data:www-data /var/cache/apache2/metadata|# chown -R apache:apache /var/cache/apache2/metadata|
 
 The next step is to prepare the protected resource. In this example we shall create a simple `html` page and put it in a protected folder. The following commands will create a directory named `dynamic` and create a file `index.html:
-
 
 ```
 $ sudo mkdir /var/www/html/dynamic
 $ sudo vim /var/www/html/dynamic/index.html
 ```
 
-
 Please add the following in the `index.html` file. If you have anything else prepared for this purpose, you can use that as well.
-
 
 ```
 <html>
@@ -132,13 +183,35 @@ Please add the following in the `index.html` file. If you have anything else pre
 </html>
 ```
 
-
 The ownership of the entire html directory must be changed to Apache. Please use the following command to change the ownership:
 
+|Ubuntu Server 14.04| CentOS 6.x|
+|-------------------|-----------|
+|$ sudo chown -R www-data:www-data /var/www/html|$ sudo chown -R apache:apache /var/www/html|
+
+The next step is to prepare the configuration file for the Apache module for openid connect. The location of the configuration files are different, but the content is same for both Ubuntu Server and CentOS Server.
+
+#### 5.3.1.1 Ubuntu Server 14.04 Configurations
+Please add the following lines in the `auth_openidc.conf` configuration file under `/etc/apache2/mods-available/` folder.
 
 ```
-$ sudo chown -R www-data:www-data /var/www/html
+OIDCMetadataDir /var/cache/apache2/metadata
+OIDCClientSecret secret
+OIDCRedirectURI https://dynamic.gluu.org:44443/dynamic/fake_redirect_uri
+OIDCCryptoPassphrase secret
+OIDCSSLValidateServer Off
 ```
+
+The apache module can be enabled now and the following command will do the same. Please restart the Apache Server as well.
+
+```
+$ sudo a2enmod auth_openidc
+$ sudo service apache2 restart
+```
+
+!!! Note
+    Restart the server after configuring the module, else the server will not restart and it will throw errors. To check for errors, please chek the `errors.log` file in `/var/log/apache/` folder
+
 
 The apache configuration file must be added to the `/sites-available/` folder. The file is named `dynamic.conf` for convinience. Please use the following command to create the file and open it using `vim` editor:
 
@@ -175,6 +248,46 @@ $ sudo a2ensite dynamic.conf
 $ sudo service apache2 restart
 ```
 
+#### 5.3.1.2 CentOS 6.x Server
+The apache configuration for the dynamic client registration is located in the `/etc/httpd/conf.d/dynamic.conf` file. Please use the command below to create the configuration file:
+
+```
+# vi /etc/httpd/conf.d/dynamic.conf
+```
+
+Please add the following in the configuration file:
+
+```
+<VirtualHost *:44443>
+    ServerName dynamic.gluu.org
+    DocumentRoot /var/www/html
+
+    OIDCMetadataDir /var/www/html/metadata
+    OIDCClientSecret secret
+
+    OIDCRedirectURI https://dynamic.gluu.org:44443/dynamic/fake_redirect_uri
+    OIDCCryptoPassphrase secret
+    OIDCSSLValidateServer Off
+
+    <Location /dynamic/>
+        AuthType openid-connect
+        Require valid-user
+    </Location>
+
+    SSLEngine On
+    SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+</VirtualHost>
+```
+
+Please use the commands below to enable the dynamic site and restart the Apache server.
+
+```
+# ln -s /etc/httpd/sites-available/dynamic.conf
+# service httpd restart
+```
+
+#### 5.3.1.3 Testing Dynamic Registration
 Please access the site @ `https://dynamic.gluu.org:44443/dynamic` and the discovery page will appear.
 
 ![discovery](../img/openid-test/discovery.png)
@@ -188,8 +301,35 @@ The administrator or the user can enter the data in any of the format shown abov
 
 ![authentication](../img/openid-test/authentication.png)
 
-### 5.1.2 Manual Client Registration
-	The procedure for manual client registration is different from the dynamic one. The configuration goes in the `auth_openidc` configuration file inside the apache folder. Please use the following command to open the file:
+### 5.3.2 Manual
+It is time to prepare the protected resource for Manual Client Registration test. In this example we shall create a simple html page and put it in a protected folder. The following commands will create a directory named static and create a file `index.html`:
+
+```
+$ sudo mkdir /var/www/html/static
+$ sudo vim /var/www/html/static/index.html
+```
+
+Please add the following in the `index.html` file. If you have anything else prepared for this purpose, you can use that as well.
+
+```
+<html>
+    <title>
+        Protected URL
+    </title>
+    <body>
+        Nice to see the protected url via Static Registration
+    </body>
+</html>
+```
+
+The ownership of the entire html directory must be changed to Apache. Please use the following command to change the ownership:
+
+|Ubuntu Server 14.04| CentOS 6.x|
+|-------------------|-----------|
+|$ sudo chown -R www-data:www-data /var/www/html | $ sudo chown -R apache:apache /var/www/html|
+
+#### 5.3.2.1 Ubuntu Server 14.04
+The procedure for manual client registration is different from the dynamic one. The configuration goes in the `auth_openidc` configuration file inside the apache folder. Please use the following command to open the file:
 
 ```
 $ sudo vim /etc/apache2/mods-available/auth_openidc.conf
@@ -215,32 +355,6 @@ The next command will enable the Apache module.
 
 ```
 $ sudo a2enmod auth_openidc
-```
-
-The next step is to prepare the protected resource. In this example we shall create a simple html page and put it in a protected folder. The following commands will create a directory named static and create a file `index.html`:
-
-```
-$ sudo mkdir /var/www/html/static
-$ sudo vim /var/www/html/static/index.html
-```
-
-Please add the following in the `index.html` file. If you have anything else prepared for this purpose, you can use that as well.
-
-```
-<html>
-    <title>
-        Protected URL
-    </title>
-    <body>
-        Nice to see the protected url via Static Registration
-    </body>
-</html>
-```
-
-The ownership of the entire html directory must be changed to Apache. Please use the following command to change the ownership:
-
-```
-$ sudo chown -R www-data:www-data /var/www/html
 ```
 
 The apache configuration file must be added to the `/sites-available/` folder. The file is named `static.conf` for convinience. Please use the following command to create the file and open it using `vim` editor:
@@ -321,4 +435,6 @@ The `ldapmodify` command is used to insert the `oxAuthSubjectIdentifier`. An exa
 $ sudo /opt/opendj/bin/ldapmodify -Z -X -h localhost -p 1636 -D "cn=Directory Manager" -j /root/.pw -f /root/mod.ldif
 ```
 
-Now the manual client can be accessed from `https://static.gluu.org:44443/static` and the protected resource accessed. 
+Now the manual client can be accessed from `https://static.gluu.org:44443/static` and the protected resource accessed.
+
+
