@@ -329,7 +329,7 @@ The ownership of the entire html directory must be changed to Apache. Please use
 |$ sudo chown -R www-data:www-data /var/www/html | $ sudo chown -R apache:apache /var/www/html|
 
 #### 5.3.2.1 Ubuntu Server 14.04
-The procedure for manual client registration is different from the dynamic one. The configuration goes in the `auth_openidc` configuration file inside the apache folder. Please use the following command to open the file:
+The configuration for the manual client is put in the `auth_openidc` configuration file inside the apache folder. Please use the following command to open the file:
 
 ```
 $ sudo vim /etc/apache2/mods-available/auth_openidc.conf
@@ -393,6 +393,56 @@ Please use the following address in your browser `https://static.gluu.org:44443/
 
 ![static-auth](../img/openid-test/static-auth.png)
 
+#### 5.3.2.2 CentOS Server 
+The manual client registration configuration is kept in the `static.conf` file under`/etc/httpd/conf.d/` folder. Please use the command below to create the file:
+
+```
+# vi /etc/httpd/conf.d/static.conf
+```
+
+Please add the contents given below in the file:
+
+```
+<VirtualHost *:44443>
+    ServerName static.gluu.org
+    DocumentRoot /var/www/html
+
+    OIDCRedirectURI https://static.gluu.org:44443/static/fake_redirect_uri
+    OIDCCryptoPassphrase newsecret
+
+    OIDCProviderMetadataURL https://ce.gluu.org/.well-known/openid-configuration
+    OIDCClientID @!C648.9803.5565.E5CB!0001!0DB0.EEDB!0008!7728.5650
+    OIDCClientSecret newsecret
+    OIDCResponseType id_token
+    OIDCProviderTokenEndpointAuth client_secret_basic
+
+    OIDCProviderIssuer  https://ce.gluu.org
+    OIDCSSLValidateServer Off
+
+    <Location /static/>
+        AuthType openid-connect
+        Require valid-user
+    </Location>
+
+    SSLEngine On
+    SSLCertificateFile /etc/httpd/ssl/httpd.pem
+    SSLCertificateKeyFile /etc/httpd/ssl/httpd.key
+</VirtualHost>
+```
+
+The site is enabled using the `ln` command. Please use the command given below to enable the site and restart the Apache Server.
+
+```
+# ln -s /etc/httpd/sites-available/sites-available/static.conf
+# service httpd restart
+```
+
+Please use the following address in your browser `https://static.gluu.org:44443/static` to access the oxAuth login page where the credentials for Gluu CE must be put to authenticate the user.
+
+![static-auth](../img/openid-test/static-auth.png)
+
+### 5.3.3 Troubleshooting 
+ 
 There is a possibility that the following error will be shown in the browser:
 
 ```

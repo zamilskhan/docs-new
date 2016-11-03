@@ -30,6 +30,7 @@ pages:
         - '3 Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
         - '4. OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
         - '5. Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
+        - '6. UMA': 'admin-guide/uma.md'
 
 - Reference Guide:
         - 1. 'Introduction': 'reference-guide/index.md'
