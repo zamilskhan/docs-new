@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>5. Test OpenID - Gluu Docs</title>
+      
+<link href="../../assets/stylesheets/font.css" rel="stylesheet">
+      
+      
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="Gluu Docs">
+    <meta property="og:image" content="None/../../gluu.jpg">
+    <meta name="apple-mobile-web-app-title" content="Gluu Docs">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../../gluu.jpg">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-60feabe0e5.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-60feabe0e5.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-f58e216493.css">
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/zenburn-28d5b94970.css">
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Noto Sans:400,700|Source+Code+Pro">
+      <style>
+        body, input {
+          font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../assets/javascripts/modernizr-4a5cc7e01e.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Administration Guide <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        5. Test OpenID
+      </div>
+    </div>
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" placeholder="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+
+  
+  <a href="https://github.com/GluuFederation/docs" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../gluu.jpg">
+        </div>
+      
+      <div class="name">
+        <strong>Gluu Docs</strong><br>
+        version: 2.4.4
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      <ul class="repo">
+        
+        <li class="home">
+          <a href="/" title="Home">
+            <div class="home-image">
+            <i class="fa fa-home"></i> Doc Home</div>
+          </a>
+        </li>
+        
+        
+        
+        <li class="repo-download">
+          
+          <a href="https://github.com/GluuFederation/docs/archive/2.4.4.zip" target="_blank" title="Download" data-action="download">
+            <i class="icon icon-download"></i> Download
+          </a>
+        </li>
+        
+      </ul>
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Home" href="../..">
+      Home
+    </a>
+    
+  </li>
+                  
+          
+            
+  <li>
+    <span class="section">Installation Guide</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Single Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="1 Preparing VM" href="../../installation-guide/">
+      1 Preparing VM
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="2 Install Gluu Server" href="../../installation-guide/install/">
+      2 Install Gluu Server
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="2.5 Setup Script Options" href="../../installation-guide/setup_py/">
+      2.5 Setup Script Options
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+      
+        
+  <li>
+    <span class="section">Cluster Setup</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="3 Cluster Deployment Guide" href="../../cluster/">
+      3 Cluster Deployment Guide
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+      
+        
+  <li>
+    <span class="section">Upgrade Gluu Server</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="4 Upgrade Guide" href="../../upgrade/">
+      4 Upgrade Guide
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+          
+            
+  <li>
+    <span class="section">Administration Guide</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="1. Introduction" href="../">
+      1. Introduction
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="2. SAML" href="../authentication-protocol-saml/">
+      2. SAML
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="3 Test SAML" href="../authentication-protocol-saml-test/">
+      3 Test SAML
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="4. OpenID Connect" href="../authentication-protocol-openid/">
+      4. OpenID Connect
+    </a>
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="current" title="5. Test OpenID" href="./">
+      5. Test OpenID
+    </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="5.1 Ubuntu Server 14.04" href="#51-ubuntu-server-1404">
+                <b>5.1 Ubuntu Server 14.04</b>
+              </a>
+            </li>
+            
+          
+            <li class="anchor">
+              <a title="5.2 CentOS 6.x" href="#52-centos-6x">
+                <b>5.2 CentOS 6.x</b>
+              </a>
+            </li>
+            
+          
+            <li class="anchor">
+              <a title="5.3 Client Registration" href="#53-client-registration">
+                <b>5.3 Client Registration</b>
+              </a>
+            </li>
+            
+              <li class="anchor">
+              <a title="5.3.1 Dynamic" href="#531-dynamic">
+                  <font size=2><i>5.3.1 Dynamic</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="5.3.2 Manual" href="#532-manual">
+                  <font size=2><i>5.3.2 Manual</i></font>
+              </a>
+            </li>
+             
+              <li class="anchor">
+              <a title="5.3.3 Troubleshooting" href="#533-troubleshooting">
+                  <font size=2><i>5.3.3 Troubleshooting</i></font>
+              </a>
+            </li>
+             
+          
+        </ul>
+      
+    
+  </li>
+                  
+      
+        
+  <li>
+    <a class="" title="6. UMA" href="../uma/">
+      6. UMA
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+          
+            
+  <li>
+    <span class="section">Reference Guide</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="1. 'Introduction'" href="../../reference-guide/">
+      1. 'Introduction'
+    </a>
+    
+  </li>
+                  
+      
+    </ul>
+  </li>
+                  
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+            <h1>5. Test OpenID</h1>
+          
+          <p>[TOC]
+OpenID Connect in Gluu Server can be tested using the Apache module for the protocol. This section defines the installation for Apache Server with the OpenID Connect module and testing against Gluu Server. There are two different registration methods for the OpenID clients called Dynamic and Manual.</p>
+<h2 id="51-ubuntu-server-1404">5.1 Ubuntu Server 14.04<a class="headerlink" href="#51-ubuntu-server-1404" title="Permanent link">#</a></h2>
+<p>This section defines the steps to install the OpenID Connect module for Apache, <code>auth_openidc</code> in Ubuntu. Please use the following commands to install Apache2, enable SSL and restart the server:</p>
+<pre><code>$ sudo apt-get install apache2
+$ sudo a2enmod ssl
+$ service apache2 restart
+</code></pre>
+
+<p>The next step is to create a self-signed certificate for SSL. The following commands will create a directory <code>/etc/apache2/ssl</code> and generate the certificates.</p>
+<pre><code>$ sudo mkdir /etc/apache2/ssl
+$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt
+</code></pre>
+
+<p>A prompt shall appear where the information related to the certificate needs filling. A template is given below:</p>
+<pre><code>    Country Name (2 letter code) [AU]:US
+    State or Province Name (full name) [Some-State]:Texas
+    Organization Name (eg, company) [Internet Widgits Pty Ltd]:Gluu Inc
+    Organizational Unit Name (eg, section) []:Gluu Test
+    Common Name (e.g. server FQDN or YOUR name) []:gluu.org
+    Email Address []:support@gluu.org
+</code></pre>
+
+<p>The apache configuration to enable the SSL module comes next. The <code>default-ssl.conf</code> file should be updated with the newly generated certificate locations.</p>
+<pre><code>$ sudo vim /etc/apache2/sites-available/default-ssl.conf
+</code></pre>
+
+<p>Please update the location of the certificates with the following if you have used the commands given here. If you have used your own certificates or generated the certificates with a different name, please use that.</p>
+<pre><code>/etc/apache2/ssl/apache.key
+/etc/apache2/ssl/apache.crt
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Activate the SSl Virtual Host, if you are running <code>auth_oidc</code> and <code>Gluu Server</code> in the same machine, and restart Apache Server</p>
+</div>
+<p>Please enable the SSL configuration and restart the Apache Server for the changes to take effect with the following commands:</p>
+<pre><code>$ sudo a2ensite default-ssl.conf
+$ sudo service apache2 restart
+</code></pre>
+
+<p>The next step is to install and configure the Apache module for OpenID Connect. Run the following command to download and install the <code>auth_openidc</code> module:</p>
+<pre><code>$ sudo wget http://ftp.us.debian.org/debian/pool/main/liba/libapache2-mod-auth-openidc/libapache2-mod-auth-openidc_1.6.0-1_amd64.deb
+$ sudo dpkg -i libapache2-mod-auth-openidc_1.6.0-1_amd64.deb
+</code></pre>
+
+<p>If the package is not available, please check this <a href="https://github.com/pingidentity/mod_auth_openidc/wiki">Github Page</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This module depends on <code>libhiredis0.10, libpcre3, &amp; libjansson4</code> package. If the dependencies are not met, please install them manually using the <code>apt-get</code> command</p>
+</div>
+<p>The default ports for <code>http</code> and <code>https</code> are not used for <code>auth_openidc</code> module, therefore it is necessary to update three files. The changes are done to avoid a conflict with the Gluu Server's Apache ports. 
+But, if the Gluu Server and the Apache server are different, there is no need to change the ports.</p>
+<p>Change port numbers to <strong>44443</strong> (for SSL) and <strong>8000</strong> (for non-SSL) in these three files.</p>
+<ul>
+<li>/etc/apache2/ports.conf</li>
+<li>/etc/apache2/sites-available/000-default.conf</li>
+<li>/etc/apache2/sites-available/default-ssl.conf</li>
+</ul>
+<h2 id="52-centos-6x">5.2 CentOS 6.x<a class="headerlink" href="#52-centos-6x" title="Permanent link">#</a></h2>
+<pre><code>The Apache module in CentOS Server requires the Extra Packages for Enterprise Linux (EPEL) repository. Please use the following command to add the `EPEL` repository:
+</code></pre>
+<pre><code># rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+</code></pre>
+
+<p>The Apache webserver is installed next with the SSL module. There are some additional components that are required for the OpenID Connect module which are installed as well. Please use the following command to install the software:</p>
+<pre><code># yum install httpd mod_ssl
+# yum install curl hiredis jansson
+</code></pre>
+
+<p>The next step is to generate the SSL certificates for the SSL module in Apache Server. The certificates are kept in the <code>/etc/httpd/ssl</code> folder. Please use the following commands to create the directory and generate the certificates:</p>
+<pre><code># mkdir /etc/httpd/ssl
+# openssl req -new -x509 -sha256 -days 365 -nodes -out /etc/httpd/ssl/httpd.pem -keyout /etc/httpd/ssl/httpd.key
+</code></pre>
+
+<p>This command for the certificate will generate a prompt where some values such as company name, country, state must be entered. Please fill them up and the certificate will be generated. Alternatively if there is any certificate available, that can also be used.</p>
+<p>The next step is to configure the Apache server to use the newly generated certificates. The certificate location is updated in the <code>vhost.conf</code> file. Please use the following command to open the file:</p>
+<pre><code># vi /etc/httpd/conf.d/vhost.conf
+</code></pre>
+
+<p>Please add the certificate location and the correct server name in the file. The template below shows an example:</p>
+<pre><code>    SSLCertificateFile /etc/httpd/ssl/httpd.pem
+    SSLCertificateKeyFile /etc/httpd/ssl/httpd.key
+    ServerAdmin support@gluu.org
+    ServerName gluu.org
+</code></pre>
+
+<p>Please restart the Apache server for the changes to take effect:</p>
+<pre><code># service httpd restart
+</code></pre>
+
+<p>The Apache module is installed using the <code>rpm</code> command which is given below:</p>
+<pre><code>rpm -ivh https://github.com/pingidentity/mod_auth_openidc/releases/download/v1.8.2/mod_auth_openidc-1.8.2-1.el6.x86_64.rpm
+
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there are any difficulties installing the package, please run <code>yum upgrade</code></p>
+</div>
+<p>The existance of the package can be tested using the <code>ls</code> command. Please use the following command if there is any doubt to check that the apache module for openid connect is present:</p>
+<pre><code># ls -l /usr/lib64/httpd/modules/mod_auth_openidc.so
+</code></pre>
+
+<p>The next command will create the apache configuration file for the OpenID Connect module.</p>
+<pre><code>echo -e &quot;LoadModule auth_openidc_module modules/mod_auth_openidc.so\nListen 44443&quot; &gt; /etc/httpd/conf.d/mod_auth_openidc.conf
+</code></pre>
+
+<p>Please use the following command to start the Apache Server where the OpenID Connect module will listen to port <code>44443</code>.</p>
+<pre><code># service httpd start
+</code></pre>
+
+<h2 id="53-client-registration">5.3 Client Registration<a class="headerlink" href="#53-client-registration" title="Permanent link">#</a></h2>
+<h3 id="531-dynamic">5.3.1 Dynamic<a class="headerlink" href="#531-dynamic" title="Permanent link">#</a></h3>
+<p>The following example shows the configuration for dynamic client registration.
+The OpenID Connect module requires a folder to store the metadata, therefore create a metadata folder and change permission using the following commands.</p>
+<pre><code># mkdir /var/cache/apache2/metadata
+</code></pre>
+
+<p>The command to change the permission is different in Ubuntu and CentOS. The commands are given in the table below. Please use the appropriate command according to the host operating system.</p>
+<table>
+<thead>
+<tr>
+<th>Ubuntu Server 14.04</th>
+<th>CentOS 6.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td># chown -R www-data:www-data /var/cache/apache2/metadata</td>
+<td># chown -R apache:apache /var/cache/apache2/metadata</td>
+</tr>
+</tbody>
+</table>
+<p>The next step is to prepare the protected resource. In this example we shall create a simple <code>html</code> page and put it in a protected folder. The following commands will create a directory named <code>dynamic</code> and create a file `index.html:</p>
+<pre><code>$ sudo mkdir /var/www/html/dynamic
+$ sudo vim /var/www/html/dynamic/index.html
+</code></pre>
+
+<p>Please add the following in the <code>index.html</code> file. If you have anything else prepared for this purpose, you can use that as well.</p>
+<pre><code>&lt;html&gt;
+    &lt;title&gt;
+        Protected URL
+    &lt;/title&gt;
+    &lt;body&gt;
+        Nice to see the protected url via Dynamic Registration
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>The ownership of the entire html directory must be changed to Apache. Please use the following command to change the ownership:</p>
+<table>
+<thead>
+<tr>
+<th>Ubuntu Server 14.04</th>
+<th>CentOS 6.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$ sudo chown -R www-data:www-data /var/www/html</td>
+<td>$ sudo chown -R apache:apache /var/www/html</td>
+</tr>
+</tbody>
+</table>
+<p>The next step is to prepare the configuration file for the Apache module for openid connect. The location of the configuration files are different, but the content is same for both Ubuntu Server and CentOS Server.</p>
+<h4 id="5311-ubuntu-server-1404-configurations">5.3.1.1 Ubuntu Server 14.04 Configurations<a class="headerlink" href="#5311-ubuntu-server-1404-configurations" title="Permanent link">#</a></h4>
+<p>Please add the following lines in the <code>auth_openidc.conf</code> configuration file under <code>/etc/apache2/mods-available/</code> folder.</p>
+<pre><code>OIDCMetadataDir /var/cache/apache2/metadata
+OIDCClientSecret secret
+OIDCRedirectURI https://dynamic.gluu.org:44443/dynamic/fake_redirect_uri
+OIDCCryptoPassphrase secret
+OIDCSSLValidateServer Off
+</code></pre>
+
+<p>The apache module can be enabled now and the following command will do the same. Please restart the Apache Server as well.</p>
+<pre><code>$ sudo a2enmod auth_openidc
+$ sudo service apache2 restart
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Restart the server after configuring the module, else the server will not restart and it will throw errors. To check for errors, please chek the <code>errors.log</code> file in <code>/var/log/apache/</code> folder</p>
+</div>
+<p>The apache configuration file must be added to the <code>/sites-available/</code> folder. The file is named <code>dynamic.conf</code> for convinience. Please use the following command to create the file and open it using <code>vim</code> editor:</p>
+<pre><code>$ cd /etc/apache2/sites-available/
+$ vim dynamic.conf
+</code></pre>
+
+<p>Please add the follwoing in the <code>dynamic.conf</code> file:</p>
+<pre><code>&lt;VirtualHost *:44443&gt;
+    ServerName dynamic.gluu.org
+    DocumentRoot /var/www/html
+
+    &lt;Location /dynamic/&gt;
+        AuthType openid-connect
+        Require valid-user
+    &lt;/Location&gt;
+
+    SSLEngine On
+    SSLCertificateFile /etc/apache2/ssl/apache.crt
+    SSLCertificateKeyFile /etc/apache2/ssl/apache.key
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are using a custom port 44443 in this example, but it is possible to use the default SSL port 443, if the Apache server is stand-alone.</p>
+</div>
+<p>The dynamic site is added and configured in apache server. The following commands will enable the site and restart apache server so that the dynamic site is accessible:</p>
+<pre><code>$ sudo a2ensite dynamic.conf
+$ sudo service apache2 restart
+</code></pre>
+
+<h4 id="5312-centos-6x-server">5.3.1.2 CentOS 6.x Server<a class="headerlink" href="#5312-centos-6x-server" title="Permanent link">#</a></h4>
+<p>The apache configuration for the dynamic client registration is located in the <code>/etc/httpd/conf.d/dynamic.conf</code> file. Please use the command below to create the configuration file:</p>
+<pre><code># vi /etc/httpd/conf.d/dynamic.conf
+</code></pre>
+
+<p>Please add the following in the configuration file:</p>
+<pre><code>&lt;VirtualHost *:44443&gt;
+    ServerName dynamic.gluu.org
+    DocumentRoot /var/www/html
+
+    OIDCMetadataDir /var/www/html/metadata
+    OIDCClientSecret secret
+
+    OIDCRedirectURI https://dynamic.gluu.org:44443/dynamic/fake_redirect_uri
+    OIDCCryptoPassphrase secret
+    OIDCSSLValidateServer Off
+
+    &lt;Location /dynamic/&gt;
+        AuthType openid-connect
+        Require valid-user
+    &lt;/Location&gt;
+
+    SSLEngine On
+    SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>Please use the commands below to enable the dynamic site and restart the Apache server.</p>
+<pre><code># ln -s /etc/httpd/sites-available/dynamic.conf
+# service httpd restart
+</code></pre>
+
+<h4 id="5313-testing-dynamic-registration">5.3.1.3 Testing Dynamic Registration<a class="headerlink" href="#5313-testing-dynamic-registration" title="Permanent link">#</a></h4>
+<p>Please access the site @ <code>https://dynamic.gluu.org:44443/dynamic</code> and the discovery page will appear.</p>
+<p><img alt="discovery" src="../../img/openid-test/discovery.png" /></p>
+<p>There are two ways the IDP is presented in the discovery page</p>
+<ol>
+<li>admin@gluu-server-hostname.org</li>
+<li>gluu-server-hostname.org</li>
+</ol>
+<p>The administrator or the user can enter the data in any of the format shown above and click on submit. The user will be redirected to the Gluu Server CE oxAuth login page for credentials. If the authentication is successful, the client will be added in Gluu Server and the protected resource will be shown in the browser.</p>
+<p><img alt="authentication" src="../../img/openid-test/authentication.png" /></p>
+<h3 id="532-manual">5.3.2 Manual<a class="headerlink" href="#532-manual" title="Permanent link">#</a></h3>
+<p>It is time to prepare the protected resource for Manual Client Registration test. In this example we shall create a simple html page and put it in a protected folder. The following commands will create a directory named static and create a file <code>index.html</code>:</p>
+<pre><code>$ sudo mkdir /var/www/html/static
+$ sudo vim /var/www/html/static/index.html
+</code></pre>
+
+<p>Please add the following in the <code>index.html</code> file. If you have anything else prepared for this purpose, you can use that as well.</p>
+<pre><code>&lt;html&gt;
+    &lt;title&gt;
+        Protected URL
+    &lt;/title&gt;
+    &lt;body&gt;
+        Nice to see the protected url via Static Registration
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>The ownership of the entire html directory must be changed to Apache. Please use the following command to change the ownership:</p>
+<table>
+<thead>
+<tr>
+<th>Ubuntu Server 14.04</th>
+<th>CentOS 6.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$ sudo chown -R www-data:www-data /var/www/html</td>
+<td>$ sudo chown -R apache:apache /var/www/html</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5321-ubuntu-server-1404">5.3.2.1 Ubuntu Server 14.04<a class="headerlink" href="#5321-ubuntu-server-1404" title="Permanent link">#</a></h4>
+<p>The configuration for the manual client is put in the <code>auth_openidc</code> configuration file inside the apache folder. Please use the following command to open the file:</p>
+<pre><code>$ sudo vim /etc/apache2/mods-available/auth_openidc.conf
+</code></pre>
+
+<p>The following lines must be added in the file. Please remember to change the <code>OIDCProviderIssuer</code> to the hostname of the IDP you are using, as we are using <code>ce.gluu.org</code> in this example.</p>
+<pre><code>    OIDCRedirectURI https://static.gluu.org:44443/static/fake_redirect_uri
+    OIDCCryptoPassphrase newsecret
+
+    OIDCProviderMetadataURL https://ce.gluu.org/.well-known/openid-configuration
+    OIDCClientID @!C648.9803.5565.E5CB!0001!0DB0.EEDB!0008!7728.5650
+    OIDCClientSecret newsecret
+    OIDCResponseType id_token
+    OIDCProviderTokenEndpointAuth client_secret_basic
+
+    OIDCProviderIssuer  https://ce.gluu.org
+    OIDCSSLValidateServer Off
+</code></pre>
+
+<p>The next command will enable the Apache module.</p>
+<pre><code>$ sudo a2enmod auth_openidc
+</code></pre>
+
+<p>The apache configuration file must be added to the <code>/sites-available/</code> folder. The file is named <code>static.conf</code> for convinience. Please use the following command to create the file and open it using <code>vim</code> editor:</p>
+<pre><code>$ cd /etc/apache2/sites-available/
+$ vim static.conf
+</code></pre>
+
+<p>Please add the following in the <code>static.conf</code> file:</p>
+<pre><code>&lt;VirtualHost *:44443&gt;
+    ServerName static.gluu.org
+    DocumentRoot /var/www/html
+
+    &lt;Location /static/&gt;
+        AuthType openid-connect
+        Require valid-user
+    &lt;/Location&gt;
+
+    SSLEngine On
+    SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
+    SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>The site must be enabled before it can be accessed from the outside. Please use the following command to enable the site and restart the Apache Server.</p>
+<pre><code>$ sudo a2ensite static.conf
+$ sudo service apache2 restart
+</code></pre>
+
+<p>Please use the following address in your browser <code>https://static.gluu.org:44443/static</code> to access the oxAuth login page where the credentials for Gluu CE must be put to authenticate the user.</p>
+<p><img alt="static-auth" src="../../img/openid-test/static-auth.png" /></p>
+<h4 id="5322-centos-server">5.3.2.2 CentOS Server<a class="headerlink" href="#5322-centos-server" title="Permanent link">#</a></h4>
+<p>The manual client registration configuration is kept in the <code>static.conf</code> file under<code>/etc/httpd/conf.d/</code> folder. Please use the command below to create the file:</p>
+<pre><code># vi /etc/httpd/conf.d/static.conf
+</code></pre>
+
+<p>Please add the contents given below in the file:</p>
+<pre><code>&lt;VirtualHost *:44443&gt;
+    ServerName static.gluu.org
+    DocumentRoot /var/www/html
+
+    OIDCRedirectURI https://static.gluu.org:44443/static/fake_redirect_uri
+    OIDCCryptoPassphrase newsecret
+
+    OIDCProviderMetadataURL https://ce.gluu.org/.well-known/openid-configuration
+    OIDCClientID @!C648.9803.5565.E5CB!0001!0DB0.EEDB!0008!7728.5650
+    OIDCClientSecret newsecret
+    OIDCResponseType id_token
+    OIDCProviderTokenEndpointAuth client_secret_basic
+
+    OIDCProviderIssuer  https://ce.gluu.org
+    OIDCSSLValidateServer Off
+
+    &lt;Location /static/&gt;
+        AuthType openid-connect
+        Require valid-user
+    &lt;/Location&gt;
+
+    SSLEngine On
+    SSLCertificateFile /etc/httpd/ssl/httpd.pem
+    SSLCertificateKeyFile /etc/httpd/ssl/httpd.key
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>The site is enabled using the <code>ln</code> command. Please use the command given below to enable the site and restart the Apache Server.</p>
+<pre><code># ln -s /etc/httpd/sites-available/sites-available/static.conf
+# service httpd restart
+</code></pre>
+
+<p>Please use the following address in your browser <code>https://static.gluu.org:44443/static</code> to access the oxAuth login page where the credentials for Gluu CE must be put to authenticate the user.</p>
+<p><img alt="static-auth" src="../../img/openid-test/static-auth.png" /></p>
+<h3 id="533-troubleshooting">5.3.3 Troubleshooting<a class="headerlink" href="#533-troubleshooting" title="Permanent link">#</a></h3>
+<p>There is a possibility that the following error will be shown in the browser:</p>
+<pre><code>Error:
+
+The OpenID Connect Provider returned an error: Error in handling response type.
+</code></pre>
+
+<p>The apache logs will contain the following if the error shown above is visible:</p>
+<pre><code>[Fri Jun 05 14:48:28 2015] [error] [client 124.253.60.123] oidc_proto_validate_idtoken: id_token JSON payload did not contain the required-by-spec &quot;sub&quot; string value, referer: https://static.gluu.org:44443/static/fake_redirect_uri
+[Fri Jun 05 14:48:28 2015] [error] [client 124.253.60.123] oidc_proto_parse_idtoken: id_token payload could not be validated, aborting, referer: https://static.gluu.org:44443/static/fake_redirect_uri
+</code></pre>
+
+<p>This error is mitigated by the following procedure. </p>
+<pre><code>$ sudo service gluu-server login
+</code></pre>
+
+<p>The ClientID is available from the oxTrust admin interface and the DN is searched from the Gluu Opendj with the following command:</p>
+<pre><code>/opt/opendj/bin/ldapsearch -T -X -Z -p 1636 -D &quot;cn=Directory Manager&quot; -j /root/.pw -s sub -b &quot;o=gluu&quot; 'inum=@!C648.9803.5565.E5CB!0001!0DB0.EEDB!0008!7728.5650'
+</code></pre>
+
+<p>Please create a file named <code>mod.ldif</code> with the contents given below. The <code>DN</code> used in <code>mod.ldif</code> is obtained from output of the command given above.</p>
+<pre><code>dn: inum=@!C648.9803.5565.E5CB!0001!0DB0.EEDB!0008!7728.5650,ou=clients,o=@!C648.9803.5565.E5CB!0001!0DB0.EEDB,o=gluu
+changetype: modify
+add: oxAuthSubjectIdentifier
+oxAuthSubjectIdentifier: @!C648.9803.5565.E5CB!0001!0DB0.EEDB!0008!7728.5650
+</code></pre>
+
+<p>The <code>ldapmodify</code> command is used to insert the <code>oxAuthSubjectIdentifier</code>. An exampleof the command is given below:</p>
+<pre><code>$ sudo /opt/opendj/bin/ldapmodify -Z -X -h localhost -p 1636 -D &quot;cn=Directory Manager&quot; -j /root/.pw -f /root/mod.ldif
+</code></pre>
+
+<p>Now the manual client can be accessed from <code>https://static.gluu.org:44443/static</code> and the protected resource accessed.</p>
+          <aside class="copyright" role="note">
+           Built with 
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a> using
+            <a href="http://gitlab.testbird.io:8099/frontend/testbird-mkdocs-theme.git" target="_blank">
+              testBird-mkdocs-theme
+            </a> <br>
+            
+            Copyright &copy; 2016, Gluu, Inc.
+            
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../authentication-protocol-openid/" title="4. OpenID Connect">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                4. OpenID Connect
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../uma/" title="6. UMA">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                6. UMA
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = '';
+    </script>
+    <script src="../../assets/javascripts/application-ce3999cf34.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+      <script src="../../dist/clipboard.js"></script>
+    
+      <script src="../../dist/clipboard.min.js"></script>
+    
+    
+  </body>
+</html>
