@@ -109,4 +109,14 @@ The search bar can be used to look for available scopes. New scopes are added by
 
 Additionally there is an option to add authorization policy with the new scope.
 
+## 6.3 UMA Policies
+UMA policies protect UMA Resources via scopes. Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:
 
+1. scopes: policy protects resources by scopes
+2. authorization script: script that is evaluated in order to grant/deny access
+3. name: a human readable name to the UMA policy
+
+The following section outlines how to define UMA policies from the Custom Script menu. The Custom Script page is accessed from the Configuration Menu.
+
+![custom-script-menu](../img/oxtrust/custom-script-menu.png)
+![auth-policy](../img/uma/auth-policy.png) 
