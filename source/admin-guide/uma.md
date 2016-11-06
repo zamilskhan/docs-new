@@ -52,7 +52,53 @@ An example  of the scope JSON is given below:
 !!! Note
     Scope JSON may contain custom properties.
 
-### 6.2.1 Define Scope
+There are three (3) types of scopes in UMA:
+
+1. `internal`: the scope is hosted within oxAuth in Gluu Server CE
+2. `external`: the scope is hosted in a different server
+3. `external_auto`: the scope is hosted in a different server, but it is added to Gluu Server CE during the resource registration
+
+There is no URI for an internal scope because it sits within oxAuth in the Gluu Server. The UMA URL is represented in the format
+
+```
+UMA URL=uma_scopes_endpoint+"/"+oxId;
+```
+
+The following is an example of an UMA URL:
+
+```
+https://gluu.org/uma/scopes/view
+```
+
+!!! Note
+    The scope endpoint has to be present in UMA configuration to make it discoverable.
+
+The `ldif` for both external and internal scope is given below:
+
+**External sample ldif**
+```
+dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
+displayName: View
+inum: @!1111!8990!BF80
+objectClass: oxAuthUmaScopeDescription
+objectClass: top
+oxType: external
+oxUrl: http://photoz.example.com/dev/scopes/view
+```
+
+**Internal sample ldif**
+```
+dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
+displayName: View
+inum: @!1111!8990!BF80
+objectClass: oxAuthUmaScopeDescription
+objectClass: top
+oxType: internal
+oxId: View
+oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
+```
+
+### 6.2.1 Add Scope
 This section defines the process of defining UMA scopes from oxTrust. The scopes are accessed from the `Scopes` page under `UMA` from the oxTrust menu.
 
 ![uma-scopes](../img/oxtrust/uma-scopes.png)
@@ -62,3 +108,5 @@ The search bar can be used to look for available scopes. New scopes are added by
 ![uma-scopes](../img/uma/scopes-add.png)
 
 Additionally there is an option to add authorization policy with the new scope.
+
+
