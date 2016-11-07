@@ -24,6 +24,8 @@ pages:
     - Upgrade Gluu Server: 
         - '4 Upgrade Guide' : 'upgrade/index.md'
 
+- oxTrust Admin Interface: 'oxtrust/index.md'
+
 - Administration Guide:
         - '1. Introduction' : 'admin-guide/index.md'
         - '2. SAML': 'admin-guide/authentication-protocol-saml.md' 
@@ -31,6 +33,7 @@ pages:
         - '4. OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
         - '5. Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
         - '6. UMA': 'admin-guide/uma.md'
+        - '7. SCIM': 'admin-guide/scim.md'
 
 - Reference Guide:
         - 1. 'Introduction': 'reference-guide/index.md'

@@ -22,7 +22,7 @@ The resource type can be a string, URI or any other supported value type support
 !!! Note
     Resource JSON may contain custom properties.
 
-![uma-resources](../img/oxtrust/uma-resources.png)
+![uma-resources](../img/uma/uma-resources.png)
 
 The search bar can be used to search for any existing resource within Gluu Server. New resoruces can be added by clicking on the `Add Resource Set` button. The following screenshot shows the page that will appear up on clicking the add resource button.
 
@@ -101,7 +101,7 @@ oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
 ### 6.2.1 Add Scope
 This section defines the process of defining UMA scopes from oxTrust. The scopes are accessed from the `Scopes` page under `UMA` from the oxTrust menu.
 
-![uma-scopes](../img/oxtrust/uma-scopes.png)
+![uma-scopes](../img/uma/uma-scopes.png)
 
 The search bar can be used to look for available scopes. New scopes are added by clicking on the `Add Scope Description` button which will bring up the interface shown below.
 
@@ -119,4 +119,13 @@ UMA policies protect UMA Resources via scopes. Gluu Server evaluates all policie
 The following section outlines how to define UMA policies from the Custom Script menu. The Custom Script page is accessed from the Configuration Menu.
 
 ![custom-script-menu](../img/oxtrust/custom-script-menu.png)
-![auth-policy](../img/uma/auth-policy.png) 
+![auth-policy](../img/uma/auth-policy.png)
+
+### 6.3.1 UMA Policy Algorithm
+The UMA Policy alrorithm has two rules that are followed. These rules must be followed while writing UMA policy using the custom script feature of Gluu Server.
+
+- UMA Policy protects resources based on scopes. If a scope is protected by a policy, then the policy script must reutrn `true` in order to authorize access during RPT authorization.
+
+- Multiple policies can protect a single scope. In such a case, all the policies must retun `true` to authorize access else aceess will be denied.
+
+![policy-algorithm](../img/uma/policy-algorithm.jpg) 

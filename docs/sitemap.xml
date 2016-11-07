@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -29,43 +29,57 @@
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+    <url>
+     <loc>None/oxtrust/</loc>
+     <lastmod>2016-11-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
     
         
     <url>
      <loc>None/admin-guide/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/admin-guide/authentication-protocol-saml/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/admin-guide/authentication-protocol-saml-test/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/admin-guide/authentication-protocol-openid/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/admin-guide/authentication-protocol-openid-test/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/admin-guide/uma/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/admin-guide/scim/</loc>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,7 +89,7 @@
         
     <url>
      <loc>None/reference-guide/</loc>
-     <lastmod>2016-11-04</lastmod>
+     <lastmod>2016-11-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
