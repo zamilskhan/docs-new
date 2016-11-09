@@ -24,7 +24,8 @@ pages:
     - Upgrade Gluu Server: 
         - '4 Upgrade Guide' : 'upgrade/index.md'
 
-- oxTrust Admin Interface: 'oxtrust/index.md'
+- Administration Interface:
+        - '1. Introduction to oxTrust': 'oxtrust/index.md'
 
 - Administration Guide:
         - '1. Introduction' : 'admin-guide/index.md'
