@@ -239,7 +239,10 @@ Log into the oxTrust inteface and follow the steps to add a new Trust Relationsh
   - Gluu Server's Asimba metadata can be achieved from 'https://test.gluu.org/asimba/profiles/saml2'
     - Download the metadata and use 'File' method to create Trust relationship
   - Relying Party Configuration: 'SAML2SSO' Profile 
-![
+
+![enable-replying-party](../img/saml/enable-relying-party.png)
+![saml2sso](../img/saml/saml2sso.png)
+
     - example: 
         - includeAttributeStatement: Yes
         - assertionLifeTime: 300000

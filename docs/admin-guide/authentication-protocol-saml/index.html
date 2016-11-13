@@ -719,21 +719,21 @@ i<img alt="asimba-overview" src="../../img/asimba/overview.png" /></p>
 <li>Download the metadata and use 'File' method to create Trust relationship</li>
 </ul>
 </li>
-<li>Relying Party Configuration: 'SAML2SSO' Profile 
-![<ul>
-<li>example: <ul>
-<li>includeAttributeStatement: Yes</li>
-<li>assertionLifeTime: 300000</li>
-<li>assertionProxyCount: 0</li>
-<li>signResponses: conditional</li>
-<li>signAssertions: never</li>
-<li>signRequests: conditional</li>
-<li>encryptAssertions: never</li>
-<li>encryptNameIds: never</li>
+<li>Relying Party Configuration: 'SAML2SSO' Profile </li>
 </ul>
-</li>
-</ul>
-</li>
+<p><img alt="enable-replying-party" src="../../img/saml/enable-relying-party.png" />
+<img alt="saml2sso" src="../../img/saml/saml2sso.png" /></p>
+<pre><code>- example: 
+    - includeAttributeStatement: Yes
+    - assertionLifeTime: 300000
+    - assertionProxyCount: 0
+    - signResponses: conditional
+    - signAssertions: never
+    - signRequests: conditional
+    - encryptAssertions: never
+    - encryptNameIds: never
+</code></pre>
+<ul>
 <li>Attribute: Any attribute Service Providers require. Any kind of nameID from below list is mandatory. <ul>
 <li>nameID: <ul>
 <li><code>nameIDFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"</code></li>
