@@ -12,7 +12,7 @@ The following commands will install Gluu Server `chroot`
 |       Update/Clean Repo       |apt-get update                         |
 |       Install Gluu Server     |apt-get install gluu-server-2.4.4      |
 
-!!!Note: While entering the command manually, enter a space between "/ubuntu/" and "trusty main/" to avoid errors and issues while downloading and installing.
+!!! Note: While entering the command manually, enter a space between "/ubuntu/" and "trusty main/" to avoid errors and issues while downloading and installing.
 
 Please see section 2.1.3 to complete installation.
 
