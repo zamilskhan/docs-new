@@ -27,6 +27,8 @@ The following commands will install Gluu Server `chroot`
 |       Update/Clean Repo       |apt-get update                         |
 |       Install Gluu Server     |apt-get install gluu-server-2.4.4      |
 
+!!! Note: While entering the "deb" command manually, make sure to enter an extra space between "/ubuntu/" and "trusty main". It is recommended to copy and paste the commands.
+
 Please see section 2.1.3 to complete installation.
 
 ### 2.1.3 Complete Installation
