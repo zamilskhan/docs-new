@@ -18,23 +18,35 @@ pages:
     - Single Setup:
         - '1 Preparing VM': 'installation-guide/index.md'
         - '2 Install Gluu Server': 'installation-guide/install.md'
-        - '2.5 Setup Script Options': 'installation-guide/setup_py.md'
+        - '3 Setup Script Options': 'installation-guide/setup_py.md'
     - Cluster Setup: 
-        - '3 Cluster Deployment Guide': 'cluster/index.md'
+        - '4 Cluster Deployment Guide': 'cluster/index.md'
     - Upgrade Gluu Server: 
-        - '4 Upgrade Guide' : 'upgrade/index.md'
+        - '5 Upgrade Guide' : 'upgrade/index.md'
+    - Patch Gluu Server:
+        - '6 Update Gluu CE' : 'update/index.md'
 
 - Administration Interface:
         - '1. Introduction to oxTrust': 'oxtrust/index.md'
 
 - Administration Guide:
         - '1. Introduction' : 'admin-guide/index.md'
-        - '2. SAML': 'admin-guide/authentication-protocol-saml.md' 
-        - '3 Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
-        - '4. OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
-        - '5. Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
-        - '6. UMA': 'admin-guide/uma.md'
-        - '7. SCIM': 'admin-guide/scim.md'
+    - Authentication Protocols:
+        - '3. SAML': 'admin-guide/authentication-protocol-saml.md' 
+        - '4. Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
+        - '5. OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
+        - '6. Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
+        - '7. UMA': 'admin-guide/uma.md'
+        - '8. SCIM': 'admin-guide/scim.md'
+        - '9. Test SCIM' : 'admin-guide/scim-test.md'
+        - '10. Log Management' : 'admin-guide/logs.md'
+    - Authentication Management:
+        - '11. Introduction' : 'admin-guide/auth-management.md'
+
 
 - Reference Guide:
         - 1. 'Introduction': 'reference-guide/index.md'
+        - 2. 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
+        - 3. 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
+        - 4. 'Logs' : 'reference-guide/logs.md'
+        - 5. 
