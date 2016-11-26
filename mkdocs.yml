@@ -49,3 +49,10 @@ pages:
         - 2. 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
         - 3. 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
         - 4. 'Logs' : 'reference-guide/logs.md'
+	- 5. 'Logout' : 'reference-guide/Logout.md'
+	- 6. 'LDAP Schema' : 'reference-guide/ldapschema.md'
+	- 7. 'LDAP' : 'reference-guide/ldap.md'
+	- 8. 'Schema' : 'reference-guide/schema.md'
+	- 9. 'Certificates' : 'reference-guide/certs.md'
+	- 10. 'Configuration' : 
+	- 
