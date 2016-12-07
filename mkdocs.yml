@@ -29,7 +29,7 @@ pages:
         - '1. Introduction to oxTrust': 'oxtrust/index.md'
 - Administration Guide:
         - '1. Introduction' : 'admin-guide/index.md'
-    - Authentication Protocols:
+#   - Authentication Protocols:
         - '3. SAML': 'admin-guide/authentication-protocol-saml.md' 
         - '4. Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
         - '5. OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
@@ -38,7 +38,7 @@ pages:
         - '8. SCIM': 'admin-guide/scim.md'
         - '9. Test SCIM' : 'admin-guide/scim-test.md'
         - '10. Log Management' : 'admin-guide/logs.md'
-    - Authentication Management:
+#    - Authentication Management:
 	- '11. Introduction' : 'admin-guide/auth-management.md'
 
 
