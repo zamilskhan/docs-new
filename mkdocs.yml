@@ -24,33 +24,30 @@ pages:
     - Upgrade Gluu Server:
         - 'Upgrade Guide' : 'upgrade/index.md'
     - Patch Gluu Server:
-        - 'Update Gluu CE' : 'update/index.md'
+        - 'Update Gluu CE' : 'update/update.md'
 - Administration Interface:
         - 'Introduction to oxTrust': 'oxtrust/index.md'
 - Administration Guide:
+    - Authentication Protocols: 
         - 'Introduction' : 'admin-guide/index.md'
-   - Authentication Protocols:
         - 'SAML': 'admin-guide/authentication-protocol-saml.md' 
         - 'Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
         - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
         - 'Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
         - 'UMA': 'admin-guide/uma.md'
         - 'SCIM': 'admin-guide/scim.md'
-        - 'Test SCIM' : 'admin-guide/scim-test.md'
+        - 'Test SCIM' : 'admin-guide/scim.md'
         - 'Log Management' : 'admin-guide/logs.md'
-   - Authentication Management:
-    - '11. Introduction' : 'admin-guide/auth-management.md'
-
-
- - Reference Guide:
-    - 1. 'Introduction': 'reference-guide/index.md'
-    - 2. 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
-    - 3. 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
-    - 4. 'Logs' : 'reference-guide/logs.md'
-    - 5. 'Logout' : 'reference-guide/Logout.md'
-    - 6. 'LDAP Schema' : 'reference-guide/ldapschema.md'
-    - 7. 'LDAP' : 'reference-guide/ldap.md'
-    - 8. 'Schema' : 'reference-guide/schema.md'
-    - 9. 'Certificates' : 'reference-guide/certs.md'
-    - 10. 'Configuration' : 
- 	 
+    - Authentication Management:
+        - 'Introduction' : 'admin-guide/auth-management.md'
+- Reference Guide:
+        - 'Introduction': 'reference-guide/index.md'
+        - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
+        - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
+        - 'Logs' : 'reference-guide/logs.md'
+        - 'Logout' : 'reference-guide/Logout.md'
+        - 'LDAP Schema' : 'reference-guide/ldapschema.md'
+        - 'LDAP' : 'reference-guide/ldap.md'
+        - 'Schema' : 'reference-guide/schema.md'
+        - 'Certificates' : 'reference-guide/certs.md'
+        - 'Configuration' : 'reference-guide/configuration.md '
