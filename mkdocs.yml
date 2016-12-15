@@ -16,41 +16,48 @@ pages:
 - Home: 'index.md'
 - Installation Guide:
     - Single Setup:
-        - '1 Preparing VM': 'installation-guide/index.md'
-        - '2 Install Gluu Server': 'installation-guide/install.md'
-        - '3 Setup Script Options': 'installation-guide/setup_py.md'
+        - 'Preparing VM': 'installation-guide/index.md'
+        - 'Install Gluu Server': 'installation-guide/install.md'
+        - 'Setup Script Options': 'installation-guide/setup_py.md'
     - Cluster Setup:
-        - '4 Cluster Deployment Guide': 'cluster/index.md'
+        - 'Cluster Deployment Guide': 'cluster/index.md'
     - Upgrade Gluu Server:
-        - '5 Upgrade Guide' : 'upgrade/index.md'
+        - 'Upgrade Guide' : 'upgrade/index.md'
     - Patch Gluu Server:
         - 'Update Gluu CE' : 'update/index.md'
 - Administration Interface:
-        - '1. Introduction to oxTrust': 'oxtrust/index.md'
+        - 'Introduction to oxTrust': 'oxtrust/index.md'
 - Administration Guide:
-        - '1. Introduction' : 'admin-guide/index.md'
-#   - Authentication Protocols:
-        - '3. SAML': 'admin-guide/authentication-protocol-saml.md' 
-        - '4. Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
-        - '5. OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
-        - '6. Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
-        - '7. UMA': 'admin-guide/uma.md'
-        - '8. SCIM': 'admin-guide/scim.md'
-        - '9. Test SCIM' : 'admin-guide/scim-test.md'
-        - '10. Log Management' : 'admin-guide/logs.md'
-#    - Authentication Management:
-	- '11. Introduction' : 'admin-guide/auth-management.md'
+        - 'Introduction' : 'admin-guide/index.md'
+    - Authentication Protocols:
+        - 'SAML': 'admin-guide/authentication-protocol-saml.md' 
+        - 'Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
+        - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
+        - 'Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
+        - 'UMA': 'admin-guide/uma.md'
+        - 'SCIM': 'admin-guide/scim.md'
+        - 'Test SCIM' : 'admin-guide/scim-test.md'
+        - 'Log Management' : 'admin-guide/logs.md'
+    - Authentication Management:
+        - 'Introduction' : 'auth-management/index.md'
+        - 'DUO' : 'auth-management/duo.md'
+        - 'Certificate' : 'auth-management/cert.md'
+        - 'oxpush2' : 'auth-management/oxpush2.md'
+        - 'U2F' : 'auth-management/u2f.md'
+        - 'Wikid': 'auth-management/wikid.md'
+    - User Management:
+        - 'Introduction' : 'user-management/index.md'    
 
 
- - Reference Guide:
- 	- 1. 'Introduction': 'reference-guide/index.md'
- 	- 2. 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
- 	- 3. 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
-	- 4. 'Logs' : 'reference-guide/logs.md'
- 	- 5. 'Logout' : 'reference-guide/Logout.md'
- 	- 6. 'LDAP Schema' : 'reference-guide/ldapschema.md'
- 	- 7. 'LDAP' : 'reference-guide/ldap.md'
- 	- 8. 'Schema' : 'reference-guide/schema.md'
- 	- 9. 'Certificates' : 'reference-guide/certs.md'
-	- 10. 'Configuration' : 
+# - Reference Guide:
+ #	- 1. 'Introduction': 'reference-guide/index.md'
+ #	- 2. 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
+ #	- 3. 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
+#	- 4. 'Logs' : 'reference-guide/logs.md'
+ #	- 5. 'Logout' : 'reference-guide/Logout.md'
+ #	- 6. 'LDAP Schema' : 'reference-guide/ldapschema.md'
+ #	- 7. 'LDAP' : 'reference-guide/ldap.md'
+ #	- 8. 'Schema' : 'reference-guide/schema.md'
+ #	- 9. 'Certificates' : 'reference-guide/certs.md'
+#	- 10. 'Configuration' : 
  	 
