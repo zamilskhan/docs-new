@@ -25,8 +25,11 @@ pages:
         - 'Upgrade Guide' : 'upgrade/index.md'
     - Patch Gluu Server:
         - 'Update Gluu CE' : 'update/update.md'
-- Administration Interface:
-        - 'Introduction to oxTrust': 'oxtrust/index.md'
+- Gluu Administration Interface(UI):
+        - 'Configuration':
+            - 'Introduction to oxTrust': 'oxtrust/index.md'
+            - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
+            - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
 - Administration Guide:
     - Authentication Protocols: 
         - 'Introduction' : 'admin-guide/index.md'
@@ -52,8 +55,6 @@ pages:
         - 'IDP-Initiated SSO' : 'how-to/idp_initiated_sso.md'
 - Reference Guide:
         - 'Introduction': 'reference-guide/index.md'
-        - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
-        - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
         - 'Logs' : 'reference-guide/logs.md'
         - 'Logout' : 'reference-guide/logout.md'
         - 'LDAP' : 'reference-guide/ldap.md'

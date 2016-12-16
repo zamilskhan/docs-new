@@ -1,10 +1,10 @@
-# 3 Cluster with Gluu CE
+#Cluster with Gluu CE
 It is possible to setup a cluster of servers with Gluu Server CE. This page outlines the setup process of a cluster with two (2) nodes. It is possible to add more nodes, but it is recommened to contact Gluu for higher level solutions.
-## 3.1 Design
+##Design
 The following diagram outlines the design of the cluster.
 ![image](https://cloud.githubusercontent.com/assets/7156097/13850591/9a553fde-ec28-11e5-8fa7-675f96743a10.png)
 
-## 3.2 Requirements
+##Requirements
 
 For complete deployment requirements and instructions, please see the [Deployment Page](../installation-guide/index.md).
 The requirements for Clusters vary only in the RAM requirement. Clusters require at least 8GB RAM for smooth performance. The requirements below are specific for Cluster Installation VMs. Please remember that the requirements from the deployment page will apply as well.
@@ -17,8 +17,8 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 !!! Note
     For convenience, the nodes are identified as `host-1` and `host-1`
 
-### 3.2.1 Csync2 Installation
-#### 3.2.1.1 CentOS 6.x
+###Csync2 Installation
+####CentOS 6.x
 
 1. Log into Gluu-Server container
 
@@ -27,9 +27,11 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 3. Install `csync2` package by running `yum install csync2`
 
 
-#### 3.2.1.2 CentOS 7.x
+####CentOS 7.x
 
-On the moment of writing csync2 can't be found in public repositories. The only option is to compile from sources.
+On the moment of writing csync2 can't be found in public repositories. The only option is to compile from sources. 
+
+Below are the steps:
 
 1. Log into Gluu-Server container
 
@@ -53,7 +55,7 @@ On the moment of writing csync2 can't be found in public repositories. The only 
 
 8. Build & install, while directing it to use `/usr/local/etc/csync2/` directory for storing configuration (for convenience): `# ./configure --sysconfdir /usr/local/etc/csync2/ && make && make install`. Don't forget to update paths to csync's binaries and configuration files later on, as they are different from the ones used in examples in the main article!
 
-#### 3.2.1.3 Ubuntu 14.x (compiling from sources)
+####Ubuntu 14.x (compiling from sources)
 
 1. Log into Gluu-Server container
 
@@ -75,7 +77,7 @@ On the moment of writing csync2 can't be found in public repositories. The only 
 
 6. Build & install, while directing it to use `/etc/csync2/` directory for storing configuration and `/usr/sbin` directory for executables (for convenience): `./configure --sysconfdir /etc/csync2/ --prefix /usr/ && make && make install`
 
-#### 3.2.1.4 Ubuntu 14.x (from repo)
+####Ubuntu 14.x (from repo)
 
 1. Log into Gluu-Server container
 
@@ -84,7 +86,7 @@ On the moment of writing csync2 can't be found in public repositories. The only 
 3. Run `apt-get install csync2`
 [TOC]
 
-## 3.3 Preparing VMs
+##Preparing VMs
 
 * Install Gluu CE following the [Deployment Page](../installation-guide/index.md) in `host-1`
 
@@ -95,7 +97,7 @@ On the moment of writing csync2 can't be found in public repositories. The only 
 
 * Finalize the installation by running the setup script with any additional components that was installed in `host-1`.
 
-## 3.4 LDAP Replication
+##LDAP Replication
 
 |	host-1			|	host-2		   |
 |-------------------------------|--------------------------|
@@ -201,7 +203,7 @@ operation.
 !!! Note
     OpenDJ may become picky about certificates used for SSL connections during replication in certain linux distros. Make sure you've added certificates of each OpenDJ instance to default java key storage of each node; an alternative is to use the same OpenDJ certificate/key pair for both nodes
 
-## 3.5 File System Replication
+##File System Replication
 
 !!! Advice
     The backup feature is broken in some of earlier versions of csync2. In that case it msut either be disabled by commenting out `backup-*` clauses in tool's configuration file, or build csync2 version 2.0+ from sources and use key `-l` in your xinetd.d's config (like `server_args     = -i -l -N idp1.gluu.org`) on both nodes.
@@ -217,7 +219,7 @@ operation.
 4. /opt/tomcat/conf
 5. /etc/csync2/csync2.cfg
 
-### 3.5.1 Csync2 configuration for host-1
+###Csync2 configuration for host-1
 
 1. Log into Gluu-Server container
 
@@ -338,7 +340,7 @@ group cluster_group
 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp1.gluu.org -xv 2>/var/log/csync2.log 
 ```
 
-### 3.5.2 Csync2 configuration for host-2
+###Csync2 configuration for host-2
 
 1. Log into Gluu-Server container
 
@@ -453,14 +455,14 @@ group cluster_group
 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp2.gluu.org -xv 2>/var/log/csync2.log 
 ```
 
-## 3.6 Certificate Management
+##Certificate Management
 
 The certificates do not vary in the manual cluster configuration. The certificates should be updated manually 
 in each host, when required. Move to `/etc/certs/` on the 1st node (inside the container). Copy all keys, certs and key storages conforming to these masks: `httpd.*`, `asimba.*`, `asimbaIDP.*` and `shibIDP.*` to the same directory on the 2nd node (overwriting files that exist there; you may opt to backup them first, just in case).
 
 After that's done you still will need to update default system storage (`cacerts` file) at the 2nd node with these newly copied certificates.
 
-## 3.7 [Optional] Actions in case setup.properties.last method of installation didn't work for you
+##[Optional] Actions in case setup.properties.last method of installation didn't work for you
 
 In this case jks keystores you'll be moving to the 2nd node will be protected by passwords hardcoded into different configuration files on the 1st node, which are different from the similar passwords hardcoded into the same files on the 2nd node.
 

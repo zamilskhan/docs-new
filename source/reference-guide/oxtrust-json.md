@@ -1,5 +1,7 @@
 [TOC]
+
 # Configuration
+
 ## oxTrust Configuration
 This page explains the JSON Configuration under the Configuration Tab in the Configuration menu.
 
