@@ -25,23 +25,24 @@ pages:
         - 'Upgrade Guide' : 'upgrade/index.md'
     - Patch Gluu Server:
         - 'Update Gluu CE' : 'update/update.md'
-- Gluu Administration Interface(UI):
-        - 'Configuration':
-            - 'Introduction to oxTrust': 'oxtrust/index.md'
-            - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
-            - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
-- Administration Guide:
-    - Authentication Protocols: 
-        - 'Introduction' : 'admin-guide/index.md'
-        - 'SAML': 'admin-guide/authentication-protocol-saml.md' 
-        - 'Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
-        - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
-        - 'Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
-        - 'UMA': 'admin-guide/uma.md'
-        - 'SCIM': 'admin-guide/scim.md'
-        - 'Test SCIM' : 'admin-guide/scim.md'
-        - 'Log Management' : 'admin-guide/logs.md'
-    - Authentication Management:
+- Gluu Administration Interface(UI) Guide:
+    - 'Configuration':
+       - 'Introduction to oxTrust': 'oxtrust/index.md'
+       - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
+       - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
+       - 'Introduction' : 'admin-guide/index.md'
+       - 'SAML': 'admin-guide/authentication-protocol-saml.md' 
+       - 'Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
+       - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
+       - 'Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
+       - 'UMA': 'admin-guide/uma.md'
+       - 'SCIM': 'admin-guide/scim.md'
+       - 'Test SCIM' : 'admin-guide/scim.md'
+       - 'Log Management' : 'admin-guide/logs.md'
+       - 'Users': 'admin-guide/users.md'
+       - 'Personal': 'admin-guide/personal.md'
+- Authentication Management:
+    - Authentication Protocols:
         - 'Introduction' : 'admin-guide/auth-management.md'
 - How To:
         - 'BackUp Gluu CE Server': 'how-to/backup.md'
