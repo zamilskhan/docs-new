@@ -40,7 +40,7 @@ Cache Refresh was built by Gluu to pull user information from a backend
 Active Directory/LDAP Server. Cache refresh dynamically synchronizes
 user information from the backend data source to a local LDAP server in
 order to maximize performance. Cache refresh is documented in our
-[configuration section](./configuration.md#cache-refresh).
+[configuration section](/oxtrust/index.md#cache-refresh).
 
 # Self Registration
 
@@ -53,7 +53,7 @@ BY default a a limited number of attribute is present in default
 self-registration form. If more attributes are needed they can be added
 in Registration Management of Organization Configuration. Learn more
 about Registration Management
-[here](./configuration.md#manage-registration).
+[here](/oxtrust/index.md#manage-registration).
 
 # Local User Management
 
@@ -122,7 +122,7 @@ An “Active” attribute list can be seen from the Configuration >
 Attributes section. By default, only active attributes are shown. To see
 inactive attributes, click the "Show All Attributes" link above the
 table. To edit an attribute simply click on the Display Name. Learn more
-about Attributes management [here](./configuration.md#attributes).
+about Attributes management [here](/oxtrust/index.md#attributes).
 
 <!--
 
