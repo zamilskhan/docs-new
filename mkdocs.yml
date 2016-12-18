@@ -6,7 +6,7 @@ docs_dir: source
 repo_url: https://github.com/GluuFederation/docs
 theme_dir: theme
 extra:
-    version: '2.4.4'
+    version: '3.0.0'
     logo: 'gluu.jpg'
 markdown_extensions:
 - admonition
@@ -15,50 +15,10 @@ markdown_extensions:
 pages:
 - Home: 'index.md'
 - Installation Guide:
-    - Single Setup:
         - 'Preparing VM': 'installation-guide/index.md'
         - 'Install Gluu Server': 'installation-guide/install.md'
         - 'Setup Script Options': 'installation-guide/setup_py.md'
-    - Cluster Setup:
-        - 'Cluster Deployment Guide': 'cluster/index.md'
-    - Upgrade Gluu Server:
-        - 'Upgrade Guide' : 'upgrade/index.md'
-    - Patch Gluu Server:
-        - 'Update Gluu CE' : 'update/update.md'
-- Gluu Administration Interface(UI) Guide:
-    - 'Configuration':
-       - 'Introduction to oxTrust': 'oxtrust/index.md'
-       - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
-       - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
-       - 'Introduction' : 'admin-guide/index.md'
-       - 'SAML': 'admin-guide/authentication-protocol-saml.md' 
-       - 'Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
-       - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
-       - 'Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
-       - 'UMA': 'admin-guide/uma.md'
-       - 'SCIM': 'admin-guide/scim.md'
-       - 'Test SCIM' : 'admin-guide/scim.md'
-       - 'Log Management' : 'admin-guide/logs.md'
-       - 'Users': 'admin-guide/users.md'
-       - 'Personal': 'admin-guide/personal.md'
-- Authentication Management:
-    - Authentication Protocols:
-        - 'Introduction' : 'admin-guide/auth-management.md'
-- How To:
-        - 'BackUp Gluu CE Server': 'how-to/backup.md'
-        - 'Write a Custom OTP Authentication Script using Twilio': 'how-to/twilio-script.md'
-        - 'Automate Custom Schema': 'how-to/automate-schema.md'
-        - 'Find the Version of Installed Gluu Server': 'how-to/find-gluu-server-version.md'
-        - 'Use SAML proxy': 'how-to/saml_proxy_end_to_end.md'
-        - 'Update Gluu Server Certificates': 'how-to/update-certificate.md'
-        - 'Use SAML Script without SAMLProxy(ASIMBA)': 'how-to/saml_script_end_to_end.md'
-        - 'Configure UMA' : 'how-to/uma-demo.md'
-        - 'IDP-Initiated SSO' : 'how-to/idp_initiated_sso.md'
-- Reference Guide:
-        - 'Introduction': 'reference-guide/index.md'
-        - 'Logs' : 'reference-guide/logs.md'
-        - 'Logout' : 'reference-guide/logout.md'
-        - 'LDAP' : 'reference-guide/ldap.md'
-        - 'Schema' : 'reference-guide/schema.md'
-        - 'Certificates' : 'reference-guide/certs.md'
-        - 'Configuration' : 'reference-guide/config.md'
+        - 'Cluster with CE': 'installation-guide/cluster.md'
+- Upgrade/Patch Guide:
+        - 'Upgrade Gluu Server' : 'upgrade/index.md'
+        - 'Patch Gluu Server' : 'upgrade/patch.md'
