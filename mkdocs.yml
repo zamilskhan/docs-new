@@ -74,11 +74,13 @@ pages:
     #-'Certificate':
     #-'Google':
     #-'Twilio':
-#- Reference Guide:
+- Reference Guide:
 #    -'Basic Info':
 #    -'Schema':
 #    -'LDAP':
-#    -'JSON Configuration':
+    - 'JSON Configuration':
+        - 'OxTrust JSON Configuration': 'reference-guide/oxtrust-json.md'
+        - 'OxAuth JSON Configuration':  'reference-guide/oxauth-json.md'
 #    -'SAML':
 #    -'OpenID Connect':
 #    -'Custom Script':
