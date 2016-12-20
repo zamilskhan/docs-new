@@ -1,3 +1,4 @@
+[TOC]
 **Table of Contents** 
 
 - [User Management](#user-management)
@@ -34,7 +35,7 @@ Directory as the authoritative source of identity information. If you
 API. Local user management can also be performed inside oxTrust. Each
 method is detailed below.
 
-# Cache Refresh
+## Cache Refresh
 
 Cache Refresh was built by Gluu to pull user information from a backend
 Active Directory/LDAP Server. Cache refresh dynamically synchronizes
@@ -42,7 +43,7 @@ user information from the backend data source to a local LDAP server in
 order to maximize performance. Cache refresh is documented in our
 [configuration section](/oxtrust/index.md#cache-refresh).
 
-# Self Registration
+## Self Registration
 
 Self-Registration is done by users on a self-service basis. Since
 oxTrust user registration cannot add users to a backend LDAP or Active
@@ -55,13 +56,13 @@ in Registration Management of Organization Configuration. Learn more
 about Registration Management
 [here](/oxtrust/index.md#manage-registration).
 
-# Local User Management
+## Local User Management
 
 In oxTrust, you can add, edit and manage people, groups and user
 attributes and claims to ensure the proper information is released about
 the right people.
 
-## People
+### People
 To manage people, navigate to User > Manage People, as shown in the
 screenshot below.
 
@@ -128,12 +129,12 @@ about Attributes management [here](/oxtrust/index.md#attributes).
 
 				********** This part needs some maintenance **********
 
-# SCIM oxAuth Authentication
+## SCIM oxAuth Authentication
 
 This is a step by step guide to configure oxTrust and SCIM client for
 oxAuth authentication.
 
-## Base Configuration: Create oxAuth Client
+### Base Configuration: Create oxAuth Client
 In order to access SCIM endpoints, an oxAuth client should be registered
 with scopes "openid" and "user_name". Authentication method (or LDAP
 Property “oxAuthTokenEndpointAuthMethod”) of this client should have
@@ -158,7 +159,7 @@ Sample result entry:
         oxAuthScope: inum=@!1111!0009!E4B5,ou=scopes,o=@!1111,o=gluu
         oxAuthTokenEndpointAuthMethod: client_secret_basic
 
-##  Configuration (Resource Server)
+###  Configuration (Resource Server)
 
 It's possible to enable/disable SCIM endpoints in oxTrust under
 "Organization Configuration" page.
@@ -192,14 +193,14 @@ server.
 Values in this example are correspond to client entry fields from first
 section.
 
-# SCIM UMA Authentication
+## SCIM UMA Authentication
 
 This is step by step guide to configure UMA for oxTrust and SCIM client.
 High level architecture overview is available in the following article
 [OX SCIM Architecture
 Overview](http://ox.gluu.org/doku.php?id=oxtrust:scim:uma_authentication#ox_scim_architecture_overview).
 
-## Base Configuration: Create oxAuth Clients, Policies
+### Base Configuration: Create oxAuth Clients, Policies
 
 1. Register oxAuth client with scope “uma_protection”. Property “oxAuthTokenEndpointAuthMethod” of this client should has value “client_secret_basic”. It's possible to do that using few methods: [Client Registration](http://ox.gluu.org/doku.php?id=oxauth:clientregistration), using [oxTrust](http://ox.gluu.org/doku.php?id=oxtrust:home) GUI, manually add entry to LDAP. oxTrust will use this oxAuth client to obtain PAT. Sample result entry:
 
@@ -326,7 +327,7 @@ Note: There is sample UMA Authorization Policy in CE. You can modify it instead 
                 oxId: 1403179695657
                 oxRevision: 1
 
-## oxTrust configuration (Resource Server)
+### oxTrust configuration (Resource Server)
 
 Add next oxTrust UMA related configuration properties to oxTrust.properties:
 
@@ -344,7 +345,7 @@ remove oxTrust configuration entry from LDAP and restart tomcat. Example
 DN of oxTrust configuration entry:
 ou=oxtrust,ou=configuration,inum=@!1111!0002!4907,ou=appliances,o=gluu
 
-## SCIM Client (Requesting Party) sample code
+### SCIM Client (Requesting Party) sample code
 
 This is sample SCIM Client code which request user information from server.
 
@@ -373,8 +374,3 @@ This is sample SCIM Client code which request user information from server.
 Values from these example correspond to entries from first section.
 
 -->
-
-
-
-
-

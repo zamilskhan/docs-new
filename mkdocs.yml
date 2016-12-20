@@ -19,47 +19,71 @@ pages:
         - 'Preparing VM': 'installation-guide/index.md'
         - 'Install Gluu Server': 'installation-guide/install.md'
         - 'Setup Script Options': 'installation-guide/setup_py.md'
-    - Cluster Setup:
-        - 'Cluster Deployment Guide': 'cluster/index.md'
-    - Upgrade Gluu Server:
-        - 'Upgrade Guide' : 'upgrade/index.md'
-    - Patch Gluu Server:
-        - 'Update Gluu CE' : 'update/update.md'
-- Gluu Administration Interface(UI):
-        - 'Configuration':
-            - 'Introduction to oxTrust': 'oxtrust/index.md'
-            - 'oxTrust JSON Config' : 'reference-guide/oxtrust-json.md'
-            - 'oxAuth JSON Config' : 'reference-guide/oxauth-json.md'
-            - 'Users': 'admin-guide/users.md'
-            - 'Personal': 'admin-guide/personal.md'
-- Administration Guide:
-    - Authentication Protocols: 
-        - 'Introduction' : 'admin-guide/index.md'
-        - 'SAML': 'admin-guide/authentication-protocol-saml.md' 
-        - 'Test SAML': 'admin-guide/authentication-protocol-saml-test.md'
+        - Cluster Setup:
+            - 'Cluster Deployment Guide': 'cluster/index.md'
+- Upgrade/Patch Gluu Server:
+    - 'Upgrade Guide' : 'upgrade/index.md'
+    - 'Patch/Update Gluu CE' : 'update/update.md'
+- Gluu Administration Guide:
+    - Configuration:
+        - 'Introduction to oxTrust': 'oxtrust/index.md'
+        - 'SAML': 'admin-guide/authentication-protocol-saml.md'
         - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
-        - 'Test OpenID': 'admin-guide/authentication-protocol-openid-test.md'
         - 'UMA': 'admin-guide/uma.md'
         - 'SCIM': 'admin-guide/scim.md'
-        - 'Test SCIM' : 'admin-guide/scim.md'
-        - 'Log Management' : 'admin-guide/logs.md'
-    - Authentication Management:
-        - 'Introduction' : 'multifactor/MFA-Intro.md'
-- How To:
-        - 'BackUp Gluu CE Server': 'how-to/backup.md'
-        - 'Write a Custom OTP Authentication Script using Twilio': 'how-to/twilio-script.md'
-        - 'Automate Custom Schema': 'how-to/automate-schema.md'
-        - 'Find the Version of Installed Gluu Server': 'how-to/find-gluu-server-version.md'
-        - 'Use SAML proxy': 'how-to/saml_proxy_end_to_end.md'
-        - 'Update Gluu Server Certificates': 'how-to/update-certificate.md'
-        - 'Use SAML Script without SAMLProxy(ASIMBA)': 'how-to/saml_script_end_to_end.md'
-        - 'Configure UMA' : 'how-to/uma-demo.md'
-        - 'IDP-Initiated SSO' : 'how-to/idp_initiated_sso.md'
-- Reference Guide:
-        - 'Introduction': 'reference-guide/index.md'
-        - 'Logs' : 'reference-guide/logs.md'
-        - 'Logout' : 'reference-guide/logout.md'
-        - 'LDAP' : 'reference-guide/ldap.md'
-        - 'Schema' : 'reference-guide/schema.md'
-        - 'Certificates' : 'reference-guide/certs.md'
-        - 'Configuration' : 'reference-guide/config.md'
+        - 'Logs Management' : 'admin-guide/logs.md'
+        - 'Certificates Management' : 'admin-guide/certs.md'
+    - User Management: 
+        - 'Users': 'admin-guide/users.md'
+        - 'Personal': 'admin-guide/personal.md'
+       # - 'Import From File': 
+        #- 'User Registration':
+        #- 'SCIM 2.0':
+        #- 'Lock User':
+    - Testing Guide:
+        - 'SAML': 'admin-guide/authentication-protocol-saml-test.md'
+        - 'OpenID': 'admin-guide/authentication-protocol-openid.md'
+        - 'SCIM': 'admin-guide/scim.md'
+        - 'UMA': 'admin-guide/uma.md'
+      #  - 'CAS':
+    #- Customization Guide:
+     #   -'Login Page':
+      #  -'Attributes':
+       # -'Logos/Favicon':
+        #-'Authentication':
+        #-'Custom Scripts':
+#- FAQ:
+#- Integration Guide:
+#    -'Google':
+#    -'Office 365':
+#    -'Hobsons Education Solution':
+#    -'Salesforce':
+#    -'Dropbox':
+#    -'TestShib2':
+#    -'Asimba':
+#    -'oxD Server':
+#- Authentication Guide:
+ #   -'Introduction (include internal authentication method)':
+  #  -'Reverting Authentication':
+   # -'DUO':
+    #-'U2F':
+    #-'oxPush2':
+    #-'Wikid':
+    #-'Certificate':
+    #-'Google':
+    #-'Twilio':
+#- Reference Guide:
+#    -'Basic Info':
+#    -'Schema':
+#    -'LDAP':
+#    -'JSON Configuration':
+#    -'SAML':
+#    -'OpenID Connect':
+#    -'Custom Script':
+#    -'Logs':
+#    -'Certificate Management':
+#    -'Logout':
+#    -'Advanced Tuning':
+
+#- Gluu Server API (same as old docs):
+#    -'OpenID Connect Authorization..':    
