@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gluu Server Logs
 
 When it comes to troubleshooting issues in the Gluu Server--from service hiccups to outages--logs are the best place to start. 
@@ -374,3 +375,6 @@ All changes / modifications of LDAP server are being logged here in audit log.
 3. `errors.log`    
 LDAP server startup and shutdown related information are available in `errors.log`.
 
+=======
+logs.md for Auth Management
+>>>>>>> aa935adcda228d7539f9d75223d62e64c34e4e57

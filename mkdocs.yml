@@ -19,8 +19,8 @@ pages:
         - 'Preparing VM': 'installation-guide/index.md'
         - 'Install Gluu Server': 'installation-guide/install.md'
         - 'Setup Script Options': 'installation-guide/setup_py.md'
-        - Cluster Setup:
-            - 'Cluster Deployment Guide': 'cluster/index.md'
+    - Cluster Setup:
+        - 'Cluster Deployment Guide': 'cluster/index.md'
 - Upgrade/Patch Gluu Server:
     - 'Upgrade Guide' : 'upgrade/index.md'
     - 'Patch/Update Gluu CE' : 'update/update.md'
@@ -34,12 +34,14 @@ pages:
         - 'Logs Management' : 'admin-guide/logs.md'
         - 'Certificates Management' : 'admin-guide/certs.md'
     - User Management: 
-        - 'Users': 'admin-guide/users.md'
-        - 'Personal': 'admin-guide/personal.md'
+        - 'Users': 'admin-guide/Users/users.md'
+        - 'Cache Refresh': 'admin-guide/Users/cacherefresh.md'
+        - 'Attributes': 'admin-guide/Users/attrb.md'
+        - 'Personal': 'admin-guide/Users/personal.md'
        # - 'Import From File': 
         #- 'User Registration':
         #- 'SCIM 2.0':
-        #- 'Lock User':
+        - 'Lock User': 'admin-guide/Users/lock-user.md'
     - Testing Guide:
         - 'SAML': 'admin-guide/authentication-protocol-saml-test.md'
         - 'OpenID': 'admin-guide/authentication-protocol-openid.md'
