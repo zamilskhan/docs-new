@@ -23,7 +23,7 @@ pages:
         - 'Cluster Deployment Guide': 'cluster/index.md'
 - Upgrade/Patch Gluu Server:
     - 'Upgrade Guide' : 'upgrade/index.md'
-    - 'Patch/Update Gluu CE' : 'update/update.md'
+    - 'Patch/Update Gluu CE' : 'upgrade/update/update.md'
 - Gluu Administration Guide:
     - Configuration:
         - 'Introduction to oxTrust': 'oxtrust/index.md'
