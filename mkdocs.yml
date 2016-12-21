@@ -1,0 +1,91 @@
+site_name: Gluu Docs
+site_description: Documenation for the Gluu Server
+site_favicon: '/img/gluu_favicon.ico'
+copyright: Copyright &copy; 2016, Gluu, Inc.
+docs_dir: source
+repo_url: https://github.com/GluuFederation/docs
+theme_dir: theme
+extra:
+    version: '2.4.4'
+    logo: 'gluu.jpg'
+markdown_extensions:
+- admonition
+- toc:
+     permalink: '#'
+pages:
+- Home: 'index.md'
+- Installation Guide:
+    - Single Setup:
+        - 'Preparing VM': 'installation-guide/index.md'
+        - 'Install Gluu Server': 'installation-guide/install.md'
+        - 'Setup Script Options': 'installation-guide/setup_py.md'
+    - Cluster Setup:
+        - 'Cluster Deployment Guide': 'cluster/index.md'
+- Upgrade/Patch Gluu Server:
+    - 'Upgrade Guide' : 'upgrade/index.md'
+    - 'Patch/Update Gluu CE' : 'upgrade/update/update.md'
+- Gluu Administration Guide:
+    - Configuration:
+        - 'Introduction to oxTrust': 'oxtrust/index.md'
+        - 'SAML': 'admin-guide/authentication-protocol-saml.md'
+        - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
+        - 'UMA': 'admin-guide/uma.md'
+        - 'SCIM with UMA': 'admin-guide/scim.md'
+        - 'Logs Management' : 'admin-guide/logmanagment.md'
+        - 'Certificates Management' : 'admin-guide/certs.md'
+    - User Management: 
+        - 'Users': 'admin-guide/Users/users.md'
+        - 'Cache Refresh': 'admin-guide/Users/cacherefresh.md'
+        - 'Attributes': 'admin-guide/Users/attrb.md'
+        - 'Personal': 'admin-guide/Users/personal.md'
+        - 'Import From File': 'admin-guide/Users/importxls.md' 
+        - 'User Registration': 'admin-guide/Users/registerusers.md'
+        - 'SCIM 2.0 User Management': 'admin-guide/Users/scim-usrmgmt.md'
+        - 'Lock User': 'admin-guide/Users/lock-user.md'
+    - Testing Guide:
+        - 'SAML': 'admin-guide/authentication-protocol-saml-test.md'
+        - 'OpenID': 'admin-guide/authentication-protocol-openid.md'
+        - 'SCIM': 'admin-guide/scim.md'
+        - 'UMA': 'admin-guide/uma.md'
+      #  - 'CAS':
+    #- Customization Guide:
+     #   -'Login Page':
+      #  -'Attributes':
+       # -'Logos/Favicon':
+        #-'Authentication':
+        #-'Custom Scripts':
+#- FAQ:
+#- Integration Guide:
+#    -'Google':
+#    -'Office 365':
+#    -'Hobsons Education Solution':
+#    -'Salesforce':
+#    -'Dropbox':
+#    -'TestShib2':
+#    -'Asimba':
+#    -'oxD Server':
+#- Authentication Guide:
+ #   -'Introduction (include internal authentication method)':
+  #  -'Reverting Authentication':
+   # -'DUO':
+    #-'U2F':
+    #-'oxPush2':
+    #-'Wikid':
+    #-'Certificate':
+    #-'Google':
+    #-'Twilio':
+- Reference Guide:
+#    -'Basic Info':
+#    -'Schema':
+#    -'LDAP':
+    - 'JSON Configuration':
+        - 'OxTrust JSON Configuration': 'reference-guide/oxtrust-json.md'
+        - 'OxAuth JSON Configuration':  'reference-guide/oxauth-json.md'
+#    -'Custom Script':
+#    -'Logs': 'admin-guide/logs.md'
+#    -'Certificate Management':
+#    -'Logout':
+#    -'Advanced Tuning':
+
+#- Gluu Server API (same as old docs):
+#    -'OpenID Connect Authorization..':    
