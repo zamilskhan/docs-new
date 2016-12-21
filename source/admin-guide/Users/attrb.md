@@ -1,25 +1,25 @@
 An *Active* attribute list can be seen from the Configuration >
 Attributes section.
 
-![Attribute Menu](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_attribute_menu.png)
+![Attribute Menu](/img/admin-guide/attribute/admin_attribute_menu.png)
 
 The Gluu Server has a large LDAP tree which includes all standard
 attributes. It is not necessary for all of them to be *Active*. The
 active LDAP trees can be sorted using the *Show only Active Attributes*
 link.
 
-![Show Active Attribute](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_attribute_show.png)
+![Show Active Attribute](/img/admin-guide/attribute/admin_attribute_show.png)
 
 The Gluu Server administrator can make changes, such as changing the
 status to active/inactive, to an attribute after clicking on it.
 
-![Attributes](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_attribute_attribute.png)
+![Attributes](/img/admin-guide/attribute/admin_attribute_attribute.png)
 
 Additional attributes can be added from the Gluu Server GUI, oxTrust, by
 clicking the **Add Attribute** button. Then, the following screen will
 appear:
 
-![Add Attribute Screen](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_attribute_add.png)
+![Add Attribute Screen](/img/admin-guide/attribute/admin_attribute_add.png)
 
 * _Name:_ This field defines the name of the custom attribute which must
   be unique in the Gluu Server LDAP tree.

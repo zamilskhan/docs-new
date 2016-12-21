@@ -30,17 +30,17 @@ pages:
         - 'SAML': 'admin-guide/authentication-protocol-saml.md'
         - 'OpenID Connect': 'admin-guide/authentication-protocol-openid.md'
         - 'UMA': 'admin-guide/uma.md'
-        - 'SCIM': 'admin-guide/scim.md'
-        - 'Logs Management' : 'admin-guide/logs.md'
+        - 'SCIM with UMA': 'admin-guide/scim.md'
+        - 'Logs Management' : 'admin-guide/logmanagment.md'
         - 'Certificates Management' : 'admin-guide/certs.md'
     - User Management: 
         - 'Users': 'admin-guide/Users/users.md'
         - 'Cache Refresh': 'admin-guide/Users/cacherefresh.md'
         - 'Attributes': 'admin-guide/Users/attrb.md'
         - 'Personal': 'admin-guide/Users/personal.md'
-       # - 'Import From File': 
-        #- 'User Registration':
-        #- 'SCIM 2.0':
+        - 'Import From File': 'admin-guide/Users/importxls.md' 
+        - 'User Registration': 'admin-guide/Users/registerusers.md'
+        - 'SCIM 2.0 User Management': 'admin-guide/Users/scim-usrmgmt.md'
         - 'Lock User': 'admin-guide/Users/lock-user.md'
     - Testing Guide:
         - 'SAML': 'admin-guide/authentication-protocol-saml-test.md'
@@ -81,10 +81,8 @@ pages:
     - 'JSON Configuration':
         - 'OxTrust JSON Configuration': 'reference-guide/oxtrust-json.md'
         - 'OxAuth JSON Configuration':  'reference-guide/oxauth-json.md'
-#    -'SAML':
-#    -'OpenID Connect':
 #    -'Custom Script':
-#    -'Logs':
+#    -'Logs': 'admin-guide/logs.md'
 #    -'Certificate Management':
 #    -'Logout':
 #    -'Advanced Tuning':

@@ -57,7 +57,7 @@ the right people.
 To manage people, navigate to User > Manage People, as shown in the
 screenshot below.
 
-![](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/local_user_admin/manage_people.png)
+![](/img/admin-guide/users/manage_people.png)
 
 From this interface you can add users and search for specific users.
 Because the user database can potentially be very large, a value is
@@ -67,26 +67,26 @@ this would be best performed manually within the Gluu OpenDJ server.
 Upon performing a user search, a list will be populated with all users
 that match the search, as shown in the screenshot below.
 
-![Search Users](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_users_searchadmin.png)
+![Search Users](/img/admin-guide/users/admin_users_searchadmin.png)
 
 To edit a user, simply click on any of the hyperlinks associated with
 that user and you will be taken to a user management interface where you
 can modify that specific attributes relating to that user as displayed
 below.
 
-![Manage Users](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_users_edituser.png)
+![Manage Users](/img/admin-guide/users/admin_users_edituser.png)
 
 ### Import People
 This feature allows the Gluu Server Administrator to bulk import users.
 The user *xls* file can be added using the **Add** button.
 
-![Import User](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/admin_config_people.png)
+![Import User](/img/admin-guide/users/admin_config_people.png)
 
 Validation checking for the added *xls* file can be done using the
 **Validate** button. If the file is not formatted properly, the server
 will reject the same with an error as shown below in the screenshot.
 
-![Validation Error Message](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/admin_config_people_validation.png)
+![Validation Error Message](/img/admin-guide/users/admin_config_people_validation.png)
 
 ## Groups
 Out of the box, the Gluu Server includes one group: Gluu Server manager
@@ -95,19 +95,19 @@ needed. By using the *Manage Groups* feature, the Gluu Server
 Administrator can add, delete or modify any group or user within a
 group. The list of available groups can be viewed by hitting the
 _Search_ button with a blank search box.
-![Manage User Groups](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/admin_users_managegroups.png)
+![Manage User Groups](/img/admin-guide/users/admin_users_managegroups.png)
 
 The Gluu Server Administrator can modify information such as Display
 Name, Group Owner, Visibility type etc. The Server Administrator can
 also add or delete users within existing groups. The group information
 is represented as shown below.
-![View group information](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/admin_users_groupinfo.png)
+![View group information](/img/admin-guide/users/admin_users_groupinfo.png)
 
 If any member of the Organization is required to be added in any
 specific group, this can be achieved be clicking on the Add Member
 button. The flow is _Add Member --> Search the name/email of the user
 --> Select the user --> Click OK --> Update._
-![Add Member](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/admin_users_addmember.png)
+![Add Member](/img/admin-guide/users/admin_users_addmember.png)
 
 
 <!--
